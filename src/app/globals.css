@@ -186,6 +186,11 @@
   will-change: transform;
 }
 
+.animate-wave-footer {
+  animation: waveLayerForward 26s linear infinite;
+  will-change: transform;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-ken-burns,
   .animate-hero-fade-1,
@@ -196,7 +201,8 @@
   .animate-wave-drift,
   .animate-wave-back,
   .animate-wave-mid,
-  .animate-wave-front {
+  .animate-wave-front,
+  .animate-wave-footer {
     animation: none !important;
     transform: none !important;
     opacity: 1 !important;

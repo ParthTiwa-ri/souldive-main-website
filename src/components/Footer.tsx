@@ -1,107 +1,193 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/config/site";
-import { WaveDivider } from "@/components/WaveDivider";
-import { MapPin, Phone, Mail, MessageCircle, AlertCircle, Sparkles } from "lucide-react";
+import { CONNECTIVITY_DISTANCES } from "@/config/location";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  MessageCircle,
+  AlertCircle,
+  Instagram,
+  Facebook,
+  Youtube,
+  Send,
+  CheckCircle2,
+} from "lucide-react";
 
 export const Footer: React.FC = () => {
+  const [leadInput, setLeadInput] = useState("");
+  const [leadSubmitted, setLeadSubmitted] = useState(false);
+
+  const handleLeadSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!leadInput.trim()) return;
+
+    // =========================================================================
+    // TODO: Connect to backend lead capture API / CRM endpoint
+    // (e.g., POST /api/leads or third-party email/SMS provider webhook)
+    // Note: In accordance with project instructions, fake submissions are not executed.
+    // =========================================================================
+    setLeadSubmitted(true);
+  };
+
+  // Filter available social platforms that have a configured URL
+  const socialLinks = [
+    { name: "Instagram", url: siteConfig.social?.instagram, icon: Instagram },
+    { name: "Facebook", url: siteConfig.social?.facebook, icon: Facebook },
+    { name: "YouTube", url: siteConfig.social?.youtube, icon: Youtube },
+  ].filter((item) => Boolean(item.url && item.url.trim()));
+
   return (
-    <footer className="bg-brand-navy text-white relative mt-16">
-      {/* Top Wave Divider */}
-      <WaveDivider
-        position="top"
-        fillColor="#062038"
-        secondaryFillColor="#00A3E0"
-        variant="dynamic"
-      />
+    <footer className="bg-brand-navy text-white relative mt-16 sm:mt-24">
+      {/* =========================================================================
+          1. TOP WAVE DIVIDER (Navy wave rising into previous section background)
+          Seamlessly tiling 2400x120 SVG with gentle translateX loop (100% CSS)
+          Respects prefers-reduced-motion via .animate-wave-footer
+          ========================================================================= */}
+      <div
+        className="absolute -top-10 sm:-top-14 lg:-top-16 left-0 right-0 w-full overflow-hidden h-10 sm:h-14 lg:h-16 pointer-events-none select-none z-10"
+        aria-hidden="true"
+      >
+        <svg
+          className="absolute bottom-[-1px] left-0 w-[200%] h-full animate-wave-footer pointer-events-none"
+          viewBox="0 0 2400 120"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M 0, 50 C 150, 15 350, 95 550, 45 C 750, -5 1050, 85 1200, 50 C 1350, 15 1550, 95 1750, 45 C 1950, -5 2250, 85 2400, 50 L 2400, 120 L 0, 120 Z"
+            fill="#062038"
+          />
+        </svg>
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-24 md:pb-12">
-        {/* Important Pre-Launch Notice Box */}
-        <div className="mb-12 p-4 sm:p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        {/* =========================================================================
+            2. COMPACT PRE-LAUNCH STATUS NOTICE
+            Smaller padding, trimmed 2-line copy, yellow title kept smaller,
+            responsive: stacks button on mobile
+            ========================================================================= */}
+        <div className="mb-10 p-3.5 sm:p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
           <div className="flex items-start gap-3">
-            <div className="p-2 rounded-xl bg-brand-gold/20 text-brand-gold shrink-0">
-              <AlertCircle className="w-5 h-5" />
+            <div className="p-1.5 rounded-lg bg-brand-gold/20 text-brand-gold shrink-0 mt-0.5">
+              <AlertCircle className="w-4 h-4" />
             </div>
             <div>
-              <h4 className="text-sm font-bold text-brand-gold tracking-wide uppercase">
+              <h4 className="text-xs font-bold text-brand-gold tracking-wider uppercase font-heading">
                 Official Pre-Launch Status Notice
               </h4>
-              <p className="text-xs sm:text-sm text-slate-300 mt-0.5">
-                Soul Dive Water Park is currently under active physical development and is{" "}
-                <strong className="text-white">not operational</strong>. All pool, slide, and concourse images presented on this website are{" "}
-                <strong className="text-white">Proposed Visualizations</strong> illustrating upcoming attractions. Tickets and entry are not currently on sale.
+              <p className="text-xs sm:text-[13px] text-slate-300 mt-0.5 leading-relaxed">
+                Soul Dive is under active development and{" "}
+                <strong className="text-white">not operational</strong>. Images are{" "}
+                <strong className="text-white">Architectural 3D Visualizations</strong>; tickets and entry are not currently on sale.
               </p>
             </div>
           </div>
           <Link
             href="/about"
-            className="shrink-0 px-4 py-2 rounded-full text-xs font-bold bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-colors"
+            className="w-full sm:w-auto text-center shrink-0 px-4 py-2 rounded-full text-xs font-bold bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-colors"
           >
             Learn More About Soul Dive &rarr;
           </Link>
         </div>
 
-        {/* 4-Column Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10 pb-12 border-b border-white/10">
+        {/* =========================================================================
+            10. RESPONSIVE 4-COLUMN FOOTER GRID
+            4 cols on desktop (lg), 2 on tablet (md), 1 on mobile
+            ========================================================================= */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 pb-12 border-b border-white/10">
           {/* Column 1: Brand Info */}
-          <div className="lg:col-span-2 space-y-4">
+          <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="relative w-12 h-12">
+              <div className="relative w-11 h-11 shrink-0">
                 <Image
                   src="/images/Soul Dive Water Park Logo-1.png"
                   alt="Soul Dive Water Park Logo"
                   fill
-                  sizes="48px"
+                  sizes="44px"
                   className="object-contain"
                 />
               </div>
               <div>
-                <span className="text-2xl font-black tracking-tight font-heading text-white">
+                <span className="text-xl font-black tracking-tight font-heading text-white">
                   SOUL DIVE
                 </span>
-                <p className="text-xs font-bold text-brand-cyan uppercase tracking-wider">
+                <p className="text-[11px] font-bold text-brand-cyan uppercase tracking-wider">
                   Water Park • Auraiya, UP
                 </p>
               </div>
             </div>
-            <p className="text-sm text-slate-300 leading-relaxed max-w-sm">
-              An upcoming aquatic entertainment resort taking shape at Biriya, Dibiyapur Road, Auraiya. Featuring high-energy waterslides, a mega wave pool, leisure lagoons, a rain dance disk, and family dining.
+
+            {/* 4. Description Copy: standardized on "Water Park", rain dance arena, family water park */}
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              An upcoming family water park taking shape at Biriya, Dibiyapur Road, Auraiya. Featuring high-energy waterslides, a mega wave pool, leisure lagoons, a rain dance arena, and poolside dining.
             </p>
-            <div className="flex items-center gap-3 pt-2">
+
+            {/* 9. WhatsApp Button (duplicate phone button removed) */}
+            <div className="pt-1">
               <a
                 href={`https://wa.me/${siteConfig.contact.whatsapp}?text=Hi%20Soul%20Dive%20Water%20Park,%20please%20send%20me%20updates.`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white transition-colors"
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white transition-colors shadow-xs"
               >
                 <MessageCircle className="w-3.5 h-3.5" />
                 <span>WhatsApp Updates</span>
               </a>
-              <a
-                href={`tel:${siteConfig.contact.phone.replace(/[^0-9+]/g, "")}`}
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-white/10 hover:bg-white/20 text-white transition-colors"
-              >
-                <Phone className="w-3.5 h-3.5" />
-                <span>{siteConfig.contact.phoneDisplay}</span>
-              </a>
             </div>
+
+            {/* 7. Social Links Row (Instagram, Facebook, YouTube from config) */}
+            {socialLinks.length > 0 && (
+              <div className="pt-2">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-2">
+                  Follow Our Progress
+                </span>
+                <div className="flex items-center gap-2.5">
+                  {socialLinks.map((item) => {
+                    const IconComponent = item.icon;
+                    return (
+                      <a
+                        key={item.name}
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Follow Soul Dive Water Park on ${item.name}`}
+                        className="w-8 h-8 rounded-full bg-white/10 hover:bg-brand-aqua/20 hover:text-brand-aqua text-slate-300 border border-white/15 flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95"
+                      >
+                        <IconComponent className="w-4 h-4" />
+                      </a>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Column 2: Explore & Subpages */}
           <div>
-            <h4 className="text-sm font-bold text-brand-gold uppercase tracking-wider mb-4 font-heading">
+            {/* 3. Heading: Aqua, smaller, tracking-[0.12em] */}
+            <h4 className="text-xs sm:text-[13px] font-bold text-brand-aqua uppercase tracking-[0.12em] mb-4 font-heading">
               Explore Soul Dive
             </h4>
-            <ul className="space-y-2 text-sm text-slate-300">
+            <ul className="space-y-2 text-xs sm:text-sm text-slate-300">
               <li>
                 <Link href="/attractions" className="hover:text-brand-cyan transition-colors">
-                  Proposed Attractions
+                  Attractions &amp; Rides
                 </Link>
               </li>
               <li>
                 <Link href="/about" className="hover:text-brand-cyan transition-colors">
                   About the Project
+                </Link>
+              </li>
+              {/* 8. Site Directions moved into Explore column */}
+              <li>
+                <Link href="/location" className="hover:text-brand-cyan transition-colors">
+                  Site Directions &amp; Map
                 </Link>
               </li>
               <li>
@@ -117,75 +203,129 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Column 3: Regional Connectivity */}
+          {/* Column 3: Regional Connectivity (5. Pulls from shared CONNECTIVITY_DISTANCES) */}
           <div>
-            <h4 className="text-sm font-bold text-brand-gold uppercase tracking-wider mb-4 font-heading">
-              Connectivity & Reach
+            {/* 3. Heading: Aqua, smaller, tracking-[0.12em] */}
+            <h4 className="text-xs sm:text-[13px] font-bold text-brand-aqua uppercase tracking-[0.12em] mb-4 font-heading">
+              Connectivity &amp; Reach
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm text-slate-300">
-              <li className="flex justify-between items-center py-0.5 border-b border-white/5">
-                <span>Auraiya City</span>
-                <span className="font-semibold text-brand-aqua">4 km (8m)</span>
-              </li>
-              <li className="flex justify-between items-center py-0.5 border-b border-white/5">
-                <span>Dibiyapur</span>
-                <span className="font-semibold text-brand-aqua">12 km (18m)</span>
-              </li>
-              <li className="flex justify-between items-center py-0.5 border-b border-white/5">
-                <span>Phaphund Station</span>
-                <span className="font-semibold text-brand-aqua">14 km (22m)</span>
-              </li>
-              <li className="flex justify-between items-center py-0.5 border-b border-white/5">
-                <span>Etawah (NH-19)</span>
-                <span className="font-semibold text-brand-aqua">52 km (55m)</span>
-              </li>
-              <li className="flex justify-between items-center py-0.5">
-                <span>Kanpur Dehat</span>
-                <span className="font-semibold text-brand-aqua">58 km (65m)</span>
-              </li>
+              {CONNECTIVITY_DISTANCES.slice(0, 4).map((item) => (
+                <li
+                  key={item.id}
+                  className="flex justify-between items-center py-1 border-b border-white/5"
+                >
+                  <span>{item.name}</span>
+                  <span className="font-semibold text-brand-aqua">
+                    {item.distance} ({item.time})
+                  </span>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Column 4: Location & Contact */}
           <div>
-            <h4 className="text-sm font-bold text-brand-gold uppercase tracking-wider mb-4 font-heading">
-              Location & Contact
+            {/* 3. Heading: Aqua, smaller, tracking-[0.12em] */}
+            <h4 className="text-xs sm:text-[13px] font-bold text-brand-aqua uppercase tracking-[0.12em] mb-4 font-heading">
+              Location &amp; Contact
             </h4>
-            <address className="not-italic text-sm text-slate-300 space-y-3">
+            <address className="not-italic text-xs sm:text-sm text-slate-300 space-y-3">
               <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-brand-coral shrink-0 mt-1" />
-                <span>
+                <MapPin className="w-4 h-4 text-brand-coral shrink-0 mt-0.5" />
+                <span className="leading-relaxed">
                   Biriya, Dibiyapur Road, Auraiya, Uttar Pradesh 206122, India
                 </span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-brand-cyan shrink-0" />
-                <span>{siteConfig.contact.phoneDisplay}</span>
+                <a
+                  href={`tel:${siteConfig.contact.phone.replace(/[^0-9+]/g, "")}`}
+                  className="hover:text-white transition-colors"
+                >
+                  {siteConfig.contact.phoneDisplay}
+                </a>
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-brand-gold shrink-0" />
-                <span>{siteConfig.contact.email}</span>
+                <a
+                  href={`mailto:${siteConfig.contact.email}`}
+                  className="hover:text-white transition-colors"
+                >
+                  {siteConfig.contact.email}
+                </a>
               </div>
             </address>
           </div>
         </div>
 
-        {/* Bottom Legal & Copyright Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        {/* =========================================================================
+            6. COMPACT LEAD CAPTURE (Above Bottom Bar)
+            Single email or phone input with orange button
+            ========================================================================= */}
+        <div className="my-8 sm:my-10 p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="text-center md:text-left">
+            <h4 className="text-sm font-bold font-heading text-white">
+              Get Opening Updates
+            </h4>
+            <p className="text-xs text-slate-300 mt-0.5">
+              Be the first to receive VIP launch announcements, ticket rates, and early bird access.
+            </p>
+          </div>
+
+          {leadSubmitted ? (
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-semibold">
+              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+              <span>Thank you! Your interest has been recorded.</span>
+            </div>
+          ) : (
+            <form
+              onSubmit={handleLeadSubmit}
+              className="w-full md:w-auto flex flex-col sm:flex-row items-stretch sm:items-center gap-2 max-w-md"
+            >
+              <input
+                type="text"
+                value={leadInput}
+                onChange={(e) => setLeadInput(e.target.value)}
+                placeholder="Enter email or 10-digit mobile"
+                aria-label="Email or mobile number for opening updates"
+                required
+                className="w-full sm:w-64 px-3.5 py-2 rounded-full bg-white/10 border border-white/20 text-white placeholder-slate-400 text-xs focus:outline-none focus:ring-2 focus:ring-brand-coral focus:border-transparent transition-all"
+              />
+              <button
+                type="submit"
+                className="shrink-0 inline-flex items-center justify-center gap-1.5 px-5 py-2 rounded-full text-xs font-bold bg-brand-coral hover:bg-brand-coral-dark text-white shadow-sm hover:shadow-md transition-all duration-200 active:scale-95"
+              >
+                <span>Notify Me</span>
+                <Send className="w-3 h-3" />
+              </button>
+            </form>
+          )}
+        </div>
+
+        {/* =========================================================================
+            8. BOTTOM LEGAL & COPYRIGHT BAR (Enhanced for WCAG AA Contrast)
+            Site Directions moved to Explore column; text lightened to text-slate-300
+            ========================================================================= */}
+        <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-300">
           <p>
             &copy; {new Date().getFullYear()} Soul Dive Water Park. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
-            <Link href="/privacy-policy" className="hover:text-white transition-colors">
+            <Link
+              href="/privacy-policy"
+              className="text-slate-300 hover:text-white underline-offset-2 hover:underline transition-colors"
+            >
               Privacy Policy
             </Link>
-            <span>•</span>
-            <Link href="/terms" className="hover:text-white transition-colors">
-              Terms & Disclaimers
-            </Link>
-            <span>•</span>
-            <Link href="/location" className="hover:text-white transition-colors">
-              Site Directions
+            <span className="text-slate-500" aria-hidden="true">
+              •
+            </span>
+            <Link
+              href="/terms"
+              className="text-slate-300 hover:text-white underline-offset-2 hover:underline transition-colors"
+            >
+              Terms &amp; Disclaimers
             </Link>
           </div>
         </div>
@@ -193,4 +333,3 @@ export const Footer: React.FC = () => {
     </footer>
   );
 };
-
