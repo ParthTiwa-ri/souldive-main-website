@@ -5,17 +5,19 @@ import { siteConfig } from "@/config/site";
 import { attractions } from "@/config/attractions";
 import { faqs } from "@/config/faqs";
 import { WaveDivider } from "@/components/WaveDivider";
+import { AnimatedHeroWave } from "@/components/AnimatedHeroWave";
 import { AttractionCard } from "@/components/AttractionCard";
 import { ContactForm } from "@/components/ContactForm";
+import { AboutSection } from "@/components/AboutSection";
 import { AmenitiesSection } from "@/components/AmenitiesSection";
 import { LocationSection } from "@/components/LocationSection";
+import { SectionEyebrow } from "@/components/SectionEyebrow";
 import {
   Waves,
   Sparkles,
   ArrowRight,
   ShieldAlert,
   CheckCircle,
-  HelpCircle,
 } from "lucide-react";
 
 export default function HomePage() {
@@ -25,7 +27,7 @@ export default function HomePage() {
           SECTION 1: HERO (RESORT-GRADE REDESIGN)
           ========================================================================= */}
       <section className="relative min-h-[90vh] lg:min-h-[92vh] flex items-center bg-brand-navy overflow-hidden">
-        {/* Background Image: High-resolution waterpark photo with Ken Burns effect */}
+        {/* Background Image: High-resolution water park photo with Ken Burns effect */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <Image
             src="/images/soul-dive-hero-cinematic.jpg"
@@ -100,95 +102,14 @@ export default function HomePage() {
           </span>
         </div>
 
-        {/* Bottom Wave Divider with Drift Animation */}
-        <div className="absolute bottom-0 left-0 right-0 z-20">
-          <WaveDivider
-            fillColor="#F0FBFD"
-            secondaryFillColor="#00C4D9"
-            variant="dynamic"
-            animateDrift={true}
-          />
-        </div>
+        {/* Gently Animated 3-Layer Wave Divider into Section 2 */}
+        <AnimatedHeroWave fillColor="#F0FBFD" />
       </section>
 
       {/* =========================================================================
-          SECTION 2: ABOUT SOUL DIVE / PROJECT VISION (STREAMLINED & TROPICAL)
+          SECTION 2: ABOUT SOUL DIVE (BESPOKE RESORT-GRADE REDESIGN)
           ========================================================================= */}
-      <section className="bg-brand-foam py-16 sm:py-24 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Visual Left Column: Tropical Family Waterpark Paradise */}
-            <div className="lg:col-span-6">
-              <div className="relative rounded-3xl overflow-hidden shadow-md border border-cyan-100/60 aspect-[4/3] bg-slate-100">
-                <Image
-                  src="/images/soul-dive-vision-tropical.jpg"
-                  alt="Soul Dive Water Park Auraiya - Proposed Tropical Family Leisure Oasis"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
-                />
-                {/* Clear Proposed Visualization Notice */}
-                <div className="absolute bottom-3 left-3">
-                  <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-brand-navy/85 text-white backdrop-blur-sm border border-white/20">
-                    Proposed Tropical Oasis
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* Content Right Column: Concise, Scannable & Punchy */}
-            <div className="lg:col-span-6 space-y-5">
-              <span className="text-xs font-bold text-brand-cyan uppercase tracking-widest block">
-                About the Project
-              </span>
-
-              {/* Required H2 Heading */}
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-heading text-brand-navy leading-tight tracking-tight">
-                A New Waterpark Destination for Auraiya
-              </h2>
-
-              {/* Bite-Sized Vision Paragraph (Fast to consume, SEO-rich) */}
-              <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
-                Coming soon to Biriya on Dibiyapur Road, Soul Dive brings thrilling waterslides, rolling wave pools, and tropical poolside relaxation to families across Auraiya, Dibiyapur, and Etawah.
-              </p>
-
-              {/* Two Crisp, Fast-to-Scan Feature Cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">
-                <div className="p-4 rounded-2xl bg-white border border-cyan-100/80 shadow-xs space-y-1">
-                  <h3 className="text-sm font-bold font-heading text-brand-navy flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-brand-coral shrink-0" />
-                    <span>Fun for Every Generation</span>
-                  </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Gentle splash pools for kids to high-thrill slides for youth.
-                  </p>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-white border border-cyan-100/80 shadow-xs space-y-1">
-                  <h3 className="text-sm font-bold font-heading text-brand-navy flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-brand-cyan shrink-0" />
-                    <span>A Complete Day Out</span>
-                  </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Wave pools, rain dance arena, green lawns &amp; poolside dining.
-                  </p>
-                </div>
-              </div>
-
-              {/* Direct Story Link */}
-              <div className="pt-1">
-                <Link
-                  href="/about"
-                  className="inline-flex items-center gap-2 text-sm font-bold text-brand-cyan hover:text-brand-cyan-dark hover:underline group"
-                >
-                  <span>Learn more about Soul Dive&apos;s story</span>
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <AboutSection />
 
       {/* =========================================================================
           SECTION 3: SIGNATURE ATTRACTIONS (PREMIUM BENTO SHOWCASE)
@@ -200,9 +121,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Header (Premium, Balanced H2 with Fluid Size) */}
           <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
-            <span className="text-xs sm:text-sm font-bold text-brand-aqua uppercase tracking-[0.12em] block mb-2.5">
-              Featured Water Experiences
-            </span>
+            <SectionEyebrow>Featured Water Experiences</SectionEyebrow>
             <h2 className="text-[clamp(2.25rem,4.5vw,3.75rem)] font-bold font-heading text-brand-navy tracking-[-0.01em] leading-[1.1] [text-wrap:balance]">
               Signature Attractions
             </h2>
@@ -290,10 +209,7 @@ export default function HomePage() {
       <section className="py-20 sm:py-24 bg-white relative">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/20 uppercase tracking-wider mb-2">
-              <HelpCircle className="w-3.5 h-3.5" />
-              Frequently Asked Questions
-            </span>
+            <SectionEyebrow>Frequently Asked Questions</SectionEyebrow>
             <h2 className="text-3xl sm:text-4xl font-black font-heading text-brand-navy">
               Everything You Need to Know
             </h2>

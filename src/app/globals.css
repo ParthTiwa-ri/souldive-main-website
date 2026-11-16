@@ -152,6 +152,40 @@
   animation: waveDriftSlow 14s ease-in-out infinite;
 }
 
+/* Multi-layer gentle wave animations */
+@keyframes waveLayerForward {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes waveLayerReverse {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-wave-back {
+  animation: waveLayerReverse 28s linear infinite;
+  will-change: transform;
+}
+
+.animate-wave-mid {
+  animation: waveLayerForward 22s linear infinite;
+  will-change: transform;
+}
+
+.animate-wave-front {
+  animation: waveLayerForward 16s linear infinite;
+  will-change: transform;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-ken-burns,
   .animate-hero-fade-1,
@@ -159,7 +193,10 @@
   .animate-hero-fade-3,
   .animate-hero-fade-4,
   .animate-hero-fade-5,
-  .animate-wave-drift {
+  .animate-wave-drift,
+  .animate-wave-back,
+  .animate-wave-mid,
+  .animate-wave-front {
     animation: none !important;
     transform: none !important;
     opacity: 1 !important;
