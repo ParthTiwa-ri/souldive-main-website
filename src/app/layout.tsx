@@ -58,7 +58,7 @@ export const metadata: Metadata = {
         url: "/images/soul-dive-hero-cinematic.jpg",
         width: 1200,
         height: 630,
-        alt: "Soul Dive Water Park Auraiya - Premier Tropical Waterpark Destination",
+        alt: "Soul Dive Water Park Auraiya - Premier Tropical Water Park Destination",
       },
     ],
   },

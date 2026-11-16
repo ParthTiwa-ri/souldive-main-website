@@ -22,8 +22,8 @@ export const faqs: FAQItem[] = [
   },
   {
     category: "Attractions",
-    question: "What attractions and rides are planned for Soul Dive?",
-    hindiQuestion: "सोल डाइव में कौन-कौन से मुख्य झूले और पूल प्रस्तावित हैं?",
+    question: "What attractions and rides will Soul Dive feature?",
+    hindiQuestion: "सोल डाइव में कौन-कौन से मुख्य झूले और पूल होंगे?",
     answer:
       "Soul Dive will feature a large beach-entry Mega Wave Pool, a central multi-story Waterslide Complex (featuring the Pendulum Ride and Family Raft Slide), an Adult Leisure Pool, a specialized Junior Splash Pool with mushroom fountains and mini-slides, a high-energy Rain Dance Disk arena, expansive landscaped picnic lawns, a restaurant, and an outdoor shaded café.",
   },

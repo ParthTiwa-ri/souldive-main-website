@@ -25,7 +25,7 @@ export const attractions: Attraction[] = [
     description:
       "A sprawling artificial beach-entry wave pool engineered with automated wave generation technology. Designed for families and swimmers of all ages to float, jump through crests, or lounge on the sun-deck shores in Auraiya.",
     image: "/images/mega-wave-pool-clean.jpg",
-    badge: "Proposed Main Attraction",
+    badge: "Signature Attraction",
     chips: ["All ages", "Family friendly", "Wave: Gentle to Swell"],
     features: [
       "Gradual shallow-to-deep zero beach entry",
@@ -34,7 +34,7 @@ export const attractions: Attraction[] = [
       "Dedicated lifeguard observation perimeters",
     ],
     masterPlanZone: "North Park Apex",
-    disclaimer: "Proposed facility under development. Subject to final execution.",
+    disclaimer: "Facility under development. Subject to final execution.",
   },
   {
     id: "water-slides",
@@ -56,7 +56,7 @@ export const attractions: Attraction[] = [
       "Deep runout deceleration splash pool",
     ],
     masterPlanZone: "Central Slide Complex",
-    disclaimer: "Proposed attraction visualization. Actual ride specs subject to final engineering.",
+    disclaimer: "Attraction visualization. Actual ride specs subject to final engineering.",
   },
   {
     id: "adult-pool",
@@ -78,7 +78,7 @@ export const attractions: Attraction[] = [
       "Direct pathway connection to the outdoor cafe",
     ],
     masterPlanZone: "West Central Aquatic Hub",
-    disclaimer: "Proposed facility visualization. Dimensions per engineering proposal.",
+    disclaimer: "Facility visualization. Dimensions per engineering proposal.",
   },
   {
     id: "rain-dance",
@@ -100,7 +100,7 @@ export const attractions: Attraction[] = [
       "Enclosed by blooming bougainvillea & tropical palms",
     ],
     masterPlanZone: "Central Festival Plaza",
-    disclaimer: "Proposed facility under construction. Sound and spray configurations subject to launch.",
+    disclaimer: "Facility under construction. Sound and spray configurations subject to launch.",
   },
   {
     id: "kids-pool",
@@ -122,7 +122,7 @@ export const attractions: Attraction[] = [
       "Surrounding cabana loungers with full parent visibility",
     ],
     masterPlanZone: "South-West Kids Zone (Adjacent to Green Ground for Kids)",
-    disclaimer: "Proposed children's attraction visualization.",
+    disclaimer: "Children's attraction visualization.",
   },
   {
     id: "restaurant-cafe",
@@ -141,10 +141,10 @@ export const attractions: Attraction[] = [
       "Air-conditioned indoor dining hall and commercial kitchen",
       "Expansive outdoor patio with large sun umbrellas",
       "Ready food kiosks for quick snacks & chilled drinks",
-      "Scenic waterpark vistas overlooking the central pools",
+      "Scenic water park vistas overlooking the central pools",
     ],
     masterPlanZone: "South-West Concourse & Dining Block",
-    disclaimer: "Proposed hospitality amenities. Menu offerings to be announced closer to launch.",
+    disclaimer: "Hospitality amenities. Menu offerings to be announced closer to launch.",
   },
   {
     id: "entrance-concourse",
@@ -166,6 +166,6 @@ export const attractions: Attraction[] = [
       "Organized 4-wheeler and 2-wheeler guest parking",
     ],
     masterPlanZone: "South Perimeter Arrival Hub",
-    disclaimer: "Proposed concourse visualization.",
+    disclaimer: "Concourse visualization.",
   },
 ];

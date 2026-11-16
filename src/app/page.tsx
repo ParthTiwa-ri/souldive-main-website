@@ -95,13 +95,6 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* 5. Tiny Conceptual Destination Caption (Bottom-Right Corner) */}
-        <div className="animate-hero-fade-5 absolute bottom-12 right-6 md:bottom-16 md:right-8 z-30 pointer-events-none hidden sm:block">
-          <span className="text-[10px] sm:text-[11px] font-medium tracking-wider uppercase text-white/55 bg-brand-navy/60 backdrop-blur-sm px-3.5 py-1 rounded-full border border-white/10">
-            Conceptual Destination Visualization
-          </span>
-        </div>
-
         {/* Gently Animated 3-Layer Wave Divider into Section 2 */}
         <AnimatedHeroWave fillColor="#F0FBFD" />
       </section>
@@ -173,7 +166,7 @@ export default function HomePage() {
               href="/attractions"
               className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full font-bold text-sm bg-brand-navy hover:bg-brand-navy-light text-white shadow-sm hover:shadow-md transition-all hover:scale-105 active:scale-95 focus-visible:ring-2 focus-visible:ring-brand-coral focus-visible:outline-none"
             >
-              <span>View All Planned Rides & Detailed Specs</span>
+              <span>View All Rides & Detailed Specs</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -214,7 +207,7 @@ export default function HomePage() {
               Everything You Need to Know
             </h2>
             <p className="text-sm text-slate-600 mt-2">
-              Transparent answers regarding our location, construction status, proposed rides, and future ticket sales.
+              Transparent answers regarding our location, construction status, rides, and future ticket sales.
             </p>
           </div>
 

@@ -44,22 +44,53 @@ export const Footer: React.FC = () => {
   return (
     <footer className="bg-brand-navy text-white relative mt-16 sm:mt-24">
       {/* =========================================================================
-          1. TOP WAVE DIVIDER (Navy wave rising into previous section background)
-          Seamlessly tiling 2400x120 SVG with gentle translateX loop (100% CSS)
-          Respects prefers-reduced-motion via .animate-wave-footer
+          1. TOP WAVE DIVIDER (3 Stacked Navy wave layers rising into previous section)
+          Matches the exact 3-layer parallax, speed & motion of the Hero Wave:
+          - Back Layer: 28s reverse, opacity 0.30
+          - Mid Layer: 22s forward, opacity 0.60
+          - Front Layer: 16s forward, solid #062038
           ========================================================================= */}
       <div
-        className="absolute -top-10 sm:-top-14 lg:-top-16 left-0 right-0 w-full overflow-hidden h-10 sm:h-14 lg:h-16 pointer-events-none select-none z-10"
+        className="absolute -top-[59px] sm:-top-[79px] lg:-top-[95px] left-0 right-0 w-full overflow-hidden h-[60px] sm:h-[80px] lg:h-[96px] pointer-events-none select-none z-10"
         aria-hidden="true"
       >
+        {/* Layer 1: Back Layer (Reverse swell, 28s, opacity 0.30) */}
         <svg
-          className="absolute bottom-[-1px] left-0 w-[200%] h-full animate-wave-footer pointer-events-none"
+          className="absolute bottom-[-1px] left-0 w-[200%] h-full animate-wave-back pointer-events-none"
           viewBox="0 0 2400 120"
           preserveAspectRatio="none"
           aria-hidden="true"
         >
           <path
-            d="M 0, 50 C 150, 15 350, 95 550, 45 C 750, -5 1050, 85 1200, 50 C 1350, 15 1550, 95 1750, 45 C 1950, -5 2250, 85 2400, 50 L 2400, 120 L 0, 120 Z"
+            d="M 0, 50 C 180, 15 420, 95 650, 45 C 880, -5 1020, 85 1200, 50 C 1380, 15 1620, 95 1850, 45 C 2080, -5 2220, 85 2400, 50 L 2400, 120 L 0, 120 Z"
+            fill="#062038"
+            opacity="0.30"
+          />
+        </svg>
+
+        {/* Layer 2: Mid Layer (Forward rolling wave, 22s, opacity 0.60) */}
+        <svg
+          className="absolute bottom-[-1px] left-0 w-[200%] h-full animate-wave-mid pointer-events-none"
+          viewBox="0 0 2400 120"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M 0, 25 C 160, 65 380, -20 600, 30 C 820, 80 1040, -15 1200, 25 C 1360, 65 1580, -20 1800, 30 C 2020, 80 2240, -15 2400, 25 L 2400, 120 L 0, 120 Z"
+            fill="#062038"
+            opacity="0.60"
+          />
+        </svg>
+
+        {/* Layer 3: Front Layer (Solid primary crest, 16s, solid #062038) */}
+        <svg
+          className="absolute bottom-[-1px] left-0 w-[200%] h-full animate-wave-front pointer-events-none"
+          viewBox="0 0 2400 120"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M 0, 40 C 150, 85 350, -10 550, 40 C 750, 90 1050, -5 1200, 40 C 1350, 85 1550, -10 1750, 40 C 1950, 90 2250, -5 2400, 40 L 2400, 120 L 0, 120 Z"
             fill="#062038"
           />
         </svg>
@@ -83,7 +114,7 @@ export const Footer: React.FC = () => {
               <p className="text-xs sm:text-[13px] text-slate-300 mt-0.5 leading-relaxed">
                 Soul Dive is under active development and{" "}
                 <strong className="text-white">not operational</strong>. Images are{" "}
-                <strong className="text-white">Architectural 3D Visualizations</strong>; tickets and entry are not currently on sale.
+                <strong className="text-white">Proposed Visualizations</strong>; tickets and entry are not currently on sale.
               </p>
             </div>
           </div>
@@ -176,7 +207,7 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2 text-xs sm:text-sm text-slate-300">
               <li>
                 <Link href="/attractions" className="hover:text-brand-cyan transition-colors">
-                  Attractions &amp; Rides
+                  Proposed Attractions
                 </Link>
               </li>
               <li>

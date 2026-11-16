@@ -21,7 +21,7 @@ export const ImageModal: React.FC<ImageModalProps> = ({
   imageSrc,
   title,
   subtitle,
-  badge = "Proposed Attraction",
+  badge = "Water Park Attraction",
   features,
   zone,
 }) => {
@@ -91,7 +91,7 @@ export const ImageModal: React.FC<ImageModalProps> = ({
           {subtitle && (
             <div>
               <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5">
-                Overview & Planned Experience
+                Overview & Guest Experience
               </h4>
               <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
                 {subtitle}
@@ -102,7 +102,7 @@ export const ImageModal: React.FC<ImageModalProps> = ({
           {features && features.length > 0 && (
             <div className="pt-2">
               <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2.5">
-                Planned Features & Highlights
+                Features & Highlights
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {features.map((feature, idx) => (
@@ -130,7 +130,7 @@ export const ImageModal: React.FC<ImageModalProps> = ({
         <div className="p-4 bg-slate-50 text-slate-500 text-xs flex flex-col sm:flex-row items-center justify-between gap-2 border-t border-slate-100">
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-4 h-4 text-brand-gold shrink-0" />
-            <span>Proposed Visualization • Soul Dive Water Park Auraiya</span>
+            <span>3D Destination Visualization • Soul Dive Water Park Auraiya</span>
           </div>
           <button
             onClick={onClose}

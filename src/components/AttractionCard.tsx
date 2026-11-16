@@ -44,7 +44,7 @@ export const AttractionCard: React.FC<AttractionCardProps> = ({
         <div className="absolute inset-0 z-0 overflow-hidden">
           <Image
             src={attraction.image}
-            alt={`${attraction.name} - Proposed Waterpark Attraction at Soul Dive Auraiya`}
+            alt={`${attraction.name} - Water Park Attraction at Soul Dive Auraiya`}
             fill
             sizes={
               isLarge
@@ -59,7 +59,7 @@ export const AttractionCard: React.FC<AttractionCardProps> = ({
           <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/95 via-brand-navy/65 via-50% to-black/25 pointer-events-none" />
         </div>
 
-        {/* Top Floating Badge (Optional Badge for Hero Card, no Concept Render tag) */}
+        {/* Top Floating Badge (Optional Badge for Hero Card) */}
         {attraction.badge && isLarge ? (
           <div className="relative z-10 p-4 sm:p-5 flex items-center justify-end pointer-events-none">
             <span className="px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider text-brand-gold bg-brand-navy/70 backdrop-blur-md border border-brand-gold/30">
@@ -132,7 +132,7 @@ export const AttractionCard: React.FC<AttractionCardProps> = ({
         imageSrc={attraction.image}
         title={attraction.name}
         subtitle={attraction.description}
-        badge={attraction.categoryLabel || "Proposed Facility"}
+        badge={attraction.categoryLabel || "Water Park Attraction"}
         features={attraction.features}
         zone={attraction.masterPlanZone}
       />
