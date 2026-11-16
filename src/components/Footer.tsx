@@ -30,7 +30,7 @@ export const Footer: React.FC = () => {
               <p className="text-xs sm:text-sm text-slate-300 mt-0.5">
                 Soul Dive Water Park is currently under active physical development and is{" "}
                 <strong className="text-white">not operational</strong>. All pool, slide, and concourse images presented on this website are{" "}
-                <strong className="text-white">Proposed Architectural Visualizations</strong> derived from the master proposal drawing (dated 12.11.2026 by Arch-Ikon Architects). Tickets and entry are not currently on sale.
+                <strong className="text-white">Proposed Visualizations</strong> illustrating upcoming attractions. Tickets and entry are not currently on sale.
               </p>
             </div>
           </div>
@@ -66,7 +66,7 @@ export const Footer: React.FC = () => {
               </div>
             </div>
             <p className="text-sm text-slate-300 leading-relaxed max-w-sm">
-              A master-planned aquatic entertainment resort taking shape at Biriya, Dibiyapur Road, Auraiya. Featuring high-energy waterslides, a mega wave pool, leisure lagoons, a rain dance disk, and family dining.
+              An upcoming aquatic entertainment resort taking shape at Biriya, Dibiyapur Road, Auraiya. Featuring high-energy waterslides, a mega wave pool, leisure lagoons, a rain dance disk, and family dining.
             </p>
             <div className="flex items-center gap-3 pt-2">
               <a
@@ -97,11 +97,6 @@ export const Footer: React.FC = () => {
               <li>
                 <Link href="/attractions" className="hover:text-brand-cyan transition-colors">
                   Proposed Attractions
-                </Link>
-              </li>
-              <li>
-                <Link href="/master-plan" className="hover:text-brand-cyan transition-colors">
-                  Master Plan 3D Tour
                 </Link>
               </li>
               <li>
@@ -183,7 +178,7 @@ export const Footer: React.FC = () => {
         {/* Bottom Legal & Copyright Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <p>
-            &copy; {new Date().getFullYear()} Soul Dive Water Park. All rights reserved. Master plan proposal by Arch-Ikon Architects.
+            &copy; {new Date().getFullYear()} Soul Dive Water Park. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
             <Link href="/privacy-policy" className="hover:text-white transition-colors">

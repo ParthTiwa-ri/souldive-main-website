@@ -12,7 +12,6 @@ import {
   Sparkles,
   MapPin,
   Calendar,
-  Compass,
   ArrowRight,
   ShieldAlert,
   CheckCircle,
@@ -21,8 +20,6 @@ import {
   UtensilsCrossed,
   Music,
   HeartHandshake,
-  ExternalLink,
-  ZoomIn,
 } from "lucide-react";
 
 export default function HomePage() {
@@ -228,96 +225,7 @@ export default function HomePage() {
       </section>
 
       {/* =========================================================================
-          SECTION 4: MASTER PLAN EXPLORATION
-          ========================================================================= */}
-      <section className="bg-brand-navy text-white py-20 relative overflow-hidden">
-        {/* Top Wave */}
-        <WaveDivider
-          position="top"
-          fillColor="#062038"
-          secondaryFillColor="#00A3E0"
-          variant="gentle"
-        />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-5 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-brand-gold/20 text-brand-gold border border-brand-gold/30 uppercase tracking-wider">
-                <Compass className="w-3.5 h-3.5" />
-                <span>Architectural Source of Truth</span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-heading tracking-tight leading-tight">
-                Architectural Master Plan Overview
-              </h2>
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                Prepared by <strong>Arch-Ikon Architects</strong> (dated 12.11.2026), this proposal plan establishes the comprehensive master zoning of Soul Dive Water Park at Land No. Biriya, Dibiyapur Road, Auraiya.
-              </p>
-              
-              <div className="space-y-3 pt-2 text-sm text-slate-200">
-                <div className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
-                  <span className="w-2 h-2 rounded-full bg-brand-cyan" />
-                  <span><strong>Wave Pool Zone:</strong> Northern deep apex with wave generation chamber</span>
-                </div>
-                <div className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
-                  <span className="w-2 h-2 rounded-full bg-brand-coral" />
-                  <span><strong>Slide Complex:</strong> Central launch tower for Pendulum & Family rides</span>
-                </div>
-                <div className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
-                  <span className="w-2 h-2 rounded-full bg-brand-gold" />
-                  <span><strong>Kids Zone:</strong> Dedicated splash pad adjacent to children&apos;s picnic lawns</span>
-                </div>
-              </div>
-
-              <div className="pt-2">
-                <Link
-                  href="/master-plan"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm bg-brand-cyan hover:bg-brand-cyan-dark text-white shadow-md transition-all"
-                >
-                  <span>Explore Interactive Master Plan</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Master Plan Render Box */}
-            <div className="lg:col-span-7">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-white/20 aspect-[16/10] bg-slate-900 group">
-                <Image
-                  src="/images/soul-dive-aerial-master-view.jpg"
-                  alt="Soul Dive Master Plan 3D Aerial View"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 60vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs bg-brand-navy/90 p-3 rounded-2xl backdrop-blur-md border border-white/10">
-                  <span className="font-bold text-brand-gold">
-                    Proposed Architectural Visualization (Not For Construction)
-                  </span>
-                  <Link
-                    href="/master-plan"
-                    className="font-bold text-brand-cyan hover:underline flex items-center gap-1"
-                  >
-                    <span>Full Tour</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Wave */}
-        <div className="mt-16">
-          <WaveDivider
-            fillColor="#FFFFFF"
-            secondaryFillColor="#00C4D9"
-            variant="dynamic"
-          />
-        </div>
-      </section>
-
-      {/* =========================================================================
-          SECTION 5: PLANNED GUEST FACILITIES
+          SECTION 4: PLANNED GUEST FACILITIES
           ========================================================================= */}
       <section className="py-20 sm:py-24 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -330,7 +238,7 @@ export default function HomePage() {
               Planned Hospitality & Comfort
             </h2>
             <p className="text-sm text-slate-600 mt-2">
-              Every facility has been architecturally planned for guest hygiene, family comfort, and seamless operations.
+              Every facility is being designed for guest hygiene, family comfort, and seamless operations.
             </p>
           </div>
 
@@ -387,7 +295,7 @@ export default function HomePage() {
       </section>
 
       {/* =========================================================================
-          SECTION 6: PROJECT DEVELOPMENT STATUS
+          SECTION 5: PROJECT DEVELOPMENT STATUS
           ========================================================================= */}
       <section className="py-20 bg-brand-foam relative border-y border-cyan-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -416,10 +324,10 @@ export default function HomePage() {
                 ✓ Milestone Completed
               </span>
               <h3 className="text-lg font-bold font-heading text-brand-navy">
-                Architectural Master Plan
+                Concept & Destination Planning
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Finalization of comprehensive master plan drawings by Arch-Ikon Architects, Kanpur (12.11.2026).
+                Comprehensive zoning, attraction layout planning, and guest experience design for Auraiya&apos;s upcoming park.
               </p>
             </div>
 

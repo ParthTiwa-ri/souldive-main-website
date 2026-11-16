@@ -41,7 +41,7 @@ export const siteConfig = {
     defaultTitle: "Soul Dive Water Park | Upcoming Premier Water Park in Auraiya",
     titleTemplate: "%s | Soul Dive Water Park Auraiya",
     description:
-      "Soul Dive Water Park is taking shape at Biriya, Dibiyapur Road, Auraiya (UP). Preview our proposed wave pool, water slides, kids play pool, rain dance disk, and master plan.",
+      "Soul Dive Water Park is taking shape at Biriya, Dibiyapur Road, Auraiya (UP). Preview our proposed wave pool, water slides, kids play pool, rain dance disk, and guest amenities.",
     keywords: [
       "Water Park in Auraiya",
       "Water Park Auraiya",

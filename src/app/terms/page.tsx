@@ -7,7 +7,7 @@ import { AlertCircle } from "lucide-react";
 export const metadata: Metadata = {
   title: "Terms of Use & Disclaimers | Soul Dive Water Park Auraiya",
   description:
-    "Terms of Use and architectural rendering disclaimers for Soul Dive Water Park Auraiya website.",
+    "Terms of Use and conceptual rendering disclaimers for Soul Dive Water Park Auraiya website.",
   alternates: {
     canonical: `${siteConfig.url}/terms`,
   },
@@ -52,10 +52,10 @@ export default function TermsPage() {
 
             <div>
               <h2 className="text-xl font-bold font-heading text-brand-navy mb-2">
-                2. Architectural Proposal Disclaimers
+                2. Conceptual Visualization Disclaimers
               </h2>
               <p>
-                All 3D models, site layouts, and artistic illustrations presented on this website are conceptual visualizations based on the master proposal plan (dated 12.11.2026 by Arch-Ikon Architects, Kanpur). The drawing is explicitly marked <em>&ldquo;Proposal Plan Only — Not for Construction.&rdquo;</em> Final physical dimensions, slide models, surface materials, and landscape features are subject to structural engineering, safety approvals, and site execution adjustments.
+                All 3D models, site layouts, and artistic illustrations presented on this website are conceptual visualizations representing the planned attractions of Soul Dive Water Park. Final physical dimensions, slide models, surface materials, and landscape features are subject to engineering, safety approvals, and site execution adjustments.
               </p>
             </div>
 
@@ -73,7 +73,7 @@ export default function TermsPage() {
                 4. Intellectual Property
               </h2>
               <p>
-                The name &ldquo;Soul Dive Water Park&rdquo;, the official brand logo, and original 3D architectural renders published on this website are the intellectual property of Soul Dive Water Park and its designated partners. Unauthorized commercial reproduction is prohibited.
+                The name &ldquo;Soul Dive Water Park&rdquo;, the official brand logo, and original 3D renders published on this website are the intellectual property of Soul Dive Water Park and its designated partners. Unauthorized commercial reproduction is prohibited.
               </p>
             </div>
           </div>

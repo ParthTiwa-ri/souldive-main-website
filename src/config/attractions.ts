@@ -32,8 +32,8 @@ export const attractions: Attraction[] = [
       "Expansive waterside chaise lounge sundecks",
       "Dedicated lifeguard observation perimeters",
     ],
-    masterPlanZone: "North Park Apex (Master Plan Drawing 12.11.2026)",
-    disclaimer: "Proposed facility under development. Subject to architectural execution.",
+    masterPlanZone: "North Park Apex",
+    disclaimer: "Proposed facility under development. Subject to final execution.",
   },
   {
     id: "water-slides",
@@ -53,7 +53,7 @@ export const attractions: Attraction[] = [
       "Multi-rider family tube slide with cascading curves",
       "Deep runout deceleration splash pool",
     ],
-    masterPlanZone: "Central Slide Complex (Master Plan Drawing 12.11.2026)",
+    masterPlanZone: "Central Slide Complex",
     disclaimer: "Proposed attraction visualization. Actual ride specs subject to final engineering.",
   },
   {
@@ -69,13 +69,13 @@ export const attractions: Attraction[] = [
     image: "/images/adult-pool-3d.jpg",
     badge: "Leisure & Swim",
     features: [
-      "Curvilinear architectural pool profile with paved perimeter",
+      "Curvilinear pool profile with paved perimeter",
       "Dedicated timber sundeck with sun-shade umbrellas",
       "Continuous circulation & advanced sand-filtration system",
       "Direct pathway connection to the outdoor cafe",
     ],
     masterPlanZone: "West Central Aquatic Hub",
-    disclaimer: "Proposed architectural visualization. Dimensions per master plan proposal.",
+    disclaimer: "Proposed facility visualization. Dimensions per engineering proposal.",
   },
   {
     id: "rain-dance",
@@ -90,7 +90,7 @@ export const attractions: Attraction[] = [
     image: "/images/rain-dance-3d.jpg",
     badge: "Music & Rain Party",
     features: [
-      "Architectural circular spray canopy with misting jets",
+      "Circular spray canopy with misting jets",
       "Anti-skid patterned mosaic drainage flooring",
       "Integrated audio truss for high-energy music parties",
       "Enclosed by blooming bougainvillea & tropical palms",
@@ -159,6 +159,6 @@ export const attractions: Attraction[] = [
       "Organized 4-wheeler and 2-wheeler guest parking",
     ],
     masterPlanZone: "South Perimeter Arrival Hub",
-    disclaimer: "Proposed architectural concourse visualization.",
+    disclaimer: "Proposed concourse visualization.",
   },
 ];

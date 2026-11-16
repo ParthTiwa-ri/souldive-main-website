@@ -10,7 +10,6 @@ import {
   ShieldCheck,
   HeartHandshake,
   Users,
-  Compass,
   ArrowRight,
   CheckCircle2,
 } from "lucide-react";
@@ -18,7 +17,7 @@ import {
 export const metadata: Metadata = {
   title: "About Soul Dive Water Park | Our Story & Vision for Auraiya",
   description:
-    "Learn about Soul Dive Water Park, Auraiya's upcoming premier family aquatic destination. Discover our master-planned vision, architectural collaboration, and commitment to family safety.",
+    "Learn about Soul Dive Water Park, Auraiya's upcoming premier family aquatic destination. Discover our vision, planned attractions, and commitment to family safety.",
   alternates: {
     canonical: `${siteConfig.url}/about`,
   },
@@ -58,8 +57,8 @@ export default function AboutPage() {
             <div className="lg:col-span-6 relative">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/3]">
                 <Image
-                  src="/images/soul-dive-aerial-master-view.jpg"
-                  alt="Soul Dive Water Park Aerial Perspective"
+                  src="/images/soul-dive-vision-tropical.jpg"
+                  alt="Soul Dive Water Park Tropical Destination Perspective"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
@@ -83,18 +82,18 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Section: Architectural Collaboration */}
+          {/* Section: Design & Experience Pillars */}
           <div className="p-8 sm:p-12 rounded-3xl bg-white border border-cyan-100 shadow-water-card mb-20">
             <div className="max-w-3xl mx-auto text-center space-y-4 mb-10">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-brand-gold/20 text-brand-navy uppercase tracking-wider">
-                <Compass className="w-3.5 h-3.5 text-brand-gold" />
-                Master Engineering
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-brand-cyan/15 text-brand-navy uppercase tracking-wider">
+                <ShieldCheck className="w-3.5 h-3.5 text-brand-cyan" />
+                Destination Pillars
               </span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-black font-heading text-brand-navy">
-                Designed by Arch-Ikon Architects
+                Designed for Comfort &amp; Safety
               </h2>
               <p className="text-sm text-slate-600 leading-relaxed">
-                The waterpark&apos;s master proposal was engineered by <strong>Arch-Ikon Architects</strong>, Kanpur (Drawn by Abhishek Kumar, Checked by Ar. Shubham Katiyar, B.Arch., M.Arch.). The plan prioritizes three foundational pillars:
+                Soul Dive is designed from the ground up to offer an exceptional guest experience across three foundational pillars:
               </p>
             </div>
 

@@ -18,7 +18,7 @@ import {
 export const metadata: Metadata = {
   title: "Project Development & Milestones | Soul Dive Auraiya",
   description:
-    "Follow the real-time physical development milestones of Soul Dive Water Park in Auraiya. Transparent tracking from architectural master plan to site excavation and launch.",
+    "Follow the real-time physical development milestones of Soul Dive Water Park in Auraiya. Transparent tracking from concept planning to site excavation and launch.",
   alternates: {
     canonical: `${siteConfig.url}/development`,
   },
@@ -28,12 +28,12 @@ export default function DevelopmentPage() {
   const milestones = [
     {
       phase: "Phase 1",
-      title: "Architectural Master Plan Finalization",
+      title: "Concept & Destination Planning",
       date: "November 2026",
       status: "Completed",
       description:
-        "Comprehensive site zoning, structural dimensions, and attraction placement completed by Arch-Ikon Architects, Kanpur (Drawing dated 12.11.2026). Establishing complete blueprint for wave pool, slide complexes, and dining blocks.",
-      deliverables: ["Master proposal drawing completed", "Site boundary coordinates verified", "3D architectural visualizations rendered"],
+        "Comprehensive site zoning, structural dimensions, and attraction placement established. Defining the core blueprint for wave pool, slide complexes, and dining blocks.",
+      deliverables: ["Destination proposal plan completed", "Site boundary coordinates verified", "3D conceptual visualizations rendered"],
     },
     {
       phase: "Phase 2",
@@ -95,7 +95,7 @@ export default function DevelopmentPage() {
             Project Development Status
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-200 max-w-2xl mx-auto mt-4 leading-relaxed">
-            Track the real milestones and physical progress as Soul Dive Water Park transforms from architectural blueprint into Auraiya’s premier family aquatic destination.
+            Track the real milestones and physical progress as Soul Dive Water Park transforms into Auraiya’s premier family aquatic destination.
           </p>
         </div>
 

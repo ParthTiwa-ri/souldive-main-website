@@ -24,7 +24,7 @@ export default function AttractionsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold bg-white/10 text-brand-gold border border-white/20 uppercase tracking-wider mb-4">
             <Waves className="w-3.5 h-3.5 text-brand-cyan" />
-            <span>Master Plan Visual Showcase</span>
+            <span>Proposed Aquatic Attractions</span>
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-heading tracking-tight">
             Proposed Attractions & Rides
@@ -49,7 +49,7 @@ export default function AttractionsPage() {
           <div className="mb-12 p-4 sm:p-5 rounded-2xl bg-amber-50 border border-amber-200 text-amber-900 flex items-start gap-3 shadow-sm">
             <AlertCircle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
             <div className="text-xs sm:text-sm">
-              <strong className="font-bold">Architectural Proposal Notice:</strong> All rides, pools, and amenities displayed below represent the master proposal drawings (dated 12.11.2026 by Arch-Ikon Architects) for Soul Dive Water Park at Biriya, Dibiyapur Road, Auraiya. The park is currently under development and non-operational.
+              <strong className="font-bold">Pre-Launch Notice:</strong> All rides, pools, and amenities displayed below represent proposed attractions planned for Soul Dive Water Park at Biriya, Dibiyapur Road, Auraiya. The park is currently under active development and non-operational.
             </div>
           </div>
 

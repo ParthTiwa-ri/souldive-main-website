@@ -121,7 +121,7 @@ export const ImageModal: React.FC<ImageModalProps> = ({
           {zone && (
             <div className="flex items-center gap-2 text-xs text-slate-500 pt-2 border-t border-slate-100">
               <MapPin className="w-4 h-4 text-brand-coral shrink-0" />
-              <span>Master Plan Location: {zone}</span>
+              <span>Park Location: {zone}</span>
             </div>
           )}
         </div>
@@ -130,7 +130,7 @@ export const ImageModal: React.FC<ImageModalProps> = ({
         <div className="p-4 bg-slate-50 text-slate-500 text-xs flex flex-col sm:flex-row items-center justify-between gap-2 border-t border-slate-100">
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-4 h-4 text-brand-gold shrink-0" />
-            <span>Proposed Architectural Visualization • Soul Dive Water Park Auraiya</span>
+            <span>Proposed Visualization • Soul Dive Water Park Auraiya</span>
           </div>
           <button
             onClick={onClose}

@@ -22,10 +22,10 @@ export const faqs: FAQItem[] = [
   },
   {
     category: "Attractions",
-    question: "What attractions and rides are proposed in the master plan?",
-    hindiQuestion: "मास्टर प्लान में कौन-कौन से मुख्य झूले और पूल प्रस्तावित हैं?",
+    question: "What attractions and rides are planned for Soul Dive?",
+    hindiQuestion: "सोल डाइव में कौन-कौन से मुख्य झूले और पूल प्रस्तावित हैं?",
     answer:
-      "According to our official architectural master plan (dated 12.11.2026), Soul Dive will feature a large beach-entry Mega Wave Pool, a central multi-story Waterslide Complex (featuring the Pendulum Ride and Family Raft Slide), an Adult Leisure Pool, a specialized Junior Splash Pool with mushroom fountains and mini-slides, a high-energy Rain Dance Disk arena, expansive landscaped picnic lawns, a restaurant, and an outdoor shaded café.",
+      "Soul Dive will feature a large beach-entry Mega Wave Pool, a central multi-story Waterslide Complex (featuring the Pendulum Ride and Family Raft Slide), an Adult Leisure Pool, a specialized Junior Splash Pool with mushroom fountains and mini-slides, a high-energy Rain Dance Disk arena, expansive landscaped picnic lawns, a restaurant, and an outdoor shaded café.",
   },
   {
     category: "Timelines & Tickets",
@@ -39,14 +39,14 @@ export const faqs: FAQItem[] = [
     question: "Will the water park be suitable for young children and families?",
     hindiQuestion: "क्या यह वाटर पार्क छोटे बच्चों और परिवारों के लिए सुरक्षित है?",
     answer:
-      "Yes, family entertainment is our primary design objective. The architectural master plan includes a completely dedicated Kids Pool (0.3m to 0.6m safe shallow depth) with soft-spray water mushrooms and mini-slides, surrounded by dedicated shade cabanas so parents have full visibility of their children at all times.",
+      "Yes, family entertainment is our primary design objective. Soul Dive includes a completely dedicated Kids Pool (0.3m to 0.6m safe shallow depth) with soft-spray water mushrooms and mini-slides, surrounded by dedicated shade cabanas so parents have full visibility of their children at all times.",
   },
   {
     category: "Location",
     question: "Is parking available at the venue?",
     hindiQuestion: "क्या परिसर में पार्किंग की सुविधा उपलब्ध है?",
     answer:
-      "Yes. The architectural layout reserves extensive four-wheeler and two-wheeler parking bays directly outside the main entrance concourse along Dibiyapur Road to ensure convenient, secure guest arrival.",
+      "Yes. The park layout includes extensive four-wheeler and two-wheeler parking bays directly outside the main entrance concourse along Dibiyapur Road to ensure convenient, secure guest arrival.",
   },
   {
     category: "General",
