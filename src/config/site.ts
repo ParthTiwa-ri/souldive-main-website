@@ -1,8 +1,12 @@
+// Editable placeholder for upcoming launch timing
+export const TARGET_OPENING_SEASON = "Opening Summer 2027";
+
 export const siteConfig = {
   name: "Soul Dive Water Park",
   legalName: "Soul Dive Water Park",
   status: "Under Active Development (Non-Operational)",
   statusBadge: "Upcoming Water Park • Taking Shape in Auraiya",
+  targetOpening: TARGET_OPENING_SEASON,
   domain: "https://souldive.in",
   url: "https://souldive.in",
   address: {

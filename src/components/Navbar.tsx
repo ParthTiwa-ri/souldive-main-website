@@ -26,38 +26,36 @@ export const Navbar: React.FC = () => {
   }, [pathname]);
 
   const navLinks = [
-    { name: "Home", href: "/" },
     { name: "Attractions", href: "/attractions" },
-    { name: "Location & Route", href: "/location" },
-    { name: "Development", href: "/development" },
+    { name: "Master Plan", href: "/master-plan" },
+    { name: "Location", href: "/location" },
     { name: "About", href: "/about" },
-    { name: "FAQs", href: "/faqs" },
     { name: "Contact", href: "/contact" },
   ];
 
   return (
     <>
-      {/* Top Pre-Launch Announcement Bar (Dark Navy) */}
-      <div className="bg-brand-navy text-white text-xs md:text-sm py-2 px-4 text-center font-medium relative z-50 flex items-center justify-center gap-2 border-b border-white/10">
-        <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-brand-gold text-brand-navy uppercase tracking-wider">
+      {/* Top Pre-Launch Announcement Bar (Slim Dark Navy) */}
+      <div className="bg-brand-navy text-white text-[11px] sm:text-xs py-1.5 px-3 sm:px-4 text-center font-medium relative z-50 flex items-center justify-center gap-2 border-b border-white/10">
+        <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] sm:text-[10px] font-bold bg-brand-gold text-brand-navy uppercase tracking-wider shrink-0">
           Pre-Launch
         </span>
-        <span className="truncate text-slate-200">
-          Soul Dive Water Park is currently under active development at Biriya, Dibiyapur Road, Auraiya.
+        <span className="truncate text-slate-200 max-w-[240px] sm:max-w-none">
+          Soul Dive Water Park is taking shape in Auraiya.
         </span>
         <Link
           href="/opening-updates"
-          className="hidden sm:inline-flex items-center text-brand-gold hover:text-amber-300 font-bold ml-1 transition-colors"
+          className="hidden sm:inline-flex items-center text-brand-gold hover:text-amber-300 font-bold ml-1 transition-colors shrink-0"
         >
           Get VIP Updates &rarr;
         </Link>
       </div>
 
-      {/* Main Sticky Header (Clean White Background) */}
+      {/* Main Sticky Header (Clean White with Backdrop Blur) */}
       <header
-        className={`sticky top-0 z-40 bg-white transition-shadow duration-200 ${
+        className={`sticky top-0 z-40 bg-white/95 backdrop-blur-md transition-all duration-300 ${
           scrolled
-            ? "shadow-sm border-b border-slate-200/80"
+            ? "shadow-sm shadow-slate-900/5 border-b border-slate-200/80"
             : "border-b border-slate-100"
         }`}
       >
@@ -89,18 +87,18 @@ export const Navbar: React.FC = () => {
               </div>
             </Link>
 
-            {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center gap-1 xl:gap-1.5" aria-label="Main Navigation">
+            {/* Desktop Navigation Links (Spacious, Clean Active Underline) */}
+            <nav className="hidden lg:flex items-center gap-7 xl:gap-8" aria-label="Main Navigation">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
                 return (
                   <Link
                     key={link.name}
                     href={link.href}
-                    className={`px-3.5 py-2 rounded-full text-sm transition-colors duration-150 ${
+                    className={`relative py-1 text-[15px] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan rounded-md ${
                       isActive
-                        ? "bg-cyan-50 text-brand-navy font-bold border border-cyan-200/70"
-                        : "text-slate-700 font-medium hover:text-brand-navy hover:bg-slate-50"
+                        ? "text-brand-navy font-bold after:content-[''] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-0.5 after:bg-brand-coral after:rounded-full"
+                        : "text-slate-600 font-medium hover:text-brand-navy"
                     }`}
                   >
                     {link.name}
@@ -113,26 +111,19 @@ export const Navbar: React.FC = () => {
             <div className="hidden lg:flex items-center">
               <Link
                 href="/opening-updates"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold bg-brand-coral hover:bg-brand-coral-dark text-white shadow-xs hover:shadow-sm transition-colors duration-150"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold bg-brand-coral hover:bg-brand-coral-dark text-white shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan focus-visible:ring-offset-2"
               >
                 <Bell className="w-4 h-4 shrink-0" />
                 <span>Opening Updates</span>
               </Link>
             </div>
 
-            {/* Mobile Header Controls */}
+            {/* Mobile Header Controls: Clean Hamburger Menu */}
             <div className="flex items-center gap-2 lg:hidden">
-              <Link
-                href="/opening-updates"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-brand-coral text-white shadow-xs"
-              >
-                <Bell className="w-3.5 h-3.5" />
-                <span>Updates</span>
-              </Link>
               <button
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
-                className="p-2 rounded-xl text-slate-700 hover:text-brand-navy hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-brand-cyan"
+                className="p-2.5 rounded-xl text-slate-700 hover:text-brand-navy hover:bg-slate-100 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-cyan"
                 aria-label="Toggle navigation menu"
                 aria-expanded={isOpen}
               >
@@ -152,13 +143,16 @@ export const Navbar: React.FC = () => {
                   <Link
                     key={link.name}
                     href={link.href}
-                    className={`block px-4 py-2.5 rounded-xl text-base transition-colors ${
+                    className={`flex items-center justify-between px-4 py-3 rounded-xl text-base transition-colors ${
                       isActive
-                        ? "bg-cyan-50 text-brand-navy font-bold border border-cyan-200/70"
+                        ? "bg-slate-50 text-brand-navy font-bold border-l-4 border-brand-coral pl-3"
                         : "text-slate-700 font-medium hover:bg-slate-50 hover:text-brand-navy"
                     }`}
                   >
-                    {link.name}
+                    <span>{link.name}</span>
+                    {isActive && (
+                      <span className="w-1.5 h-1.5 rounded-full bg-brand-coral" />
+                    )}
                   </Link>
                 );
               })}

@@ -6,6 +6,7 @@ interface WaveDividerProps {
   position?: "top" | "bottom";
   className?: string;
   variant?: "gentle" | "dynamic" | "deep";
+  animateDrift?: boolean;
 }
 
 export const WaveDivider: React.FC<WaveDividerProps> = ({
@@ -14,6 +15,7 @@ export const WaveDivider: React.FC<WaveDividerProps> = ({
   position = "bottom",
   className = "",
   variant = "dynamic",
+  animateDrift = false,
 }) => {
   const isTop = position === "top";
 
@@ -25,7 +27,7 @@ export const WaveDivider: React.FC<WaveDividerProps> = ({
       aria-hidden="true"
     >
       <svg
-        className="relative block w-full h-10 md:h-16 lg:h-20"
+        className={`relative block ${animateDrift ? "w-[106%] -ml-[3%] animate-wave-drift motion-reduce:animate-none motion-reduce:w-full motion-reduce:ml-0" : "w-full"} h-10 md:h-16 lg:h-20`}
         viewBox="0 0 1200 120"
         preserveAspectRatio="none"
       >

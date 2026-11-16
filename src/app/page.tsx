@@ -28,77 +28,91 @@ export default function HomePage() {
   return (
     <div className="flex flex-col w-full overflow-hidden">
       {/* =========================================================================
-          SECTION 1: HERO (REDESIGNED)
+          SECTION 1: HERO (RESORT-GRADE REDESIGN)
           ========================================================================= */}
-      <section className="relative min-h-[92vh] md:min-h-[88vh] flex items-center justify-center bg-brand-navy overflow-hidden">
-        {/* Background Image: Cinematic Commercial Waterpark Photograph */}
+      <section className="relative min-h-[90vh] lg:min-h-[92vh] flex items-center bg-brand-navy overflow-hidden">
+        {/* Background Image: High-resolution waterpark photo with Ken Burns effect */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <Image
             src="/images/soul-dive-hero-cinematic.jpg"
-            alt="Soul Dive Water Park Auraiya - Premier Tropical Waterpark Destination"
+            alt="Soul Dive Water Park Auraiya - Premier Aquatic Resort Destination"
             fill
             sizes="100vw"
-            className="object-cover object-center animate-subtle-zoom will-change-transform"
+            className="object-cover object-[center_right] md:object-center animate-ken-burns motion-reduce:animate-none will-change-transform"
             priority
-            quality={90}
+            quality={92}
           />
-          {/* Subtle multi-stop gradient overlay: light at center, subtle darkening only behind text and at boundaries */}
-          <div className="absolute inset-0 bg-gradient-to-b from-brand-navy/60 via-black/25 to-brand-navy/70 pointer-events-none" />
-          {/* Soft radial scrim to ensure razor-sharp text contrast without dimming sunny water & slides */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-black/40 via-transparent to-transparent pointer-events-none" />
+          {/* Directional Gradient Scrim: Deep navy contrast behind left text, crystal clear sunny water on right */}
+          <div className="absolute inset-0 bg-gradient-hero-scrim pointer-events-none" />
         </div>
 
-        {/* Content Container */}
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-28 text-center text-white">
-          {/* Eyebrow Badge */}
-          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/20 backdrop-blur-md border border-white/35 text-xs sm:text-sm font-black tracking-widest text-white uppercase mb-6 shadow-lg animate-float">
-            <span className="w-2.5 h-2.5 rounded-full bg-brand-gold animate-ping shrink-0" />
-            <span className="w-2.5 h-2.5 rounded-full bg-brand-gold -ml-5 shrink-0" />
-            <span className="text-white drop-shadow">COMING SOON • A NEW WATER DESTINATION IN AURAIYA</span>
-          </div>
+        {/* Content Container (Left-Aligned, Max-Width Container) */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-20 pb-28 md:pt-28 md:pb-32">
+          <div className="max-w-3xl lg:max-w-4xl text-left flex flex-col items-start">
+            {/* 1. Small Eyebrow Label with Optional Opening Season Badge */}
+            <div className="animate-hero-fade-1 inline-flex items-center gap-2.5 mb-5 sm:mb-6">
+              <span className="w-2 h-2 rounded-full bg-brand-gold shrink-0 animate-pulse" />
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.14em] text-brand-gold">
+                COMING SOON · AURAIYA
+              </span>
+              {siteConfig.targetOpening && (
+                <>
+                  <span className="text-white/30 text-xs font-light select-none">|</span>
+                  <span className="text-xs sm:text-sm font-semibold tracking-normal text-white/90">
+                    {siteConfig.targetOpening}
+                  </span>
+                </>
+              )}
+            </div>
 
-          {/* Main H1 Headline */}
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-heading tracking-tight leading-[1.06] mb-6 text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.7)]">
-            A New Wave of Fun Is Coming to{" "}
-            <span className="text-gradient-sun inline-block">Auraiya!</span>
-          </h1>
+            {/* 2. Headline (Max 2 lines, text-wrap: balance, semibold, fluid clamp, tighter letter spacing, orange accent on one word, no exclamation mark) */}
+            <h1 className="animate-hero-fade-2 font-heading font-semibold sm:font-bold text-[clamp(2.15rem,4.4vw,4.25rem)] leading-[1.06] tracking-tight text-white mb-6 [text-wrap:balance]">
+              Auraiya&apos;s First Water Park Is{" "}
+              <span className="text-brand-coral inline-block">Almost</span> Here.
+            </h1>
 
-          {/* Supporting Copy */}
-          <p className="text-base sm:text-lg md:text-xl text-white/95 max-w-3xl mx-auto font-medium leading-relaxed mb-10 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
-            Get ready for an exciting new destination for family entertainment, thrilling water slides, rolling ocean waves and tropical poolside experiences. Coming soon to Biriya, Dibiyapur Road, Auraiya.
-          </p>
+            {/* 3. Subtext (Regular weight, 1.1-1.25rem, 75-80% white opacity, max-width 520px) */}
+            <p className="animate-hero-fade-3 text-base sm:text-lg md:text-[1.2rem] font-normal text-white/80 max-w-[520px] leading-relaxed mb-8 sm:mb-9 [text-wrap:pretty]">
+              Slides, a wave pool and tropical cabanas. Opening soon at Biriya, Dibiyapur Road.
+            </p>
 
-          {/* Action CTAs */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
-            <Link
-              href="#attractions"
-              className="w-full sm:w-auto px-9 py-4 rounded-full font-black text-base bg-brand-coral hover:bg-brand-coral-dark text-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 flex items-center justify-center gap-2.5 group"
-            >
-              <Waves className="w-5 h-5 transition-transform group-hover:rotate-12" />
-              <span>Explore Attractions</span>
-            </Link>
-            <Link
-              href="#updates"
-              className="w-full sm:w-auto px-9 py-4 rounded-full font-bold text-base bg-white/20 hover:bg-white/30 text-white backdrop-blur-md border border-white/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 flex items-center justify-center gap-2.5 group"
-            >
-              <Sparkles className="w-5 h-5 text-brand-gold transition-transform group-hover:scale-125" />
-              <span>Get Opening Updates</span>
-            </Link>
-          </div>
+            {/* 4. Action CTAs */}
+            <div className="animate-hero-fade-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
+              {/* Primary CTA ("Explore Attractions"): solid orange, soft orange glow, arrow shifts right on hover, hover lift */}
+              <Link
+                href="#attractions"
+                className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full font-bold text-base bg-brand-coral hover:bg-brand-coral-dark text-white shadow-[0_10px_25px_-5px_rgba(255,87,34,0.45)] hover:shadow-[0_15px_30px_-5px_rgba(255,87,34,0.6)] transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy"
+              >
+                <span>Explore Attractions</span>
+                <ArrowRight className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1.5" />
+              </Link>
 
-          {/* Subtle Conceptual Visualization Tag (unobtrusive, placed below CTAs) */}
-          <div className="mt-12 inline-flex items-center gap-2 text-[11px] sm:text-xs text-white/80 bg-black/35 px-4 py-1.5 rounded-full backdrop-blur-sm border border-white/15">
-            <Sparkles className="w-3.5 h-3.5 text-brand-cyan shrink-0" />
-            <span>Conceptual Destination Visualization • Project Under Active Development</span>
+              {/* Secondary CTA ("Get Opening Updates"): outlined with white text, 1.5px border at 60% opacity, no frosted glass, WCAG AA contrast, fills lightly on hover */}
+              <Link
+                href="/opening-updates"
+                className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full font-semibold text-base text-white border-[1.5px] border-white/60 hover:border-white hover:bg-white/10 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy"
+              >
+                <Sparkles className="w-4 h-4 text-brand-gold shrink-0" />
+                <span>Get Opening Updates</span>
+              </Link>
+            </div>
           </div>
         </div>
 
-        {/* Bottom Wave Divider */}
+        {/* 5. Tiny Conceptual Destination Caption (Bottom-Right Corner) */}
+        <div className="animate-hero-fade-5 absolute bottom-12 right-6 md:bottom-16 md:right-8 z-30 pointer-events-none hidden sm:block">
+          <span className="text-[10px] sm:text-[11px] font-medium tracking-wider uppercase text-white/55 bg-brand-navy/60 backdrop-blur-sm px-3.5 py-1 rounded-full border border-white/10">
+            Conceptual Destination Visualization
+          </span>
+        </div>
+
+        {/* Bottom Wave Divider with Drift Animation */}
         <div className="absolute bottom-0 left-0 right-0 z-20">
           <WaveDivider
             fillColor="#F0FBFD"
             secondaryFillColor="#00C4D9"
             variant="dynamic"
+            animateDrift={true}
           />
         </div>
       </section>
