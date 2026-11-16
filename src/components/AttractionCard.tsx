@@ -12,6 +12,7 @@ interface AttractionCardProps {
   isLarge?: boolean;
   className?: string;
   showChips?: boolean;
+  showDescription?: boolean;
 }
 
 export const AttractionCard: React.FC<AttractionCardProps> = ({
@@ -20,6 +21,7 @@ export const AttractionCard: React.FC<AttractionCardProps> = ({
   isLarge = false,
   className = "",
   showChips = false,
+  showDescription = isLarge,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -96,19 +98,20 @@ export const AttractionCard: React.FC<AttractionCardProps> = ({
             <div className="space-y-1 sm:space-y-1.5 max-w-xl">
               {/* Attraction Name (H3) */}
               <h3
-                className={`font-bold font-heading text-white tracking-tight leading-snug [text-wrap:balance] ${
-                  isLarge
+                className={`font-bold font-heading text-white tracking-tight leading-snug [text-wrap:balance] ${isLarge
                     ? "text-2xl sm:text-3xl lg:text-4xl"
                     : "text-lg sm:text-xl lg:text-2xl"
-                }`}
+                  }`}
               >
                 {attraction.name}
               </h3>
 
-              {/* One-Line Engaging Description */}
-              <p className="text-xs sm:text-sm text-white/85 leading-relaxed line-clamp-2">
-                {attraction.shortDescription}
-              </p>
+              {/* One-Line Engaging Description (Kept on large card, removed from small cards for a clean, spacious look) */}
+              {showDescription && attraction.shortDescription && (
+                <p className="text-xs sm:text-sm text-white/85 leading-relaxed line-clamp-2">
+                  {attraction.shortDescription}
+                </p>
+              )}
             </div>
 
             {/* Circular Arrow Button (Bottom-Right Corner) */}
