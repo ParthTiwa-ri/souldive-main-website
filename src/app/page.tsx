@@ -23,8 +23,6 @@ import {
 } from "lucide-react";
 
 export default function HomePage() {
-  const featuredAttractions = attractions.slice(0, 6);
-
   return (
     <div className="flex flex-col w-full overflow-hidden">
       {/* =========================================================================
@@ -197,44 +195,83 @@ export default function HomePage() {
       </section>
 
       {/* =========================================================================
-          SECTION 3: EXPLORE PROPOSED ATTRACTIONS (CLEAN & SPACIOUS)
+          SECTION 3: SIGNATURE ATTRACTIONS (PREMIUM BENTO SHOWCASE)
           ========================================================================= */}
-      <section id="attractions" className="py-20 sm:py-28 bg-slate-50/70 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header (Clean, Premium, SEO-friendly H2) */}
-          <div className="text-center max-w-2xl mx-auto mb-14 sm:mb-16">
-            <span className="text-xs font-bold text-brand-cyan uppercase tracking-widest block mb-2">
+      <section
+        id="attractions"
+        className="pt-20 sm:pt-28 pb-0 bg-gradient-to-b from-brand-foam via-cyan-50/25 to-white relative overflow-hidden"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Header (Premium, Balanced H2 with Fluid Size) */}
+          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+            <span className="text-xs sm:text-sm font-bold text-brand-aqua uppercase tracking-[0.12em] block mb-2.5">
               Featured Water Experiences
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-heading text-brand-navy tracking-tight">
-              Proposed Attractions at Soul Dive
+            <h2 className="text-[clamp(2.25rem,4.5vw,3.75rem)] font-bold font-heading text-brand-navy tracking-[-0.01em] leading-[1.1] [text-wrap:balance]">
+              Signature Attractions
             </h2>
-            <p className="text-sm sm:text-base text-slate-600 mt-3 leading-relaxed">
-              Explore the signature aquatic attractions and family leisure pools planned for Auraiya, designed for all ages to enjoy.
+            <p className="text-base sm:text-lg text-slate-600 mt-3.5 leading-relaxed [text-wrap:balance]">
+              Waves, slides and lazy pools, designed for every age.
             </p>
           </div>
 
-          {/* Attraction Cards Grid: 3 columns desktop, 2 columns tablet, 1 column mobile */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
-            {featuredAttractions.map((attraction, idx) => (
-              <AttractionCard
-                key={attraction.id}
-                attraction={attraction}
-                priority={idx < 3}
-              />
-            ))}
+          {/* Bento Grid Showcase */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+            {/* 1. Large Hero Bento Card: Mega Wave Pool (Spans 2 columns & 2 rows on desktop) */}
+            {attractions[0] && (
+              <div className="md:col-span-2 lg:col-span-2 lg:row-span-2 flex">
+                <AttractionCard
+                  attraction={attractions[0]}
+                  isLarge={true}
+                  priority={true}
+                  className="w-full min-h-[440px] sm:min-h-[480px] lg:min-h-[612px]"
+                />
+              </div>
+            )}
+
+            {/* 2. Bento Card: Pendulum & Family Raft Slides */}
+            {attractions[1] && (
+              <div className="md:col-span-1 lg:col-span-1 flex">
+                <AttractionCard
+                  attraction={attractions[1]}
+                  isLarge={false}
+                  className="w-full min-h-[310px] sm:min-h-[320px] lg:min-h-[290px]"
+                />
+              </div>
+            )}
+
+            {/* 3. Bento Card: Curvilinear Leisure Pool */}
+            {attractions[2] && (
+              <div className="md:col-span-1 lg:col-span-1 flex">
+                <AttractionCard
+                  attraction={attractions[2]}
+                  isLarge={false}
+                  className="w-full min-h-[310px] sm:min-h-[320px] lg:min-h-[290px]"
+                />
+              </div>
+            )}
           </div>
 
-          {/* Bottom Action */}
-          <div className="mt-14 sm:mt-16 text-center">
+          {/* Bottom Action CTA */}
+          <div className="mt-12 sm:mt-16 text-center">
             <Link
               href="/attractions"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-bold text-sm bg-brand-navy hover:bg-brand-navy-light text-white shadow-sm hover:shadow-md transition-all hover:scale-105 active:scale-95"
+              className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full font-bold text-sm bg-brand-navy hover:bg-brand-navy-light text-white shadow-sm hover:shadow-md transition-all hover:scale-105 active:scale-95 focus-visible:ring-2 focus-visible:ring-brand-coral focus-visible:outline-none"
             >
               <span>View All Planned Rides & Detailed Specs</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
+        </div>
+
+        {/* Subtle Wave Divider Transitioning into White Facilities Section */}
+        <div className="mt-16 sm:mt-20 -mb-1">
+          <WaveDivider
+            fillColor="#FFFFFF"
+            secondaryFillColor="#00C4D9"
+            variant="gentle"
+            animateDrift={true}
+          />
         </div>
       </section>
 

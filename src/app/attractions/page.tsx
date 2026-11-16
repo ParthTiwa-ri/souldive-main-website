@@ -60,6 +60,7 @@ export default function AttractionsPage() {
                 key={attraction.id}
                 attraction={attraction}
                 priority={idx < 3}
+                className="min-h-[380px]"
               />
             ))}
           </div>
