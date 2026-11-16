@@ -11,6 +11,7 @@ interface AttractionCardProps {
   priority?: boolean;
   isLarge?: boolean;
   className?: string;
+  showChips?: boolean;
 }
 
 export const AttractionCard: React.FC<AttractionCardProps> = ({
@@ -18,6 +19,7 @@ export const AttractionCard: React.FC<AttractionCardProps> = ({
   priority = false,
   isLarge = false,
   className = "",
+  showChips = false,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -55,25 +57,21 @@ export const AttractionCard: React.FC<AttractionCardProps> = ({
           <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/95 via-brand-navy/65 via-50% to-black/25 pointer-events-none" />
         </div>
 
-        {/* Top Floating Tags */}
-        <div className="relative z-10 p-4 sm:p-5 flex items-center justify-between gap-2 pointer-events-none">
-          {/* Concept Render Tag (Small, Low Opacity) */}
-          <span className="px-2.5 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase text-white/80 bg-black/45 backdrop-blur-md border border-white/15">
-            Concept render
-          </span>
-
-          {/* Optional Badge or Category */}
-          {attraction.badge && isLarge && (
-            <span className="hidden sm:inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider text-brand-gold bg-brand-navy/70 backdrop-blur-md border border-brand-gold/30">
+        {/* Top Floating Badge (Optional Badge for Hero Card, no Concept Render tag) */}
+        {attraction.badge && isLarge ? (
+          <div className="relative z-10 p-4 sm:p-5 flex items-center justify-end pointer-events-none">
+            <span className="px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider text-brand-gold bg-brand-navy/70 backdrop-blur-md border border-brand-gold/30">
               {attraction.badge}
             </span>
-          )}
-        </div>
+          </div>
+        ) : (
+          <div className="pointer-events-none" />
+        )}
 
         {/* Bottom Overlaid Content */}
         <div className="relative z-10 p-5 sm:p-6 lg:p-7 flex flex-col justify-end mt-auto pt-6">
-          {/* Glass-Style Info Chips (Data-Driven & Editable) */}
-          {attraction.chips && attraction.chips.length > 0 && (
+          {/* Glass-Style Info Chips (Data-Driven & Editable, shown only if explicitly enabled) */}
+          {showChips && attraction.chips && attraction.chips.length > 0 && (
             <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-2.5 sm:mb-3">
               {attraction.chips.map((chip) => (
                 <span

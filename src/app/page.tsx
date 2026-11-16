@@ -7,6 +7,7 @@ import { faqs } from "@/config/faqs";
 import { WaveDivider } from "@/components/WaveDivider";
 import { AttractionCard } from "@/components/AttractionCard";
 import { ContactForm } from "@/components/ContactForm";
+import { AmenitiesSection } from "@/components/AmenitiesSection";
 import {
   Waves,
   Sparkles,
@@ -16,10 +17,6 @@ import {
   ShieldAlert,
   CheckCircle,
   HelpCircle,
-  Car,
-  UtensilsCrossed,
-  Music,
-  HeartHandshake,
 } from "lucide-react";
 
 export default function HomePage() {
@@ -199,7 +196,7 @@ export default function HomePage() {
           ========================================================================= */}
       <section
         id="attractions"
-        className="pt-20 sm:pt-28 pb-0 bg-gradient-to-b from-brand-foam via-cyan-50/25 to-white relative overflow-hidden"
+        className="pt-20 sm:pt-28 pb-16 sm:pb-24 bg-gradient-to-b from-brand-foam via-cyan-50/25 to-white relative overflow-hidden"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Header (Premium, Balanced H2 with Fluid Size) */}
@@ -263,87 +260,12 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
-
-        {/* Subtle Wave Divider Transitioning into White Facilities Section */}
-        <div className="mt-16 sm:mt-20 -mb-1">
-          <WaveDivider
-            fillColor="#FFFFFF"
-            secondaryFillColor="#00C4D9"
-            variant="gentle"
-            animateDrift={true}
-          />
-        </div>
       </section>
 
       {/* =========================================================================
-          SECTION 4: PLANNED GUEST FACILITIES
+          SECTION 4: VISITOR AMENITIES (PREMIUM BENTO SHOWCASE)
           ========================================================================= */}
-      <section className="py-20 sm:py-24 bg-white relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-brand-gold/20 text-brand-navy uppercase tracking-wider mb-2">
-              <UtensilsCrossed className="w-3.5 h-3.5 text-brand-gold" />
-              Visitor Amenities
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black font-heading text-brand-navy tracking-tight">
-              Planned Hospitality & Comfort
-            </h2>
-            <p className="text-sm text-slate-600 mt-2">
-              Every facility is being designed for guest hygiene, family comfort, and seamless operations.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="p-6 rounded-3xl bg-brand-foam border border-cyan-100 space-y-3">
-              <div className="w-12 h-12 rounded-2xl bg-brand-cyan/10 text-brand-cyan flex items-center justify-center">
-                <UtensilsCrossed className="w-6 h-6" />
-              </div>
-              <h3 className="text-lg font-bold font-heading text-brand-navy">
-                Restaurant & Outdoor Café
-              </h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                A multi-cuisine dining hall plus poolside shaded tables with umbrellas serving fresh snacks, refreshments, and family meals.
-              </p>
-            </div>
-
-            <div className="p-6 rounded-3xl bg-brand-foam border border-cyan-100 space-y-3">
-              <div className="w-12 h-12 rounded-2xl bg-brand-coral/10 text-brand-coral flex items-center justify-center">
-                <Music className="w-6 h-6" />
-              </div>
-              <h3 className="text-lg font-bold font-heading text-brand-navy">
-                Rain Dance Music Arena
-              </h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Circular paved dance arena with overhead misting rain jets and party audio systems for high-energy celebrations.
-              </p>
-            </div>
-
-            <div className="p-6 rounded-3xl bg-brand-foam border border-cyan-100 space-y-3">
-              <div className="w-12 h-12 rounded-2xl bg-brand-green/10 text-brand-green flex items-center justify-center">
-                <Car className="w-6 h-6" />
-              </div>
-              <h3 className="text-lg font-bold font-heading text-brand-navy">
-                Dedicated Parking
-              </h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Expansive four-wheeler and two-wheeler parking bays directly outside the main entrance concourse along Dibiyapur Road.
-              </p>
-            </div>
-
-            <div className="p-6 rounded-3xl bg-brand-foam border border-cyan-100 space-y-3">
-              <div className="w-12 h-12 rounded-2xl bg-brand-gold/10 text-brand-navy flex items-center justify-center">
-                <HeartHandshake className="w-6 h-6" />
-              </div>
-              <h3 className="text-lg font-bold font-heading text-brand-navy">
-                Lockers & Costume Counters
-              </h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Gender-separated changing rooms, clean showers, costume issue & return counters, and secure electronic lockers.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <AmenitiesSection />
 
       {/* =========================================================================
           SECTION 5: PROJECT DEVELOPMENT STATUS
