@@ -179,10 +179,10 @@ export default function AboutPage() {
                   Register for Updates
                 </Link>
                 <Link
-                  href="/development"
+                  href="/attractions"
                   className="w-full sm:w-auto px-6 py-3 rounded-full font-bold text-xs bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all"
                 >
-                  View Development Log
+                  Explore Planned Attractions
                 </Link>
               </div>
             </div>

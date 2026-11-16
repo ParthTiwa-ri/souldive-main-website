@@ -8,11 +8,10 @@ import { WaveDivider } from "@/components/WaveDivider";
 import { AttractionCard } from "@/components/AttractionCard";
 import { ContactForm } from "@/components/ContactForm";
 import { AmenitiesSection } from "@/components/AmenitiesSection";
+import { LocationSection } from "@/components/LocationSection";
 import {
   Waves,
   Sparkles,
-  MapPin,
-  Calendar,
   ArrowRight,
   ShieldAlert,
   CheckCircle,
@@ -268,128 +267,9 @@ export default function HomePage() {
       <AmenitiesSection />
 
       {/* =========================================================================
-          SECTION 5: PROJECT DEVELOPMENT STATUS
+          SECTION 5: LOCATION & ROUTE (PREMIUM BESPOKE REDESIGN)
           ========================================================================= */}
-      <section className="py-20 bg-brand-foam relative border-y border-cyan-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-            <div>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/20 uppercase tracking-wider mb-2">
-                <Calendar className="w-3.5 h-3.5" />
-                Transparent Milestones
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-black font-heading text-brand-navy">
-                Project Development Status
-              </h2>
-            </div>
-            <Link
-              href="/development"
-              className="inline-flex items-center gap-2 text-sm font-bold text-brand-cyan hover:underline"
-            >
-              <span>View Verified Milestone Log</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="p-6 rounded-3xl bg-white border border-cyan-100 shadow-sm space-y-2">
-              <span className="text-xs font-bold text-brand-green uppercase tracking-wider">
-                ✓ Milestone Completed
-              </span>
-              <h3 className="text-lg font-bold font-heading text-brand-navy">
-                Concept & Destination Planning
-              </h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Comprehensive zoning, attraction layout planning, and guest experience design for Auraiya&apos;s upcoming park.
-              </p>
-            </div>
-
-            <div className="p-6 rounded-3xl bg-white border border-cyan-100 shadow-sm space-y-2">
-              <span className="text-xs font-bold text-brand-green uppercase tracking-wider">
-                ✓ Milestone Completed
-              </span>
-              <h3 className="text-lg font-bold font-heading text-brand-navy">
-                Site Survey & Boundary Demarcation
-              </h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Land topography survey, boundary perimeter marking, and access road alignment at Biriya, Dibiyapur Road.
-              </p>
-            </div>
-
-            <div className="p-6 rounded-3xl bg-brand-cyan/5 border border-brand-cyan/30 shadow-sm space-y-2">
-              <span className="text-xs font-bold text-brand-coral uppercase tracking-wider animate-pulse">
-                ⚙ Active Current Phase
-              </span>
-              <h3 className="text-lg font-bold font-heading text-brand-navy">
-                Civil Works & Pool Excavation Prep
-              </h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Site grading, ground preparation, and structural engineering validations for Wave Pool and slide tower foundations.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-          SECTION 7: LOCATION & REGIONAL CONNECTIVITY
-          ========================================================================= */}
-      <section className="py-20 sm:py-24 bg-white relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-5 space-y-6">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-brand-coral/10 text-brand-coral border border-brand-coral/20 uppercase tracking-wider">
-                <MapPin className="w-3.5 h-3.5" />
-                <span>Prime Highway Location</span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-black font-heading text-brand-navy tracking-tight leading-tight">
-                Easily Accessible Across Auraiya & Nearby Districts
-              </h2>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                Soul Dive is strategically located on <strong>Dibiyapur Road at Biriya</strong>, offering smooth dual-lane connectivity from both Auraiya town center and Dibiyapur railway hub.
-              </p>
-
-              {/* Distance Matrix */}
-              <div className="space-y-2 pt-2">
-                {siteConfig.nearbyAreas.map((area, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-center justify-between p-3 rounded-2xl bg-brand-foam border border-cyan-100 text-xs sm:text-sm"
-                  >
-                    <span className="font-semibold text-brand-navy">{area.name}</span>
-                    <span className="font-bold text-brand-coral">
-                      {area.distance} • {area.time}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="pt-2">
-                <Link
-                  href="/location"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm bg-brand-cyan hover:bg-brand-cyan-dark text-white shadow-md transition-all"
-                >
-                  <span>Interactive Map & Driving Directions</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Map Preview Container */}
-            <div className="lg:col-span-7">
-              <div className="relative rounded-3xl overflow-hidden shadow-water-card border-2 border-cyan-100 aspect-[16/11] bg-slate-100 p-2">
-                <iframe
-                  title="Soul Dive Water Park Auraiya Location Map"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14300.000000000000!2d79.5100000!3d26.5050000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399de94c8e762c2f%3A0x6b7b203c94505717!2sAuraiya%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-                  className="w-full h-full rounded-2xl border-0"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <LocationSection />
 
       {/* =========================================================================
           SECTION 8: PRE-LAUNCH REGISTRATION & OPENING UPDATES

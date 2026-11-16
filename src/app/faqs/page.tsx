@@ -9,7 +9,7 @@ import { HelpCircle, Sparkles, MessageCircle, ArrowRight } from "lucide-react";
 export const metadata: Metadata = {
   title: "Frequently Asked Questions | Soul Dive Water Park Auraiya",
   description:
-    "Find honest answers to questions about Soul Dive Water Park: development status, location at Biriya on Dibiyapur Road, proposed rides, opening timeline, and future tickets.",
+    "Find honest answers to questions about Soul Dive Water Park: project plans, location at Biriya on Dibiyapur Road, proposed rides, opening timeline, and future tickets.",
   alternates: {
     canonical: `${siteConfig.url}/faqs`,
   },
@@ -31,7 +31,7 @@ export default function FAQsPage() {
             Frequently Asked Questions
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-200 max-w-2xl mx-auto mt-4 leading-relaxed">
-            Transparent, verified answers about Soul Dive Water Park&apos;s development status, location in Auraiya, planned rides, and future ticket policies.
+            Transparent, verified answers about Soul Dive Water Park&apos;s project plans, location in Auraiya, planned rides, and future ticket policies.
           </p>
         </div>
 

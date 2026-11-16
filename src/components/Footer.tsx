@@ -35,10 +35,10 @@ export const Footer: React.FC = () => {
             </div>
           </div>
           <Link
-            href="/development"
+            href="/about"
             className="shrink-0 px-4 py-2 rounded-full text-xs font-bold bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-colors"
           >
-            Track Project Status &rarr;
+            Learn More About Soul Dive &rarr;
           </Link>
         </div>
 
@@ -97,11 +97,6 @@ export const Footer: React.FC = () => {
               <li>
                 <Link href="/attractions" className="hover:text-brand-cyan transition-colors">
                   Proposed Attractions
-                </Link>
-              </li>
-              <li>
-                <Link href="/development" className="hover:text-brand-cyan transition-colors">
-                  Project Development Log
                 </Link>
               </li>
               <li>
