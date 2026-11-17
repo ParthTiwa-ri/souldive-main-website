@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import { X, ShieldCheck, CheckCircle2, MapPin } from "lucide-react";
 
@@ -25,6 +26,12 @@ export const ImageModal: React.FC<ImageModalProps> = ({
   features,
   zone,
 }) => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -39,22 +46,22 @@ export const ImageModal: React.FC<ImageModalProps> = ({
     };
   }, [isOpen, onClose]);
 
-  if (!isOpen) return null;
+  if (!isOpen || !mounted) return null;
 
-  return (
+  return createPortal(
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-brand-navy/90 backdrop-blur-md animate-in fade-in duration-200"
+      className="fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-6 bg-brand-navy/85 backdrop-blur-md animate-in fade-in duration-200"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-label={title}
     >
       <div
-        className="relative max-w-4xl w-full max-h-[92vh] overflow-y-auto bg-white rounded-3xl shadow-2xl border border-slate-100 flex flex-col"
+        className="relative max-w-3xl w-full max-h-[88vh] overflow-y-auto bg-white rounded-3xl shadow-2xl border border-slate-100 flex flex-col my-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header Bar */}
-        <div className="flex items-center justify-between p-5 bg-white border-b border-slate-100 sticky top-0 z-10">
+        <div className="flex items-center justify-between p-4 sm:p-5 bg-white border-b border-slate-100 sticky top-0 z-10">
           <div>
             <div className="flex items-center gap-2">
               <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-brand-cyan/10 text-brand-cyan uppercase tracking-wider">
@@ -80,13 +87,13 @@ export const ImageModal: React.FC<ImageModalProps> = ({
             src={imageSrc}
             alt={`${title} - Soul Dive Water Park Auraiya`}
             fill
-            sizes="(max-width: 1024px) 100vw, 1024px"
+            sizes="(max-width: 1024px) 100vw, 800px"
             className="object-cover"
           />
         </div>
 
-        {/* Detailed Content & Features (Accessible and SEO Preserved) */}
-        <div className="p-6 sm:p-8 space-y-5 bg-white">
+        {/* Detailed Content & Features */}
+        <div className="p-5 sm:p-7 space-y-4 bg-white">
           {subtitle && (
             <div>
               <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5">
@@ -126,7 +133,7 @@ export const ImageModal: React.FC<ImageModalProps> = ({
         </div>
 
         {/* Bottom Transparency Notice */}
-        <div className="p-4 bg-slate-50 text-slate-500 text-xs flex flex-col sm:flex-row items-center justify-between gap-2 border-t border-slate-100">
+        <div className="p-3.5 sm:p-4 bg-slate-50 text-slate-500 text-xs flex flex-col sm:flex-row items-center justify-between gap-2 border-t border-slate-100">
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-4 h-4 text-brand-gold shrink-0" />
             <span>3D Destination Visualization • Soul Dive Water Park Auraiya</span>
@@ -139,6 +146,7 @@ export const ImageModal: React.FC<ImageModalProps> = ({
           </button>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
