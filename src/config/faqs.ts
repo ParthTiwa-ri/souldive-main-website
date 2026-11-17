@@ -49,6 +49,20 @@ export const faqs: FAQItem[] = [
       "Yes. The park layout includes extensive four-wheeler and two-wheeler parking bays directly outside the main entrance concourse along Dibiyapur Road to ensure convenient, secure guest arrival.",
   },
   {
+    category: "Location",
+    question: "How far is Soul Dive Water Park from Dibiyapur, Etawah, and Phaphund?",
+    hindiQuestion: "दिबियापुर, इटावा और फफूंद से यह वाटर पार्क कितनी दूर है?",
+    answer:
+      "Soul Dive Water Park is ideally situated at Biriya on Dibiyapur Road: approximately 4 km (8–10 mins) from Auraiya city center, 12 km (15–18 mins) from Dibiyapur town, 14 km (20 mins) from Phaphund Railway Station, and 52 km (50–55 mins) from Etawah via NH-19. It is the most convenient water park destination for families in Auraiya and nearby districts.",
+  },
+  {
+    category: "General",
+    question: "Why is Soul Dive being built in Auraiya?",
+    hindiQuestion: "औरैया में वाटर पार्क (Auraiya me water park) की शुरुआत क्यों हो रही है?",
+    answer:
+      "Historically, residents of Auraiya, Dibiyapur, and Etawah had to travel 80–100 km to Kanpur to access modern water parks. Soul Dive Water Park (औरैया का पहला वाटर पार्क) was conceptualized to provide world-class aquatic leisure, family slides, a mega wave pool, and safe kids splash lagoons right here in Auraiya district.",
+  },
+  {
     category: "General",
     question: "How can I get construction updates and early announcements?",
     hindiQuestion: "मुझे निर्माण कार्य और उद्घाटन की जानकारी कैसे मिल सकती है?",

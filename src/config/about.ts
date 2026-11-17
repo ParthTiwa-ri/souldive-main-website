@@ -13,17 +13,11 @@ export interface AboutFounderQuote {
 }
 
 /**
- * Single Config Constant for the primary About Section / Page main image.
- *
- * FLAGGED ISSUE / THIRD-PARTY ASSET NOTICE:
- * The current concept image (/images/soul-dive-vision-tropical.jpg) contains visible
- * third-party signage:
- *   - "WILD TROPICS WATERPARK" on the entrance archway
- *   - "LAGOON CAFE" on the poolside dining facade
- * Please replace this constant once a customized, signage-free 3D render or
- * authentic on-site photograph is available.
+ * Primary visual asset for the About Section & Page.
+ * Uses clean, authentic 3D architectural visualization of Soul Dive Water Park
+ * with zero third-party signage.
  */
-export const ABOUT_PAGE_MAIN_IMAGE = "/images/soul-dive-vision-tropical.jpg";
+export const ABOUT_PAGE_MAIN_IMAGE = "/images/soul-dive-vision-clean.jpg";
 export const ABOUT_PAGE_IMAGE = ABOUT_PAGE_MAIN_IMAGE;
 
 export interface AboutSectionConfig {
@@ -32,11 +26,6 @@ export interface AboutSectionConfig {
   paragraph: string;
   /**
    * Primary vision image for the About section.
-   * NOTE / FLAGGED ISSUE:
-   * The current concept visualization (/images/soul-dive-vision-tropical.jpg)
-   * contains visible third-party signage ('WILD TROPICS WATERPARK' on the arch
-   * and 'LAGOON CAFE' on the dining facade).
-   * Swap this constant once a customized, signage-free render is produced.
    */
   image: string;
   imageAlt: string;

@@ -3,6 +3,7 @@ import path from "path";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  trailingSlash: false,
   outputFileTracingRoot: path.resolve(__dirname),
   images: {
     formats: ["image/avif", "image/webp"],
@@ -19,6 +20,11 @@ const nextConfig: NextConfig = {
       {
         source: "/master-plan",
         destination: "/attractions",
+        permanent: true,
+      },
+      {
+        source: "/faq",
+        destination: "/faqs",
         permanent: true,
       },
     ];

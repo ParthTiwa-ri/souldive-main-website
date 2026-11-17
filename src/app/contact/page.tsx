@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { ContactForm } from "@/components/ContactForm";
 import { PageHeader } from "@/components/PageHeader";
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import {
   MapPin,
   Phone,
@@ -52,11 +53,17 @@ export default function ContactPage() {
 
   return (
     <div className="w-full">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: siteConfig.url },
+          { name: "Contact", url: `${siteConfig.url}/contact` },
+        ]}
+      />
       {/* Shared Page Header */}
       <PageHeader
-        eyebrow="OFFICIAL COMMUNICATIONS"
+        eyebrow="OFFICIAL COMMUNICATIONS • संपर्क सूत्र"
         title="Talk to Our Team"
-        subtitle="Have questions regarding our Auraiya location, site progress, group bookings, or pre-launch announcements? We are here to help."
+        subtitle="Have questions regarding our Auraiya site location, group bookings, or pre-launch VIP announcements? We are here to help."
       />
 
       {/* Main Content */}

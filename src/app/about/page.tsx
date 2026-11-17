@@ -5,6 +5,7 @@ import Image from "next/image";
 import { siteConfig } from "@/config/site";
 import { ABOUT_PAGE_MAIN_IMAGE } from "@/config/about";
 import { PageHeader } from "@/components/PageHeader";
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import {
   Sparkles,
   Waves,
@@ -51,11 +52,17 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="w-full">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: siteConfig.url },
+          { name: "About", url: `${siteConfig.url}/about` },
+        ]}
+      />
       {/* Shared Page Header */}
       <PageHeader
-        eyebrow="PROJECT VISION & STORY"
+        eyebrow="PROJECT VISION & STORY • औरैया का अपना वाटर पार्क"
         title="About Soul Dive Water Park"
-        subtitle="Creating a modern, safe, and joyful aquatic wonderland for families, students, and youth in Auraiya and surrounding regions."
+        subtitle="Creating a modern, safe, and joyful aquatic wonderland for families, students, and youth in Auraiya, Dibiyapur, and surrounding districts."
       />
 
       {/* Main Content */}
@@ -65,19 +72,10 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-20">
             <div className="lg:col-span-6 relative">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/3]">
-                {/*
-                  Main Vision & Story Image:
-                  Sourced from the centralized ABOUT_PAGE_MAIN_IMAGE constant in @/config/about.
-                  FLAGGED ISSUE / ASSET AUDIT NOTICE:
-                  The current visualization shows third-party signage:
-                    - "WILD TROPICS WATERPARK" on the entrance archway
-                    - "LAGOON CAFE" on the poolside dining structure
-                  Update ABOUT_PAGE_MAIN_IMAGE in src/config/about.ts once custom branded renders
-                  or authentic on-site photography become available.
-                */}
+                {/* Main Vision & Story Image: Authentic 3D architectural render */}
                 <Image
                   src={ABOUT_PAGE_MAIN_IMAGE}
-                  alt="Soul Dive Water Park Tropical Destination Perspective"
+                  alt="Soul Dive Water Park Tropical Destination Perspective - Auraiya"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"

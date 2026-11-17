@@ -14,7 +14,7 @@ export const JsonLd: React.FC<JsonLdProps> = ({ breadcrumbs }) => {
     name: siteConfig.name,
     legalName: siteConfig.legalName,
     url: siteConfig.url,
-    logo: `${siteConfig.url}/images/Soul Dive Water Park Logo-1.png`,
+    logo: `${siteConfig.url}/images/soul-dive-logo.png`,
     image: `${siteConfig.url}/images/soul-dive-hero-cinematic.jpg`,
     description: siteConfig.meta.description,
     telephone: siteConfig.contact.phone,
@@ -32,12 +32,19 @@ export const JsonLd: React.FC<JsonLdProps> = ({ breadcrumbs }) => {
       latitude: siteConfig.geo.latitude,
       longitude: siteConfig.geo.longitude,
     },
+    areaServed: [
+      { "@type": "City", name: "Auraiya" },
+      { "@type": "City", name: "Dibiyapur" },
+      { "@type": "City", name: "Etawah" },
+      { "@type": "City", name: "Bidhuna" },
+      { "@type": "City", name: "Phaphund" },
+    ],
     hasMap: siteConfig.maps?.url || `${siteConfig.url}/location`,
     sameAs: [
       siteConfig.social.instagram,
       siteConfig.social.facebook,
       siteConfig.social.youtube,
-    ],
+    ].filter(Boolean),
   };
 
   // WebSite Schema
@@ -88,3 +95,24 @@ export const JsonLd: React.FC<JsonLdProps> = ({ breadcrumbs }) => {
   );
 };
 
+export const BreadcrumbJsonLd: React.FC<{
+  items: Array<{ name: string; url: string }>;
+}> = ({ items }) => {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((crumb, idx) => ({
+      "@type": "ListItem",
+      position: idx + 1,
+      name: crumb.name,
+      item: crumb.url,
+    })),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+};

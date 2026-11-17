@@ -2,6 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { PageHeader } from "@/components/PageHeader";
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -39,6 +40,12 @@ export const metadata: Metadata = {
 export default function PrivacyPolicyPage() {
   return (
     <div className="w-full">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: siteConfig.url },
+          { name: "Privacy Policy", url: `${siteConfig.url}/privacy-policy` },
+        ]}
+      />
       <PageHeader
         eyebrow="LEGAL DISCLOSURES"
         title="Privacy Policy"

@@ -100,7 +100,7 @@ export const Footer: React.FC = () => {
             <div className="flex items-center gap-2.5">
               <div className="relative w-9 h-9 shrink-0">
                 <Image
-                  src="/images/Soul Dive Water Park Logo-1.png"
+                  src="/images/soul-dive-logo.png"
                   alt="Soul Dive Water Park Logo"
                   fill
                   sizes="36px"

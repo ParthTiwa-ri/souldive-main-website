@@ -4,6 +4,7 @@ import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { faqs } from "@/config/faqs";
 import { PageHeader } from "@/components/PageHeader";
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { HelpCircle, Sparkles, MessageCircle, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -57,15 +58,21 @@ export default function FAQsPage() {
 
   return (
     <div className="w-full">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: siteConfig.url },
+          { name: "FAQs", url: `${siteConfig.url}/faqs` },
+        ]}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       {/* Shared Page Header */}
       <PageHeader
-        eyebrow="HELP & INFORMATION CENTER"
+        eyebrow="HELP & INFORMATION CENTER • अक्सर पूछे जाने वाले सवाल"
         title="Frequently Asked Questions"
-        subtitle="Transparent, verified answers about Soul Dive Water Park’s project plans, location in Auraiya, planned rides, and future ticket policies."
+        subtitle="Transparent, verified answers about Soul Dive Water Park’s plans, location at Biriya (Dibiyapur Road), planned attractions, and pre-launch VIP updates."
       />
 
       {/* Main Content */}

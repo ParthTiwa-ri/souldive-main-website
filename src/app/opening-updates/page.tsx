@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { ContactForm } from "@/components/ContactForm";
 import { PageHeader } from "@/components/PageHeader";
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { Bell, Sparkles, CheckCircle2, ShieldCheck, MessageCircle } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -41,11 +42,17 @@ export const metadata: Metadata = {
 export default function OpeningUpdatesPage() {
   return (
     <div className="w-full">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: siteConfig.url },
+          { name: "Opening Updates", url: `${siteConfig.url}/opening-updates` },
+        ]}
+      />
       {/* Shared Page Header */}
       <PageHeader
-        eyebrow="VIP NOTIFICATION LIST"
+        eyebrow="VIP NOTIFICATION LIST • उद्घाटन सूचना"
         title="Be the First to Experience Soul Dive"
-        subtitle="Register your contact details to receive verified launch announcements, early-bird family passes, and ride testing invitations."
+        subtitle="Register your contact details to receive verified launch announcements, early-bird family passes, and ride testing invitations for Auraiya's upcoming water park."
       />
 
       {/* Main Content */}

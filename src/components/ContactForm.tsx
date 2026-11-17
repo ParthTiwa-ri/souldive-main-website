@@ -106,31 +106,36 @@ export const ContactForm: React.FC<ContactFormProps> = ({
     setSubmitError("");
 
     const cleanPhone = phone.replace(/\D/g, "");
-    // Updated payload contract: streamlined to essential fields
-    const payload = {
-      name: trimmedName,
-      phone: `+91${cleanPhone}`,
-      whatsapp: cleanPhone,
-      variant,
-      ...(variant === "general-contact" && message.trim() ? { message: message.trim() } : {}),
-      submittedAt: new Date().toISOString(),
-    };
 
     try {
-      // Async submit processing
-      // In production, dispatch to backend API:
-      // const res = await fetch("/api/vip-updates", {
-      //   method: "POST",
-      //   headers: { "Content-Type": "application/json" },
-      //   body: JSON.stringify(payload),
-      // });
-      // if (!res.ok) throw new Error("Server responded with error");
+      const res = await fetch("/api/inquiries", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: trimmedName,
+          phone: cleanPhone,
+          variant,
+          ...(isGeneral && message.trim() ? { message: message.trim() } : {}),
+          honeypot,
+        }),
+      });
 
-      await new Promise((resolve) => setTimeout(resolve, 750));
+      const data = await res.json().catch(() => null);
+
+      if (!res.ok || !data?.success) {
+        throw new Error(data?.error || "Unable to submit inquiry. Please try again.");
+      }
+
       setStatus("success");
-    } catch {
+    } catch (err: unknown) {
       setStatus("error");
-      setSubmitError("Unable to submit. Please check your connection or contact us on WhatsApp.");
+      const errorMsg =
+        err instanceof Error
+          ? err.message
+          : "Unable to submit. Please check your connection or contact us on WhatsApp.";
+      setSubmitError(errorMsg);
     }
   };
 

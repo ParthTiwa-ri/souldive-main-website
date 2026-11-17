@@ -134,8 +134,7 @@ export const attractions: Attraction[] = [
       "Poolside dining and shaded tables for snacks, meals and cool drinks.",
     description:
       "A modern restaurant building paired with a spacious al-fresco terrace featuring shaded dining tables, poolside reflection fountains, and quick-service kiosks serving family-favorite refreshments.",
-    // Flagged: Render image displays readable third-party text ("THE PALM GRILL") on exterior signage; needs custom branding replacement.
-    image: "/images/restaurant-cafe-3d.jpg",
+    image: "/images/soul-dive-cafe-dining.jpg",
     badge: "Dining & Hospitality",
     chips: ["Multi-cuisine", "Poolside patio", "Snacks"],
     features: [

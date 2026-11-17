@@ -17,7 +17,7 @@ export const amenities: Amenity[] = [
     category: "Dining",
     description: "Poolside dining and shaded tables for snacks, meals and cool drinks.",
     type: "feature",
-    image: "/images/restaurant-cafe-3d.jpg",
+    image: "/images/soul-dive-cafe-dining.jpg",
     imageAlt: "Soul Dive Restaurant & Outdoor Café - Poolside Dining and Shaded Tables",
     iconName: "UtensilsCrossed",
   },

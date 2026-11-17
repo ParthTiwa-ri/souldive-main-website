@@ -75,7 +75,7 @@ export default function HomePage() {
 
             {/* 3. Subtext (Regular weight, 1.1-1.25rem, 75-80% white opacity, max-width 520px) */}
             <p className="animate-hero-fade-3 text-base sm:text-lg md:text-[1.2rem] font-normal text-white/80 max-w-[520px] leading-relaxed mb-8 sm:mb-9 [text-wrap:pretty]">
-              Slides, a wave pool and tropical cabanas. Opening soon at Biriya, Dibiyapur Road.
+              Slides, a mega wave pool and tropical cabanas. Soul Dive Water Park is taking shape at Biriya, Dibiyapur Road, Auraiya.
             </p>
 
             {/* 4. Action CTAs */}
@@ -120,12 +120,12 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Header (Premium, Balanced H2 with Fluid Size) */}
           <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
-            <SectionEyebrow>Featured Water Experiences</SectionEyebrow>
+            <SectionEyebrow>Featured Water Experiences • औरैया वाटर पार्क</SectionEyebrow>
             <h2 className="text-[clamp(2.25rem,4.5vw,3.75rem)] font-bold font-heading text-brand-navy tracking-[-0.01em] leading-[1.1] [text-wrap:balance]">
               Signature Attractions
             </h2>
             <p className="text-base sm:text-lg text-slate-600 mt-3.5 leading-relaxed [text-wrap:balance]">
-              Experience thrilling water slides, a mega wave pool, and relaxing lagoons at Auraiya’s premier water park.
+              Experience thrilling water slides, a mega wave pool, and relaxing lagoons at Auraiya’s premier water park (औरैया का वाटर पार्क).
             </p>
           </div>
 
@@ -205,12 +205,12 @@ export default function HomePage() {
       <section className="py-14 sm:py-20 bg-white relative">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <SectionEyebrow>Frequently Asked Questions</SectionEyebrow>
+            <SectionEyebrow>Frequently Asked Questions • अक्सर पूछे जाने वाले सवाल</SectionEyebrow>
             <h2 className="text-3xl sm:text-4xl font-black font-heading text-brand-navy">
               Everything You Need to Know About Soul Dive
             </h2>
             <p className="text-sm sm:text-base text-slate-600 mt-2 max-w-2xl mx-auto">
-              Find clear answers about Auraiya’s upcoming water park, including our water slides, wave pool, site location at Biriya, and construction timeline.
+              Find clear answers about Auraiya’s upcoming water park (औरैया में वाटर पार्क), including our water slides, mega wave pool, site location at Biriya, and opening updates.
             </p>
           </div>
 

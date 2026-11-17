@@ -69,8 +69,8 @@ export const metadata: Metadata = {
     images: ["/images/soul-dive-hero-cinematic.jpg"],
   },
   icons: {
-    icon: "/images/Soul Dive Water Park Logo-1.png",
-    apple: "/images/Soul Dive Water Park Logo-1.png",
+    icon: "/images/soul-dive-logo.png",
+    apple: "/images/soul-dive-logo.png",
   },
 };
 

@@ -31,6 +31,7 @@ export const Navbar: React.FC = () => {
     { name: "Attractions", href: "/attractions" },
     { name: "Location", href: "/location" },
     { name: "About", href: "/about" },
+    { name: "FAQs", href: "/faqs" },
     { name: "Contact", href: "/contact" },
   ];
 
@@ -89,7 +90,7 @@ export const Navbar: React.FC = () => {
               {/* Subtle rounded white pill container for logo icon to maximize readability on navy */}
               <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white/95 p-1 shadow-xs border border-white/20 transition-transform group-hover:scale-102 flex items-center justify-center shrink-0">
                 <Image
-                  src="/images/Soul Dive Water Park Logo-1.png"
+                  src="/images/soul-dive-logo.png"
                   alt="Soul Dive Water Park Auraiya Logo"
                   fill
                   sizes="44px"

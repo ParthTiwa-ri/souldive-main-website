@@ -2,6 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { PageHeader } from "@/components/PageHeader";
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Terms of Use & Disclaimers",
@@ -39,6 +40,12 @@ export const metadata: Metadata = {
 export default function TermsPage() {
   return (
     <div className="w-full">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: siteConfig.url },
+          { name: "Terms & Disclaimers", url: `${siteConfig.url}/terms` },
+        ]}
+      />
       <PageHeader
         eyebrow="OFFICIAL DISCLAIMERS"
         title="Terms & Disclaimers"

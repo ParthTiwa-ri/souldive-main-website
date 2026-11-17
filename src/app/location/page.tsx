@@ -5,6 +5,7 @@ import { siteConfig } from "@/config/site";
 import { LOCATION_CONFIG, SOUL_DIVE_COORDINATES } from "@/config/location";
 import { PageHeader } from "@/components/PageHeader";
 import { CopyCoordinatesButton } from "@/components/CopyCoordinatesButton";
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import {
   MapPin,
   Car,
@@ -104,11 +105,17 @@ export default function LocationPage() {
 
   return (
     <div className="w-full">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: siteConfig.url },
+          { name: "Location & Directions", url: `${siteConfig.url}/location` },
+        ]}
+      />
       {/* Shared Page Header */}
       <PageHeader
-        eyebrow="FIND US"
-        title="Find Soul Dive"
-        subtitle="Conveniently situated at Biriya along the bustling Dibiyapur Road corridor, connecting Auraiya, Dibiyapur, and neighboring districts."
+        eyebrow="LOCATION & DIRECTIONS • औरैया वाटर पार्क"
+        title="Find Soul Dive Water Park"
+        subtitle="Conveniently situated at Biriya on Dibiyapur Road, easily accessible from Auraiya, Dibiyapur, Phaphund, Bidhuna, and Etawah via NH-19."
       />
 
       {/* Main Content */}

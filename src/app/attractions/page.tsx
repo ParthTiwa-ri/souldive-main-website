@@ -5,6 +5,7 @@ import { siteConfig } from "@/config/site";
 import { attractions } from "@/config/attractions";
 import { AttractionCard } from "@/components/AttractionCard";
 import { PageHeader } from "@/components/PageHeader";
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { Waves, Sparkles, Compass, AlertCircle, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -46,11 +47,17 @@ export default function AttractionsPage() {
 
   return (
     <div className="w-full">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: siteConfig.url },
+          { name: "Attractions", url: `${siteConfig.url}/attractions` },
+        ]}
+      />
       {/* Shared Page Header */}
       <PageHeader
-        eyebrow="SOUL DIVE ATTRACTIONS"
+        eyebrow="SOUL DIVE ATTRACTIONS • औरैया वाटर पार्क"
         title="Attractions & Experiences"
-        subtitle="From the roaring wave crests to gravity-defying slides and gentle toddler splash zones, preview what is planned for Soul Dive Water Park in Auraiya."
+        subtitle="From roaring wave crests to gravity-defying slides and gentle toddler splash zones, preview what is planned for Soul Dive Water Park in Auraiya, Uttar Pradesh."
       />
 
       {/* Main Content Area */}

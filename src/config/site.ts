@@ -52,7 +52,7 @@ export const siteConfig = {
       "Soul Dive Water Park Auraiya is an upcoming aquatic leisure resort at Biriya, Dibiyapur Road. Preview our wave pool, water slides, and family attractions.",
     keywords: [
       "Water Park in Auraiya",
-      "Water Park Auraiya",
+      "Auraiya Water Park",
       "Best Water Park in Auraiya",
       "Water Park Near Dibiyapur",
       "Water Park Near Etawah",
@@ -62,6 +62,11 @@ export const siteConfig = {
       "Picnic Places Near Auraiya",
       "Auraiya Water Park",
       "औरैया वाटर पार्क",
+      "औरैया में वाटर पार्क",
+      "औरैया का वाटर पार्क",
+      "Auraiya me water park",
+      "Auraiya water park opening date",
+      "Water park near Dibiyapur Auraiya",
     ],
   },
 };
