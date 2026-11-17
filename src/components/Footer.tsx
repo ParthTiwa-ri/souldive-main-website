@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/config/site";
-import { CONNECTIVITY_DISTANCES } from "@/config/location";
 import {
   MapPin,
   Phone,
@@ -14,27 +13,10 @@ import {
   Instagram,
   Facebook,
   Youtube,
-  Send,
-  CheckCircle2,
 } from "lucide-react";
 
 export const Footer: React.FC = () => {
-  const [leadInput, setLeadInput] = useState("");
-  const [leadSubmitted, setLeadSubmitted] = useState(false);
-
-  const handleLeadSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!leadInput.trim()) return;
-
-    // =========================================================================
-    // TODO: Connect to backend lead capture API / CRM endpoint
-    // (e.g., POST /api/leads or third-party email/SMS provider webhook)
-    // Note: In accordance with project instructions, fake submissions are not executed.
-    // =========================================================================
-    setLeadSubmitted(true);
-  };
-
-  // Filter available social platforms that have a configured URL
+  // Filter available social platforms that have a real, non-empty URL configured
   const socialLinks = [
     { name: "Instagram", url: siteConfig.social?.instagram, icon: Instagram },
     { name: "Facebook", url: siteConfig.social?.facebook, icon: Facebook },
@@ -42,13 +24,10 @@ export const Footer: React.FC = () => {
   ].filter((item) => Boolean(item.url && item.url.trim()));
 
   return (
-    <footer className="bg-brand-navy text-white relative mt-16 sm:mt-24">
+    <footer className="bg-brand-navy text-white relative mt-12 sm:mt-16">
       {/* =========================================================================
-          1. TOP WAVE DIVIDER (3 Stacked Navy wave layers rising into previous section)
-          Matches the exact 3-layer parallax, speed & motion of the Hero Wave:
-          - Back Layer: 28s reverse, opacity 0.30
-          - Mid Layer: 22s forward, opacity 0.60
-          - Front Layer: 16s forward, solid #062038
+          TOP WAVE DIVIDER (3 Stacked Navy wave layers rising into previous section)
+          Matches the exact 3-layer parallax, speed & motion of the Hero Wave
           ========================================================================= */}
       <div
         className="absolute -top-[59px] sm:-top-[79px] lg:-top-[95px] left-0 right-0 w-full overflow-hidden h-[60px] sm:h-[80px] lg:h-[96px] pointer-events-none select-none z-10"
@@ -96,88 +75,66 @@ export const Footer: React.FC = () => {
         </svg>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-24 md:pb-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 sm:pt-6 pb-6 sm:pb-8">
         {/* =========================================================================
-            2. COMPACT PRE-LAUNCH STATUS NOTICE
-            Smaller padding, trimmed 2-line copy, yellow title kept smaller,
-            responsive: stacks button on mobile
+            PRE-LAUNCH STATUS NOTICE (Slim, Clean, Button Removed)
             ========================================================================= */}
-        <div className="mb-10 p-3.5 sm:p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
-          <div className="flex items-start gap-3">
-            <div className="p-1.5 rounded-lg bg-brand-gold/20 text-brand-gold shrink-0 mt-0.5">
-              <AlertCircle className="w-4 h-4" />
-            </div>
-            <div>
-              <h4 className="text-xs font-bold text-brand-gold tracking-wider uppercase font-heading">
-                Official Pre-Launch Status Notice
-              </h4>
-              <p className="text-xs sm:text-[13px] text-slate-300 mt-0.5 leading-relaxed">
-                Soul Dive is under active development and{" "}
-                <strong className="text-white">not operational</strong>. Images are{" "}
-                <strong className="text-white">Proposed Visualizations</strong>; tickets and entry are not currently on sale.
-              </p>
-            </div>
+        <div className="mb-6 sm:mb-7 p-2.5 sm:p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm flex items-center gap-2.5 sm:gap-3">
+          <div className="p-1 rounded-md bg-brand-gold/20 text-brand-gold shrink-0">
+            <AlertCircle className="w-3.5 h-3.5" />
           </div>
-          <Link
-            href="/about"
-            className="w-full sm:w-auto text-center shrink-0 px-4 py-2 rounded-full text-xs font-bold bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-colors"
-          >
-            Learn More About Soul Dive &rarr;
-          </Link>
+          <p className="text-xs text-slate-300 leading-relaxed">
+            <strong className="text-brand-gold font-semibold uppercase tracking-wider text-[11px] mr-1.5 font-heading">
+              Notice:
+            </strong>
+            Soul Dive is under development and not operational. Images are Proposed Visualizations; tickets and entry are not currently on sale.
+          </p>
         </div>
 
         {/* =========================================================================
-            10. RESPONSIVE 4-COLUMN FOOTER GRID
-            4 cols on desktop (lg), 2 on tablet (md), 1 on mobile
+            CALM 3-COLUMN FOOTER GRID (3 cols on desktop, 2 on tablet, 1 on mobile)
             ========================================================================= */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 pb-12 border-b border-white/10">
-          {/* Column 1: Brand Info */}
-          <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="relative w-11 h-11 shrink-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 pb-6 sm:pb-8 border-b border-white/10">
+          {/* Column 1: Brand Info + WhatsApp Button + Social Icons */}
+          <div className="space-y-3">
+            <div className="flex items-center gap-2.5">
+              <div className="relative w-9 h-9 shrink-0">
                 <Image
                   src="/images/Soul Dive Water Park Logo-1.png"
                   alt="Soul Dive Water Park Logo"
                   fill
-                  sizes="44px"
+                  sizes="36px"
                   className="object-contain"
                 />
               </div>
               <div>
-                <span className="text-xl font-black tracking-tight font-heading text-white">
+                <span className="text-lg font-black tracking-tight font-heading text-white block leading-tight">
                   SOUL DIVE
                 </span>
-                <p className="text-[11px] font-bold text-brand-cyan uppercase tracking-wider">
+                <p className="text-[10px] font-bold text-brand-cyan uppercase tracking-wider">
                   Water Park • Auraiya, UP
                 </p>
               </div>
             </div>
 
-            {/* 4. Description Copy: standardized on "Water Park", rain dance arena, family water park */}
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              An upcoming family water park taking shape at Biriya, Dibiyapur Road, Auraiya. Featuring high-energy waterslides, a mega wave pool, leisure lagoons, a rain dance arena, and poolside dining.
+              A family water park coming soon to Auraiya.
             </p>
 
-            {/* 9. WhatsApp Button (duplicate phone button removed) */}
-            <div className="pt-1">
+            <div className="flex flex-wrap items-center gap-3 pt-0.5">
               <a
                 href={`https://wa.me/${siteConfig.contact.whatsapp}?text=Hi%20Soul%20Dive%20Water%20Park,%20please%20send%20me%20updates.`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white transition-colors shadow-xs"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white transition-colors shadow-xs"
               >
                 <MessageCircle className="w-3.5 h-3.5" />
                 <span>WhatsApp Updates</span>
               </a>
-            </div>
 
-            {/* 7. Social Links Row (Instagram, Facebook, YouTube from config) */}
-            {socialLinks.length > 0 && (
-              <div className="pt-2">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-2">
-                  Follow Our Progress
-                </span>
-                <div className="flex items-center gap-2.5">
+              {/* Social Icons (only rendered if URL configured; "Follow our progress" label removed) */}
+              {socialLinks.length > 0 && (
+                <div className="flex items-center gap-2">
                   {socialLinks.map((item) => {
                     const IconComponent = item.icon;
                     return (
@@ -187,81 +144,52 @@ export const Footer: React.FC = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`Follow Soul Dive Water Park on ${item.name}`}
-                        className="w-8 h-8 rounded-full bg-white/10 hover:bg-brand-aqua/20 hover:text-brand-aqua text-slate-300 border border-white/15 flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95"
+                        className="w-7 h-7 rounded-full bg-white/10 hover:bg-brand-aqua/20 hover:text-brand-aqua text-slate-300 border border-white/15 flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95"
                       >
-                        <IconComponent className="w-4 h-4" />
+                        <IconComponent className="w-3.5 h-3.5" />
                       </a>
                     );
                   })}
                 </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
 
-          {/* Column 2: Explore & Subpages */}
+          {/* Column 2: Quick Links */}
           <div>
-            {/* 3. Heading: Aqua, smaller, tracking-[0.12em] */}
-            <h4 className="text-xs sm:text-[13px] font-bold text-brand-aqua uppercase tracking-[0.12em] mb-4 font-heading">
-              Explore Soul Dive
+            <h4 className="text-xs sm:text-[13px] font-bold text-brand-aqua uppercase tracking-[0.12em] mb-3 font-heading">
+              Quick Links
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm text-slate-300">
               <li>
                 <Link href="/attractions" className="hover:text-brand-cyan transition-colors">
-                  Proposed Attractions
+                  Attractions
                 </Link>
               </li>
               <li>
                 <Link href="/about" className="hover:text-brand-cyan transition-colors">
-                  About the Project
+                  About
                 </Link>
               </li>
-              {/* 8. Site Directions moved into Explore column */}
               <li>
                 <Link href="/location" className="hover:text-brand-cyan transition-colors">
-                  Site Directions &amp; Map
+                  Location
                 </Link>
               </li>
               <li>
                 <Link href="/faqs" className="hover:text-brand-cyan transition-colors">
-                  Frequently Asked Questions
-                </Link>
-              </li>
-              <li>
-                <Link href="/opening-updates" className="hover:text-brand-cyan transition-colors">
-                  Pre-Launch Registration
+                  FAQs
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 3: Regional Connectivity (5. Pulls from shared CONNECTIVITY_DISTANCES) */}
+          {/* Column 3: Contact */}
           <div>
-            {/* 3. Heading: Aqua, smaller, tracking-[0.12em] */}
-            <h4 className="text-xs sm:text-[13px] font-bold text-brand-aqua uppercase tracking-[0.12em] mb-4 font-heading">
-              Connectivity &amp; Reach
+            <h4 className="text-xs sm:text-[13px] font-bold text-brand-aqua uppercase tracking-[0.12em] mb-3 font-heading">
+              Contact
             </h4>
-            <ul className="space-y-2 text-xs sm:text-sm text-slate-300">
-              {CONNECTIVITY_DISTANCES.slice(0, 4).map((item) => (
-                <li
-                  key={item.id}
-                  className="flex justify-between items-center py-1 border-b border-white/5"
-                >
-                  <span>{item.name}</span>
-                  <span className="font-semibold text-brand-aqua">
-                    {item.distance} ({item.time})
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Column 4: Location & Contact */}
-          <div>
-            {/* 3. Heading: Aqua, smaller, tracking-[0.12em] */}
-            <h4 className="text-xs sm:text-[13px] font-bold text-brand-aqua uppercase tracking-[0.12em] mb-4 font-heading">
-              Location &amp; Contact
-            </h4>
-            <address className="not-italic text-xs sm:text-sm text-slate-300 space-y-3">
+            <address className="not-italic text-xs sm:text-sm text-slate-300 space-y-2.5">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-brand-coral shrink-0 mt-0.5" />
                 <span className="leading-relaxed">
@@ -291,54 +219,9 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* =========================================================================
-            6. COMPACT LEAD CAPTURE (Above Bottom Bar)
-            Single email or phone input with orange button
+            BOTTOM LEGAL & COPYRIGHT BAR (Preserved with AA Contrast)
             ========================================================================= */}
-        <div className="my-8 sm:my-10 p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="text-center md:text-left">
-            <h4 className="text-sm font-bold font-heading text-white">
-              Get Opening Updates
-            </h4>
-            <p className="text-xs text-slate-300 mt-0.5">
-              Be the first to receive VIP launch announcements, ticket rates, and early bird access.
-            </p>
-          </div>
-
-          {leadSubmitted ? (
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-semibold">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-              <span>Thank you! Your interest has been recorded.</span>
-            </div>
-          ) : (
-            <form
-              onSubmit={handleLeadSubmit}
-              className="w-full md:w-auto flex flex-col sm:flex-row items-stretch sm:items-center gap-2 max-w-md"
-            >
-              <input
-                type="text"
-                value={leadInput}
-                onChange={(e) => setLeadInput(e.target.value)}
-                placeholder="Enter email or 10-digit mobile"
-                aria-label="Email or mobile number for opening updates"
-                required
-                className="w-full sm:w-64 px-3.5 py-2 rounded-full bg-white/10 border border-white/20 text-white placeholder-slate-400 text-xs focus:outline-none focus:ring-2 focus:ring-brand-coral focus:border-transparent transition-all"
-              />
-              <button
-                type="submit"
-                className="shrink-0 inline-flex items-center justify-center gap-1.5 px-5 py-2 rounded-full text-xs font-bold bg-brand-coral hover:bg-brand-coral-dark text-white shadow-sm hover:shadow-md transition-all duration-200 active:scale-95"
-              >
-                <span>Notify Me</span>
-                <Send className="w-3 h-3" />
-              </button>
-            </form>
-          )}
-        </div>
-
-        {/* =========================================================================
-            8. BOTTOM LEGAL & COPYRIGHT BAR (Enhanced for WCAG AA Contrast)
-            Site Directions moved to Explore column; text lightened to text-slate-300
-            ========================================================================= */}
-        <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-300">
+        <div className="pt-4 sm:pt-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-300">
           <p>
             &copy; {new Date().getFullYear()} Soul Dive Water Park. All rights reserved.
           </p>

@@ -1,244 +1,386 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { siteConfig } from "@/config/site";
-import { Send, CheckCircle2, AlertCircle, Sparkles, MessageCircle } from "lucide-react";
+import {
+  Bell,
+  CheckCircle2,
+  AlertCircle,
+  MessageCircle,
+  Loader2,
+  Send,
+} from "lucide-react";
 
 interface ContactFormProps {
+  eyebrow?: string;
   title?: string;
   subtitle?: string;
   variant?: "opening-updates" | "general-contact";
+  titleAs?: "h2" | "h3";
 }
 
 export const ContactForm: React.FC<ContactFormProps> = ({
-  title = "Get VIP Opening Updates",
-  subtitle = "Register to receive official announcements on launch dates, exclusive early-bird ticket offers, and progress milestones.",
+  eyebrow,
+  title,
+  subtitle,
   variant = "opening-updates",
+  titleAs = "h2",
 }) => {
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    city: "Auraiya",
-    interest: "Family Outing",
-    message: "",
-    honeypot: "", // hidden anti-spam field
-  });
+  const isGeneral = variant === "general-contact";
+  const resolvedEyebrow = eyebrow !== undefined ? eyebrow : isGeneral ? "" : "VIP UPDATES";
+  const resolvedTitle = title || (isGeneral ? "Send Us a Message" : "Be First to Dive In");
+  const resolvedSubtitle =
+    subtitle ||
+    (isGeneral
+      ? "Fill out the form below and our project team will get back to you promptly."
+      : "Get opening news and early offers on WhatsApp. No spam.");
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+  const [honeypot, setHoneypot] = useState("");
 
+  const [errors, setErrors] = useState<{ name?: string; phone?: string }>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [submitError, setSubmitError] = useState("");
+
+  const nameInputRef = useRef<HTMLInputElement>(null);
+  const phoneInputRef = useRef<HTMLInputElement>(null);
+
+  const validateName = (val: string): string => {
+    if (!val.trim()) {
+      return "Please enter your name.";
+    }
+    return "";
+  };
+
+  const validatePhone = (val: string): string => {
+    const digits = val.replace(/\D/g, "");
+    if (!digits || digits.length !== 10 || !/^[6-9]/.test(digits)) {
+      return "Please enter a valid 10-digit mobile number.";
+    }
+    return "";
+  };
+
+  const handleNameBlur = () => {
+    const err = validateName(name);
+    setErrors((prev) => ({ ...prev, name: err || undefined }));
+  };
+
+  const handlePhoneBlur = () => {
+    const err = validatePhone(phone);
+    setErrors((prev) => ({ ...prev, phone: err || undefined }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Spam check
-    if (formData.honeypot) {
+    // Prevent double submission
+    if (status === "submitting") return;
+
+    // Spam honeypot protection
+    if (honeypot) {
       console.warn("Spam detected");
       return;
     }
 
-    if (!formData.name.trim() || !formData.phone.trim()) {
-      setStatus("error");
-      setErrorMessage("Please provide your full name and a valid phone or WhatsApp number.");
+    const trimmedName = name.trim();
+    const nameErr = validateName(trimmedName);
+    const phoneErr = validatePhone(phone);
+
+    setErrors({
+      name: nameErr || undefined,
+      phone: phoneErr || undefined,
+    });
+
+    if (nameErr) {
+      nameInputRef.current?.focus();
       return;
     }
 
-    const phoneRegex = /^[0-9+\s-]{10,14}$/;
-    if (!phoneRegex.test(formData.phone.trim())) {
-      setStatus("error");
-      setErrorMessage("Please enter a valid 10-digit mobile number.");
+    if (phoneErr) {
+      phoneInputRef.current?.focus();
       return;
     }
 
     setStatus("submitting");
+    setSubmitError("");
 
-    // Simulate async server-action processing
+    const cleanPhone = phone.replace(/\D/g, "");
+    // Updated payload contract: streamlined to essential fields
+    const payload = {
+      name: trimmedName,
+      phone: `+91${cleanPhone}`,
+      whatsapp: cleanPhone,
+      variant,
+      ...(variant === "general-contact" && message.trim() ? { message: message.trim() } : {}),
+      submittedAt: new Date().toISOString(),
+    };
+
     try {
-      await new Promise((resolve) => setTimeout(resolve, 800));
+      // Async submit processing
+      // In production, dispatch to backend API:
+      // const res = await fetch("/api/vip-updates", {
+      //   method: "POST",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify(payload),
+      // });
+      // if (!res.ok) throw new Error("Server responded with error");
+
+      await new Promise((resolve) => setTimeout(resolve, 750));
       setStatus("success");
     } catch {
       setStatus("error");
-      setErrorMessage("Unable to submit. Please contact us directly on WhatsApp.");
+      setSubmitError("Unable to submit. Please check your connection or contact us on WhatsApp.");
     }
   };
 
   return (
-    <div className="bg-white rounded-3xl p-6 sm:p-8 md:p-10 shadow-water-card border border-cyan-100 max-w-xl mx-auto">
-      <div className="text-center mb-6">
-        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-brand-gold/20 text-brand-navy border border-brand-gold/30 uppercase tracking-wider mb-2">
-          <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
-          Pre-Launch Registration
-        </span>
-        <h3 className="text-2xl sm:text-3xl font-black font-heading text-brand-navy">
-          {title}
-        </h3>
-        <p className="text-xs sm:text-sm text-slate-600 mt-2 max-w-md mx-auto">
-          {subtitle}
+    <div className="bg-white rounded-3xl p-5 sm:p-7 shadow-water-card border border-cyan-100 max-w-[520px] mx-auto">
+      {/* Header Block */}
+      <div className="text-center mb-5 sm:mb-6">
+        {resolvedEyebrow ? (
+          <span className="text-xs sm:text-sm font-bold text-brand-aqua uppercase tracking-[0.12em] block mb-1.5">
+            {resolvedEyebrow}
+          </span>
+        ) : null}
+        {titleAs === "h3" ? (
+          <h3 className="text-2xl sm:text-[1.75rem] font-bold font-heading text-brand-navy tracking-[-0.01em] [text-wrap:balance] leading-tight">
+            {resolvedTitle}
+          </h3>
+        ) : (
+          <h2 className="text-2xl sm:text-[1.75rem] font-bold font-heading text-brand-navy tracking-[-0.01em] [text-wrap:balance] leading-tight">
+            {resolvedTitle}
+          </h2>
+        )}
+        <p className="text-xs sm:text-sm text-slate-600 mt-2 max-w-sm mx-auto leading-relaxed [text-wrap:balance]">
+          {resolvedSubtitle}
         </p>
       </div>
 
       {status === "success" ? (
-        <div className="p-6 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-4 animate-in fade-in">
-          <div className="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
-            <CheckCircle2 className="w-8 h-8" />
+        /* =========================================================================
+           SUCCESS STATE: Replaces form with checkmark, confirmation, and WhatsApp CTA
+           ========================================================================= */
+        <div className="py-6 sm:py-8 px-4 text-center space-y-3 animate-in fade-in motion-reduce:animate-none">
+          <div className="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-xs">
+            <CheckCircle2 className="w-7 h-7" />
           </div>
-          <div>
-            <h4 className="text-lg font-bold text-emerald-900 font-heading">
-              Thank You, {formData.name}!
-            </h4>
-            <p className="text-sm text-emerald-800 mt-1">
-              Your details have been registered. You will be among the first to receive verified opening updates and exclusive launch packages for Soul Dive Water Park Auraiya.
-            </p>
+          <h3 className="text-xl sm:text-2xl font-bold font-heading text-brand-navy">
+            {isGeneral ? `Thank You, ${name.trim()}!` : "You’re on the list!"}
+          </h3>
+          <p className="text-xs sm:text-sm text-slate-600 max-w-xs mx-auto leading-relaxed">
+            {isGeneral
+              ? "Your message has been sent successfully. Our team will get back to you on WhatsApp shortly."
+              : "We’ll message you on WhatsApp soon."}
+          </p>
+          <div className="pt-2">
+            <a
+              href={`https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeURIComponent(
+                isGeneral
+                  ? `Hi Soul Dive, I just submitted an inquiry on your website: ${name}`
+                  : "Hi Soul Dive Water Park, I just registered for VIP opening updates!"
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-xs transition-colors min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 motion-reduce:transition-none"
+            >
+              <MessageCircle className="w-4 h-4" />
+              <span>Chat on WhatsApp</span>
+            </a>
           </div>
-          <a
-            href={`https://wa.me/${siteConfig.contact.whatsapp}?text=Hi%20Soul%20Dive%20Water%20Park,%20I%20just%20registered%20on%20your%20website%20for%20opening%20updates!`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-md transition-all"
-          >
-            <MessageCircle className="w-4 h-4" />
-            <span>Connect on WhatsApp Now</span>
-          </a>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="space-y-4">
+        /* =========================================================================
+           FORM: 2 Fields (Side-by-side desktop, stacked mobile, inline errors, noValidate)
+           ========================================================================= */
+        <form onSubmit={handleSubmit} noValidate className="space-y-3.5 sm:space-y-4">
           {/* Honeypot field (hidden from genuine users) */}
           <div className="hidden" aria-hidden="true">
+            <label htmlFor="vip-website-check">Leave this field empty</label>
             <input
+              id="vip-website-check"
               type="text"
               name="website_url_check"
-              value={formData.honeypot}
-              onChange={(e) => setFormData({ ...formData, honeypot: e.target.value })}
+              value={honeypot}
+              onChange={(e) => setHoneypot(e.target.value)}
               tabIndex={-1}
               autoComplete="off"
             />
           </div>
 
+          {/* Submission Failure / Error Banner with Retry */}
           {status === "error" && (
-            <div className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-xs flex items-center gap-2">
-              <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
-              <span>{errorMessage}</span>
+            <div
+              role="alert"
+              className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-xs flex items-center justify-between gap-2"
+            >
+              <div className="flex items-center gap-2">
+                <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
+                <span>{submitError || "Something went wrong. Please try again."}</span>
+              </div>
+              <button
+                type="button"
+                onClick={handleSubmit}
+                className="text-xs font-bold text-rose-900 underline hover:no-underline shrink-0 min-h-[44px] px-2 flex items-center"
+              >
+                Retry
+              </button>
             </div>
           )}
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {/* 2 Form Fields Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 items-start">
+            {/* Field 1: Your name */}
             <div>
-              <label className="block text-xs font-bold text-brand-navy uppercase tracking-wider mb-1">
-                Your Full Name *
-              </label>
-              <input
-                type="text"
-                required
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                placeholder="e.g. Rahul Sharma"
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-brand-cyan focus:ring-2 focus:ring-brand-cyan/20 text-sm outline-none transition-all"
-              />
-            </div>
-
-            <div>
-              <label className="block text-xs font-bold text-brand-navy uppercase tracking-wider mb-1">
-                Mobile / WhatsApp Number *
-              </label>
-              <input
-                type="tel"
-                required
-                value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                placeholder="e.g. 98765 43210"
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-brand-cyan focus:ring-2 focus:ring-brand-cyan/20 text-sm outline-none transition-all"
-              />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-xs font-bold text-brand-navy uppercase tracking-wider mb-1">
-                Email Address (Optional)
-              </label>
-              <input
-                type="email"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                placeholder="e.g. rahul@example.com"
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-brand-cyan focus:ring-2 focus:ring-brand-cyan/20 text-sm outline-none transition-all"
-              />
-            </div>
-
-            <div>
-              <label className="block text-xs font-bold text-brand-navy uppercase tracking-wider mb-1">
-                Your City / Town
-              </label>
-              <select
-                value={formData.city}
-                onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-brand-cyan focus:ring-2 focus:ring-brand-cyan/20 text-sm outline-none bg-white transition-all"
+              <label
+                htmlFor="vip-name"
+                className="block text-sm font-medium text-slate-700 mb-1.5 text-left"
               >
-                <option value="Auraiya">Auraiya</option>
-                <option value="Dibiyapur">Dibiyapur</option>
-                <option value="Etawah">Etawah</option>
-                <option value="Bidhuna">Bidhuna</option>
-                <option value="Phaphund">Phaphund</option>
-                <option value="Kanpur Dehat">Kanpur Dehat</option>
-                <option value="Jalaun">Jalaun</option>
-                <option value="Other">Other Region</option>
-              </select>
+                Your name
+              </label>
+              <input
+                ref={nameInputRef}
+                id="vip-name"
+                type="text"
+                autoComplete="name"
+                required
+                value={name}
+                onChange={(e) => {
+                  setName(e.target.value);
+                  if (errors.name) {
+                    setErrors((prev) => ({ ...prev, name: undefined }));
+                  }
+                }}
+                onBlur={handleNameBlur}
+                placeholder="Rahul Sharma"
+                aria-invalid={Boolean(errors.name)}
+                aria-describedby={errors.name ? "vip-name-error" : undefined}
+                className={`w-full h-11 sm:h-12 min-h-[44px] px-3.5 sm:px-4 rounded-xl border text-sm text-brand-navy placeholder:text-slate-500 bg-white transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-brand-coral focus-visible:ring-offset-1 motion-reduce:transition-none ${errors.name
+                    ? "border-brand-coral bg-orange-50/20 ring-1 ring-brand-coral/40"
+                    : "border-slate-300 hover:border-slate-400 focus:border-brand-coral"
+                  }`}
+              />
+              {errors.name && (
+                <p
+                  id="vip-name-error"
+                  role="alert"
+                  aria-live="polite"
+                  className="mt-1.5 text-xs font-medium text-brand-coral flex items-center gap-1 text-left"
+                >
+                  <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                  <span>{errors.name}</span>
+                </p>
+              )}
+            </div>
+
+            {/* Field 2: WhatsApp number */}
+            <div>
+              <label
+                htmlFor="vip-phone"
+                className="block text-sm font-medium text-slate-700 mb-1.5 text-left"
+              >
+                WhatsApp number
+              </label>
+              <div className="relative flex items-center">
+                <span
+                  className="absolute left-3.5 text-sm font-semibold text-slate-500 select-none pointer-events-none"
+                  aria-hidden="true"
+                >
+                  +91
+                </span>
+                <input
+                  ref={phoneInputRef}
+                  id="vip-phone"
+                  type="tel"
+                  inputMode="numeric"
+                  autoComplete="tel-national"
+                  required
+                  value={phone}
+                  onChange={(e) => {
+                    const val = e.target.value.replace(/[^\d\s]/g, "").slice(0, 11);
+                    setPhone(val);
+                    if (errors.phone) {
+                      setErrors((prev) => ({ ...prev, phone: undefined }));
+                    }
+                  }}
+                  onBlur={handlePhoneBlur}
+                  placeholder="98765 43210"
+                  aria-invalid={Boolean(errors.phone)}
+                  aria-describedby={errors.phone ? "vip-phone-error" : undefined}
+                  className={`w-full h-11 sm:h-12 min-h-[44px] pl-12 pr-3.5 sm:pr-4 rounded-xl border text-sm text-brand-navy placeholder:text-slate-500 bg-white transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-brand-coral focus-visible:ring-offset-1 motion-reduce:transition-none ${errors.phone
+                      ? "border-brand-coral bg-orange-50/20 ring-1 ring-brand-coral/40"
+                      : "border-slate-300 hover:border-slate-400 focus:border-brand-coral"
+                    }`}
+                />
+              </div>
+              {errors.phone && (
+                <p
+                  id="vip-phone-error"
+                  role="alert"
+                  aria-live="polite"
+                  className="mt-1.5 text-xs font-medium text-brand-coral flex items-center gap-1 text-left"
+                >
+                  <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                  <span>{errors.phone}</span>
+                </p>
+              )}
             </div>
           </div>
 
-          <div>
-            <label className="block text-xs font-bold text-brand-navy uppercase tracking-wider mb-1">
-              Interested In
-            </label>
-            <select
-              value={formData.interest}
-              onChange={(e) => setFormData({ ...formData, interest: e.target.value })}
-              className="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-brand-cyan focus:ring-2 focus:ring-brand-cyan/20 text-sm outline-none bg-white transition-all"
-            >
-              <option value="Family Outing">Family Weekend Outing</option>
-              <option value="Group of Friends">Youth / Friends Day Out</option>
-              <option value="School / College Picnic">School / College Group Picnic</option>
-              <option value="Birthday / Celebration">Birthday / Celebration Booking</option>
-              <option value="General Information">General Project Information</option>
-            </select>
-          </div>
-
+          {/* Optional message field when invoked in general-contact mode */}
           {variant === "general-contact" && (
             <div>
-              <label className="block text-xs font-bold text-brand-navy uppercase tracking-wider mb-1">
-                Your Message / Query
+              <label
+                htmlFor="vip-message"
+                className="block text-sm font-medium text-slate-700 mb-1.5 text-left"
+              >
+                Your message
               </label>
               <textarea
+                id="vip-message"
                 rows={3}
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
                 placeholder="Ask any questions regarding location, facilities, or timeline..."
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-brand-cyan focus:ring-2 focus:ring-brand-cyan/20 text-sm outline-none transition-all"
+                className="w-full p-3.5 rounded-xl border border-slate-300 text-sm text-brand-navy placeholder:text-slate-500 bg-white outline-none focus-visible:ring-2 focus-visible:ring-brand-coral focus-visible:ring-offset-1"
               />
             </div>
           )}
 
-          <button
-            type="submit"
-            disabled={status === "submitting"}
-            className="w-full py-3.5 px-6 rounded-2xl font-bold bg-brand-coral hover:bg-brand-coral-dark text-white shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 disabled:opacity-70 text-base"
-          >
-            {status === "submitting" ? (
-              <span>Registering Details...</span>
-            ) : (
-              <>
-                <Send className="w-4 h-4" />
-                <span>Submit & Receive Opening Updates</span>
-              </>
-            )}
-          </button>
+          {/* Submit Button */}
+          <div className="pt-1">
+            <button
+              type="submit"
+              disabled={status === "submitting"}
+              className="w-full min-h-[44px] h-11 sm:h-12 py-3 px-6 rounded-full font-bold bg-brand-coral hover:bg-brand-coral-dark text-white shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed text-sm sm:text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-coral focus-visible:ring-offset-2 motion-reduce:transition-none"
+            >
+              {status === "submitting" ? (
+                <>
+                  <Loader2 className="w-4 h-4 animate-spin motion-reduce:animate-none" />
+                  <span>{isGeneral ? "Sending Message..." : "Registering..."}</span>
+                </>
+              ) : isGeneral ? (
+                <>
+                  <span>Send Message</span>
+                  <Send className="w-4 h-4" />
+                </>
+              ) : (
+                <>
+                  <span>Notify Me</span>
+                  <Bell className="w-4 h-4" />
+                </>
+              )}
+            </button>
 
-          <p className="text-[11px] text-slate-500 text-center">
-            🔒 We respect your privacy. No spam. You will only receive verified project milestones and official ticket launch updates.
-          </p>
+            {/* Note below button */}
+            <p className="text-[11px] text-slate-500 text-center leading-relaxed mt-2.5">
+              {isGeneral
+                ? "🔒 We respect your privacy. We will never share your contact details."
+                : "By submitting, you agree to receive opening updates on WhatsApp. We’ll never share your number."}
+            </p>
+          </div>
         </form>
       )}
     </div>
   );
 };
-

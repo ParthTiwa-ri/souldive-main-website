@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import {
+  MapPin,
   Car,
   Compass,
   Train,
@@ -213,38 +214,39 @@ export const LocationSection: React.FC = () => {
                   />
                 </button>
 
-                {isAccordionOpen && (
-                  <div
-                    id="more-distances-panel"
-                    className="px-3.5 sm:px-4 pb-3.5 pt-1 border-t border-cyan-100/70 space-y-2"
-                  >
-                    {SECONDARY_DISTANCES.map((item: SecondaryDistanceItem) => (
-                      <div
-                        key={item.id}
-                        className="flex items-center justify-between p-2.5 rounded-xl bg-white border border-cyan-50/80 text-xs sm:text-sm"
-                      >
-                        <div>
-                          <span className="font-bold text-brand-navy block">
-                            {item.name}
+                <div
+                  id="more-distances-panel"
+                  className={`px-3.5 sm:px-4 pb-3.5 pt-1 border-t border-cyan-100/70 space-y-2 ${
+                    isAccordionOpen ? "block" : "hidden"
+                  }`}
+                  aria-hidden={!isAccordionOpen}
+                >
+                  {SECONDARY_DISTANCES.map((item: SecondaryDistanceItem) => (
+                    <div
+                      key={item.id}
+                      className="flex items-center justify-between p-2.5 rounded-xl bg-white border border-cyan-50/80 text-xs sm:text-sm"
+                    >
+                      <div>
+                        <span className="font-bold text-brand-navy block">
+                          {item.name}
+                        </span>
+                        {item.routeDetail && (
+                          <span className="text-[11px] text-slate-500 hidden sm:block">
+                            {item.routeDetail}
                           </span>
-                          {item.routeDetail && (
-                            <span className="text-[11px] text-slate-500 hidden sm:block">
-                              {item.routeDetail}
-                            </span>
-                          )}
-                        </div>
-                        <div className="text-right">
-                          <span className="font-extrabold text-brand-coral font-heading">
-                            {item.time}
-                          </span>
-                          <span className="text-[11px] text-slate-500 block font-mono">
-                            {item.distance}
-                          </span>
-                        </div>
+                        )}
                       </div>
-                    ))}
-                  </div>
-                )}
+                      <div className="text-right">
+                        <span className="font-extrabold text-brand-coral font-heading">
+                          {item.time}
+                        </span>
+                        <span className="text-[11px] text-slate-500 block font-mono">
+                          {item.distance}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -295,72 +297,42 @@ export const LocationSection: React.FC = () => {
             } motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:transition-none`}
           >
             {/* Map Frame Wrapper:
-                - Rounded corners 24-28px (rounded-[26px])
-                - Soft layered shadow (shadow-2xl layered)
-                - No pale border (border-0, subtle ring-1 ring-black/5 for crisp edge definition)
-                - Height: 340-380px on mobile/tablet, 480px on desktop
+                - Clean rounded corners (rounded-[26px])
+                - Soft layered shadow & crisp subtle border
+                - Full-height interactive Google Map with native default marker
             */}
-            <div className="relative w-full h-[340px] sm:h-[380px] lg:h-[480px] rounded-[26px] overflow-hidden shadow-[0_20px_50px_rgba(6,32,56,0.10),0_6px_18px_rgba(0,163,224,0.06),0_1px_3px_rgba(6,32,56,0.04)] ring-1 ring-black/5 bg-slate-100">
-              {/* Iframe with Muted Custom Styling (Soft blue/grey filter, suppresses harsh default glare) */}
+            <div className="relative w-full h-[340px] sm:h-[380px] lg:h-[480px] rounded-[26px] overflow-hidden shadow-[0_20px_50px_rgba(6,32,56,0.10),0_6px_18px_rgba(0,163,224,0.06),0_1px_3px_rgba(6,32,56,0.04)] ring-1 ring-black/5 border border-cyan-100/60 bg-slate-100">
+              {/* Clean Google Map Embed with Official Business Listing Marker */}
               <iframe
                 title="Soul Dive Water Park Auraiya Location Map"
                 aria-label="Soul Dive Water Park interactive location map"
                 src={LOCATION_CONFIG.embedUrl}
-                className="w-full h-full border-0 select-none filter contrast-[1.02] brightness-[0.98] saturate-[0.8] grayscale-[25%]"
+                className="w-full h-full border-0"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
 
-              {/* Soft Brand Tone Overlay (pointer-events-none so users can pan/zoom if desired) */}
-              <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-brand-navy/[0.04] via-transparent to-brand-cyan/[0.05] mix-blend-multiply" />
-
-              {/* Custom Branded Marker (Centered on Soul Dive Site Coordinates) */}
-              <div
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none flex flex-col items-center select-none"
-                aria-hidden="true"
-              >
-                {/* Floating Branded Badge Label */}
-                <div className="mb-2 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md shadow-[0_4px_20px_rgba(6,32,56,0.18)] border border-cyan-100/90 flex items-center gap-2 transform transition-transform hover:scale-105">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-coral opacity-75" />
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-coral" />
-                  </span>
-                  <span className="text-xs font-bold font-heading text-brand-navy tracking-tight">
-                    {SOUL_DIVE_COORDINATES.name}
-                  </span>
-                  <span className="text-[10px] font-bold text-brand-cyan uppercase tracking-wider bg-brand-foam px-1.5 py-0.5 rounded-md border border-cyan-100">
-                    Biriya
-                  </span>
-                </div>
-
-                {/* Branded Pin Marker: Orange water-wave icon with pulsing ripple rings */}
-                <div className="relative flex items-center justify-center">
-                  {/* Outer pulse wave */}
-                  <div className="absolute -inset-3 rounded-full bg-brand-coral/20 animate-ping" />
-                  <div className="absolute -inset-1.5 rounded-full bg-brand-coral/30" />
-
-                  {/* Solid orange circular marker */}
-                  <div className="relative w-11 h-11 rounded-full bg-gradient-to-br from-brand-coral to-brand-coral-dark text-white flex items-center justify-center shadow-[0_8px_20px_rgba(255,87,34,0.45)] border-2 border-white ring-2 ring-brand-coral/40">
-                    <Waves className="w-5 h-5 text-white stroke-[2.5]" />
-                  </div>
-                </div>
-
-                {/* Downward Pointer Tip */}
-                <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-brand-coral-dark -mt-0.5 shadow-sm" />
-              </div>
-
-              {/* Floating "Open in Google Maps" Corner Micro-Pill */}
+              {/* Floating "Open in Google Maps" Corner Pill */}
               <a
                 href={LOCATION_CONFIG.googleMapsDirectionsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="absolute bottom-3.5 right-3.5 z-10 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-white/95 backdrop-blur-md text-brand-navy hover:text-brand-coral shadow-md hover:shadow-lg border border-slate-200/80 transition-all hover:scale-105 focus-visible:ring-2 focus-visible:ring-brand-coral focus-visible:outline-none"
+                className="absolute bottom-3.5 right-3.5 z-10 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold bg-white/95 backdrop-blur-md text-brand-navy hover:text-brand-coral shadow-md hover:shadow-lg border border-slate-200/80 transition-all hover:scale-105 focus-visible:ring-2 focus-visible:ring-brand-coral focus-visible:outline-none"
                 aria-label="Open Soul Dive location in Google Maps"
               >
                 <Navigation className="w-3.5 h-3.5 text-brand-coral" />
                 <span>Open in Maps</span>
                 <ExternalLink className="w-3 h-3 text-slate-400" />
               </a>
+            </div>
+
+            {/* Full Visible Address Card near the map */}
+            <div className="mt-3.5 flex items-start sm:items-center gap-2.5 text-xs sm:text-sm text-slate-700 bg-brand-foam/80 border border-cyan-100 rounded-2xl px-4 py-3 shadow-2xs">
+              <MapPin className="w-4 h-4 text-brand-coral shrink-0 mt-0.5 sm:mt-0" />
+              <span className="font-medium">
+                <strong className="text-brand-navy font-bold mr-1">Address:</strong>
+                {SOUL_DIVE_COORDINATES.fullAddress}
+              </span>
             </div>
           </div>
         </div>

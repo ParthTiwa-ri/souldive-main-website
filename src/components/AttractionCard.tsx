@@ -71,7 +71,7 @@ export const AttractionCard: React.FC<AttractionCardProps> = ({
         )}
 
         {/* Bottom Overlaid Content */}
-        <div className="relative z-10 p-5 sm:p-6 lg:p-7 flex flex-col justify-end mt-auto pt-6">
+        <div className="relative z-10 p-4 sm:p-5 lg:p-6 flex flex-col justify-end mt-auto pt-5">
           {/* Glass-Style Info Chips (Data-Driven & Editable, shown only if explicitly enabled) */}
           {showChips && attraction.chips && attraction.chips.length > 0 && (
             <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-2.5 sm:mb-3">
@@ -98,10 +98,11 @@ export const AttractionCard: React.FC<AttractionCardProps> = ({
             <div className="space-y-1 sm:space-y-1.5 max-w-xl">
               {/* Attraction Name (H3) */}
               <h3
-                className={`font-bold font-heading text-white tracking-tight leading-snug [text-wrap:balance] ${isLarge
+                className={`font-bold font-heading text-white tracking-tight leading-snug [text-wrap:balance] ${
+                  isLarge
                     ? "text-2xl sm:text-3xl lg:text-4xl"
                     : "text-lg sm:text-xl lg:text-2xl"
-                  }`}
+                }`}
               >
                 {attraction.name}
               </h3>

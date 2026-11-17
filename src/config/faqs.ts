@@ -25,7 +25,7 @@ export const faqs: FAQItem[] = [
     question: "What attractions and rides will Soul Dive feature?",
     hindiQuestion: "सोल डाइव में कौन-कौन से मुख्य झूले और पूल होंगे?",
     answer:
-      "Soul Dive will feature a large beach-entry Mega Wave Pool, a central multi-story Waterslide Complex (featuring the Pendulum Ride and Family Raft Slide), an Adult Leisure Pool, a specialized Junior Splash Pool with mushroom fountains and mini-slides, a high-energy Rain Dance Disk arena, expansive landscaped picnic lawns, a restaurant, and an outdoor shaded café.",
+      "Soul Dive will feature a large beach-entry Mega Wave Pool, a central multi-story Waterslide Complex (featuring the Pendulum Ride and Family Raft Slide), an Adult Leisure Pool, a specialized Junior Splash Pool with mushroom fountains and mini-slides, a high-energy Rain Dance Arena, expansive landscaped picnic lawns, a restaurant, and an outdoor shaded café.",
   },
   {
     category: "Timelines & Tickets",
@@ -53,7 +53,7 @@ export const faqs: FAQItem[] = [
     question: "How can I get construction updates and early announcements?",
     hindiQuestion: "मुझे निर्माण कार्य और उद्घाटन की जानकारी कैसे मिल सकती है?",
     answer:
-      "You can submit your phone number or email through the 'Opening Updates' form on this website, or connect with our official team directly via WhatsApp (+91 94505 71761) to join our VIP early-access notification list.",
+      "You can submit your phone number or email through the “Opening Updates” form on this website, or connect with our official team directly via WhatsApp (+91 97201 51220) to join our VIP early-access notification list.",
   },
 ];
 

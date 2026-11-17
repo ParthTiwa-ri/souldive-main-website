@@ -12,6 +12,20 @@ export interface AboutFounderQuote {
   avatar?: string;
 }
 
+/**
+ * Single Config Constant for the primary About Section / Page main image.
+ *
+ * FLAGGED ISSUE / THIRD-PARTY ASSET NOTICE:
+ * The current concept image (/images/soul-dive-vision-tropical.jpg) contains visible
+ * third-party signage:
+ *   - "WILD TROPICS WATERPARK" on the entrance archway
+ *   - "LAGOON CAFE" on the poolside dining facade
+ * Please replace this constant once a customized, signage-free 3D render or
+ * authentic on-site photograph is available.
+ */
+export const ABOUT_PAGE_MAIN_IMAGE = "/images/soul-dive-vision-tropical.jpg";
+export const ABOUT_PAGE_IMAGE = ABOUT_PAGE_MAIN_IMAGE;
+
 export interface AboutSectionConfig {
   eyebrow: string;
   heading: string;
@@ -21,7 +35,7 @@ export interface AboutSectionConfig {
    * NOTE / FLAGGED ISSUE:
    * The current concept visualization (/images/soul-dive-vision-tropical.jpg)
    * contains visible third-party signage ('WILD TROPICS WATERPARK' on the arch
-   * and 'Lagoon Café' on the dining facade).
+   * and 'LAGOON CAFE' on the dining facade).
    * Swap this constant once a customized, signage-free render is produced.
    */
   image: string;
@@ -42,10 +56,10 @@ export interface AboutSectionConfig {
 
 export const aboutConfig: AboutSectionConfig = {
   eyebrow: "ABOUT SOUL DIVE",
-  heading: "Auraiya's Day Out, Reimagined",
+  heading: "Auraiya’s Day Out, Reimagined",
   paragraph:
     "Soul Dive is a family water park coming to Biriya on Dibiyapur Road, with thrilling slides, rolling waves and shaded pools for every age.",
-  image: "/images/soul-dive-vision-tropical.jpg",
+  image: ABOUT_PAGE_MAIN_IMAGE,
   imageAlt:
     "Soul Dive Water Park Auraiya - Family Aquatic Leisure Destination",
   openingYearBadge: "Opening 2027",

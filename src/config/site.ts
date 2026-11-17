@@ -19,14 +19,18 @@ export const siteConfig = {
     formatted: "Biriya, Dibiyapur Road, Auraiya, Uttar Pradesh, India",
   },
   geo: {
-    latitude: 26.498,
-    longitude: 79.525,
+    latitude: 26.497275,
+    longitude: 79.53479,
+  },
+  maps: {
+    url: "https://maps.app.goo.gl/pqZceRkoguW8zFLT7",
+    placeId: "ChIJRYMuxdnznTkROkr12yl2A04",
   },
   contact: {
-    phone: "+91 94505 71761",
-    phoneDisplay: "+91 94505 71761",
-    whatsapp: "919450571761",
-    email: "info@souldive.in",
+    phone: "+91 97201 51220",
+    phoneDisplay: "+91 97201 51220",
+    whatsapp: "919720151220",
+    email: "souldivewaterpark@gmail.com",
   },
   social: {
     instagram: "https://instagram.com/souldivewaterpark",
@@ -42,10 +46,10 @@ export const siteConfig = {
     { name: "Kanpur Dehat", distance: "58 km", time: "65 mins" },
   ],
   meta: {
-    defaultTitle: "Soul Dive Water Park | Upcoming Premier Water Park in Auraiya",
+    defaultTitle: "Soul Dive Water Park Auraiya | Premier Family Water Park",
     titleTemplate: "%s | Soul Dive Water Park Auraiya",
     description:
-      "Soul Dive Water Park is taking shape at Biriya, Dibiyapur Road, Auraiya (UP). Preview our signature wave pool, water slides, kids play pool, rain dance disk, and guest amenities.",
+      "Soul Dive Water Park Auraiya is an upcoming aquatic leisure resort at Biriya, Dibiyapur Road. Preview our wave pool, water slides, and family attractions.",
     keywords: [
       "Water Park in Auraiya",
       "Water Park Auraiya",

@@ -5,10 +5,10 @@
  */
 
 export const SOUL_DIVE_COORDINATES = {
-  // Physical site coordinates: Biriya, Dibiyapur Road, Auraiya (UP)
-  lat: 26.498,
-  lng: 79.525,
-  zoom: 15,
+  // Verified physical site coordinates: Soul Dive waterpark, Biriya, Dibiyapur Road, Auraiya (UP)
+  lat: 26.497275,
+  lng: 79.53479,
+  zoom: 17, // Zoomed in 2 levels from 15 so site pin is focused and distinct
   name: "Soul Dive Water Park",
   locality: "Biriya",
   road: "Dibiyapur Road",
@@ -17,6 +17,8 @@ export const SOUL_DIVE_COORDINATES = {
   state: "Uttar Pradesh",
   postalCode: "206122",
   fullAddress: "Biriya, Dibiyapur Road, Auraiya, Uttar Pradesh 206122, India",
+  googleMapsUrl: "https://maps.app.goo.gl/pqZceRkoguW8zFLT7",
+  placeId: "ChIJRYMuxdnznTkROkr12yl2A04",
 } as const;
 
 export interface PrimaryDistanceStat {
@@ -131,11 +133,11 @@ export const SECONDARY_DISTANCES: SecondaryDistanceItem[] = [
 export const LOCATION_CONFIG = {
   eyebrow: "FIND US",
   heading: "Just 8 Minutes from Auraiya",
-  subtext: "On Dibiyapur Road at Biriya, with smooth dual-lane access from Auraiya and Dibiyapur.",
+  subtext: "Located on Dibiyapur Road at Biriya, Soul Dive Water Park is just minutes from Auraiya and Dibiyapur with dedicated on-site parking.",
   ctaText: "Get Directions",
   planYourTripNote: "Free parking at the entrance on Dibiyapur Road",
-  googleMapsDirectionsUrl: `https://www.google.com/maps/dir/?api=1&destination=${SOUL_DIVE_COORDINATES.lat},${SOUL_DIVE_COORDINATES.lng}`,
-  // Clean embed URL centered on coordinates with default info card suppressed (iwloc=)
-  embedUrl: `https://maps.google.com/maps?q=${SOUL_DIVE_COORDINATES.lat},${SOUL_DIVE_COORDINATES.lng}&hl=en&z=${SOUL_DIVE_COORDINATES.zoom}&t=m&iwloc=&output=embed`,
+  googleMapsDirectionsUrl: "https://maps.app.goo.gl/pqZceRkoguW8zFLT7",
+  // Verified embed URL centered on real Google Maps listing with business pin
+  embedUrl: `https://www.google.com/maps?q=Soul+Dive+waterpark&ll=${SOUL_DIVE_COORDINATES.lat},${SOUL_DIVE_COORDINATES.lng}&z=${SOUL_DIVE_COORDINATES.zoom}&output=embed`,
 };
 

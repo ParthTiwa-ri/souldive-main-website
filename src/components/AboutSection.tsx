@@ -82,7 +82,6 @@ export const AboutSection: React.FC = () => {
                   className={`object-cover transition-transform duration-1000 ease-out will-change-transform ${
                     isInView ? "scale-100" : "scale-[1.04]"
                   } motion-reduce:scale-100 motion-reduce:transition-none`}
-                  priority
                 />
 
                 {/* Subtle bottom-edge gradient scrim inside image */}

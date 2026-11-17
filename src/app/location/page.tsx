@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { LOCATION_CONFIG, SOUL_DIVE_COORDINATES } from "@/config/location";
-import { WaveDivider } from "@/components/WaveDivider";
+import { PageHeader } from "@/components/PageHeader";
+import { CopyCoordinatesButton } from "@/components/CopyCoordinatesButton";
 import {
   MapPin,
   Car,
@@ -15,14 +16,39 @@ import {
   ShieldCheck,
   ArrowRight,
   ExternalLink,
+  Waves,
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Location & Driving Directions | Dibiyapur Road, Auraiya",
+  title: "Location & Directions",
   description:
     "Find directions to Soul Dive Water Park at Biriya, Dibiyapur Road, Auraiya. Just 4 km from Auraiya town, 12 km from Dibiyapur, and 52 km from Etawah via NH-19.",
   alternates: {
     canonical: `${siteConfig.url}/location`,
+  },
+  openGraph: {
+    title: "Location & Directions | Soul Dive Water Park Auraiya",
+    description:
+      "Find directions to Soul Dive Water Park at Biriya, Dibiyapur Road, Auraiya. Just 4 km from Auraiya town, 12 km from Dibiyapur, and 52 km from Etawah via NH-19.",
+    url: `${siteConfig.url}/location`,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: "/images/soul-dive-hero-cinematic.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Soul Dive Water Park Auraiya Location Map",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Location & Directions | Soul Dive Water Park Auraiya",
+    description:
+      "Find directions to Soul Dive Water Park at Biriya, Dibiyapur Road, Auraiya. Just 4 km from Auraiya town, 12 km from Dibiyapur, and 52 km from Etawah via NH-19.",
+    images: ["/images/soul-dive-hero-cinematic.jpg"],
   },
 };
 
@@ -72,32 +98,18 @@ export default function LocationPage() {
     },
   ];
 
-  const googleMapsDirectionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${siteConfig.geo.latitude},${siteConfig.geo.longitude}`;
+  const googleMapsDirectionsUrl =
+    siteConfig.maps?.url ||
+    `https://www.google.com/maps/dir/?api=1&destination=${siteConfig.geo.latitude},${siteConfig.geo.longitude}`;
 
   return (
     <div className="w-full">
-      {/* Header */}
-      <section className="bg-brand-navy text-white pt-16 pb-20 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold bg-white/10 text-brand-gold border border-white/20 uppercase tracking-wider mb-4">
-            <MapPin className="w-3.5 h-3.5 text-brand-coral" />
-            <span>Highway Connectivity</span>
-          </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-heading tracking-tight">
-            Location & Route Directions
-          </h1>
-          <p className="text-sm sm:text-base md:text-lg text-slate-200 max-w-2xl mx-auto mt-4 leading-relaxed">
-            Conveniently situated at Biriya along the bustling Dibiyapur Road corridor, connecting Auraiya, Dibiyapur, and neighboring districts.
-          </p>
-        </div>
-
-        <WaveDivider
-          fillColor="#F0FBFD"
-          secondaryFillColor="#00A3E0"
-          position="bottom"
-          variant="dynamic"
-        />
-      </section>
+      {/* Shared Page Header */}
+      <PageHeader
+        eyebrow="FIND US"
+        title="Find Soul Dive"
+        subtitle="Conveniently situated at Biriya along the bustling Dibiyapur Road corridor, connecting Auraiya, Dibiyapur, and neighboring districts."
+      />
 
       {/* Main Content */}
       <section className="bg-brand-foam py-12 sm:py-20">
@@ -114,13 +126,13 @@ export default function LocationPage() {
                   Soul Dive Water Park
                 </h2>
                 <p className="text-sm text-slate-700 leading-relaxed">
-                  <strong>Land Location:</strong> Biriya, Dibiyapur Road, Auraiya, Uttar Pradesh 206122, India.
+                  <strong>Address:</strong> Biriya, Dibiyapur Road, Auraiya, Uttar Pradesh 206122, India.
                 </p>
 
-                <div className="pt-2 border-t border-cyan-50 space-y-2 text-xs text-slate-600">
-                  <div className="flex items-center gap-2">
-                    <Compass className="w-4 h-4 text-brand-coral shrink-0" />
-                    <span>Coordinates: 26.498° N, 79.525° E</span>
+                <div className="pt-2 border-t border-cyan-50 space-y-2.5 text-xs text-slate-600">
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-500 font-medium">GPS Coordinates:</span>
+                    <CopyCoordinatesButton coordinates={`${SOUL_DIVE_COORDINATES.lat}, ${SOUL_DIVE_COORDINATES.lng}`} />
                   </div>
                   <div className="flex items-center gap-2">
                     <Car className="w-4 h-4 text-brand-green shrink-0" />
@@ -144,7 +156,7 @@ export default function LocationPage() {
 
               {/* Quick Contact Card */}
               <div className="p-6 rounded-3xl bg-brand-navy text-white space-y-3">
-                <h3 className="text-lg font-bold font-heading text-brand-gold">
+                <h3 className="text-lg font-bold font-heading text-white">
                   Route Assistance & Inquiries
                 </h3>
                 <p className="text-xs text-slate-300">
@@ -171,16 +183,31 @@ export default function LocationPage() {
               </div>
             </div>
 
-            {/* Right: Embedded Interactive Map */}
+            {/* Right: Embedded Interactive Map with Official Google Maps Pin */}
             <div className="lg:col-span-7">
-              <div className="rounded-3xl overflow-hidden shadow-water-card border-2 border-cyan-100 bg-white p-3 aspect-[16/12]">
+              <div className="relative w-full h-[380px] sm:h-[420px] lg:h-[480px] rounded-[26px] overflow-hidden shadow-water-card border border-cyan-100 bg-slate-100 ring-1 ring-black/5">
+                {/* Clean Google Map Embed with Native Marker */}
                 <iframe
                   title="Soul Dive Water Park Auraiya Location Map"
+                  aria-label="Soul Dive Water Park interactive location map"
                   src={LOCATION_CONFIG.embedUrl}
-                  className="w-full h-full rounded-2xl border-0 filter contrast-[1.02] brightness-[0.98] saturate-[0.8] grayscale-[25%]"
+                  className="w-full h-full border-0"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 />
+
+                {/* Floating "Open in Google Maps" Corner Micro-Pill */}
+                <a
+                  href={LOCATION_CONFIG.googleMapsDirectionsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute bottom-3.5 right-3.5 z-10 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold bg-white/95 backdrop-blur-md text-brand-navy hover:text-brand-coral shadow-md hover:shadow-lg border border-slate-200/80 transition-all hover:scale-105 focus-visible:ring-2 focus-visible:ring-brand-coral focus-visible:outline-none"
+                  aria-label="Open Soul Dive location in Google Maps"
+                >
+                  <Navigation className="w-3.5 h-3.5 text-brand-coral" />
+                  <span>Open in Maps</span>
+                  <ExternalLink className="w-3 h-3 text-slate-400" />
+                </a>
               </div>
             </div>
           </div>

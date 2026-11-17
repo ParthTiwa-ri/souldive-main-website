@@ -2,54 +2,62 @@ import React from "react";
 import type { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { ContactForm } from "@/components/ContactForm";
-import { WaveDivider } from "@/components/WaveDivider";
+import { PageHeader } from "@/components/PageHeader";
 import {
   MapPin,
   Phone,
   Mail,
   MessageCircle,
   Clock,
-  Car,
-  Compass,
   ExternalLink,
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Contact Soul Dive Water Park | Phone, Email & Location",
+  title: "Contact & Inquiries",
   description:
-    "Get in touch with Soul Dive Water Park Auraiya. Located at Biriya on Dibiyapur Road. Inquire via WhatsApp, phone, or online message for project updates and pre-launch inquiries.",
+    "Contact Soul Dive Water Park Auraiya at Biriya, Dibiyapur Road. Inquire via WhatsApp, phone, or online message for project updates and launch details.",
   alternates: {
     canonical: `${siteConfig.url}/contact`,
+  },
+  openGraph: {
+    title: "Contact & Inquiries | Soul Dive Water Park Auraiya",
+    description:
+      "Contact Soul Dive Water Park Auraiya at Biriya, Dibiyapur Road. Inquire via WhatsApp, phone, or online message for project updates and launch details.",
+    url: `${siteConfig.url}/contact`,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: "/images/soul-dive-hero-cinematic.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Contact Soul Dive Water Park Auraiya",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact & Inquiries | Soul Dive Water Park Auraiya",
+    description:
+      "Contact Soul Dive Water Park Auraiya at Biriya, Dibiyapur Road. Inquire via WhatsApp, phone, or online message for project updates and launch details.",
+    images: ["/images/soul-dive-hero-cinematic.jpg"],
   },
 };
 
 export default function ContactPage() {
-  const googleMapsDirectionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${siteConfig.geo.latitude},${siteConfig.geo.longitude}`;
+  const googleMapsDirectionsUrl =
+    siteConfig.maps?.url ||
+    `https://www.google.com/maps/dir/?api=1&destination=${siteConfig.geo.latitude},${siteConfig.geo.longitude}`;
 
   return (
     <div className="w-full">
-      {/* Header */}
-      <section className="bg-brand-navy text-white pt-16 pb-20 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold bg-white/10 text-brand-gold border border-white/20 uppercase tracking-wider mb-4">
-            <Mail className="w-3.5 h-3.5 text-brand-cyan" />
-            <span>Official Communications</span>
-          </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-heading tracking-tight">
-            Contact Us & Inquire
-          </h1>
-          <p className="text-sm sm:text-base md:text-lg text-slate-200 max-w-2xl mx-auto mt-4 leading-relaxed">
-            Have questions regarding our Auraiya location, site progress, group bookings, or pre-launch announcements? We are here to help.
-          </p>
-        </div>
-
-        <WaveDivider
-          fillColor="#F0FBFD"
-          secondaryFillColor="#00A3E0"
-          position="bottom"
-          variant="dynamic"
-        />
-      </section>
+      {/* Shared Page Header */}
+      <PageHeader
+        eyebrow="OFFICIAL COMMUNICATIONS"
+        title="Talk to Our Team"
+        subtitle="Have questions regarding our Auraiya location, site progress, group bookings, or pre-launch announcements? We are here to help."
+      />
 
       {/* Main Content */}
       <section className="bg-brand-foam py-12 sm:py-20">
@@ -67,6 +75,38 @@ export default function ContactPage() {
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                   Our project coordination desk is available for location guidance, milestone briefings, and vendor or community inquiries.
                 </p>
+
+                {/* Quick-Action Buttons (Call, WhatsApp, Email reading from config) */}
+                <div className="grid grid-cols-3 gap-2.5 pt-2 border-t border-cyan-50">
+                  <a
+                    href={`tel:${siteConfig.contact.phone.replace(/[^0-9+]/g, "")}`}
+                    className="flex flex-col sm:flex-row items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl font-bold text-xs bg-brand-cyan hover:bg-brand-cyan-dark text-white shadow-xs transition-colors focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan"
+                    aria-label={`Call ${siteConfig.contact.phoneDisplay}`}
+                  >
+                    <Phone className="w-4 h-4 shrink-0" />
+                    <span>Call</span>
+                  </a>
+
+                  <a
+                    href={`https://wa.me/${siteConfig.contact.whatsapp}?text=Hi%20Soul%20Dive%20Water%20Park,%20I%20have%20an%20inquiry.`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-col sm:flex-row items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl font-bold text-xs bg-emerald-600 hover:bg-emerald-700 text-white shadow-xs transition-colors focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                    aria-label="Chat on WhatsApp"
+                  >
+                    <MessageCircle className="w-4 h-4 shrink-0" />
+                    <span>WhatsApp</span>
+                  </a>
+
+                  <a
+                    href={`mailto:${siteConfig.contact.email}`}
+                    className="flex flex-col sm:flex-row items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl font-bold text-xs bg-brand-navy hover:bg-brand-navy-light text-white shadow-xs transition-colors focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan"
+                    aria-label={`Email ${siteConfig.contact.email}`}
+                  >
+                    <Mail className="w-4 h-4 shrink-0" />
+                    <span>Email</span>
+                  </a>
+                </div>
 
                 <div className="space-y-4 pt-2 border-t border-cyan-50 text-sm">
                   <div className="flex items-start gap-3">
@@ -108,7 +148,7 @@ export default function ContactPage() {
                         rel="noopener noreferrer"
                         className="text-xs sm:text-sm text-emerald-700 hover:underline font-semibold"
                       >
-                        +91 94505 71761 (Instant Chat)
+                        {siteConfig.contact.phoneDisplay} (Instant Chat)
                       </a>
                     </div>
                   </div>

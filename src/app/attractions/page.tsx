@@ -4,43 +4,54 @@ import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { attractions } from "@/config/attractions";
 import { AttractionCard } from "@/components/AttractionCard";
-import { WaveDivider } from "@/components/WaveDivider";
+import { PageHeader } from "@/components/PageHeader";
 import { Waves, Sparkles, Compass, AlertCircle, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Proposed Attractions & Slides | Mega Wave Pool, Pendulum Ride",
+  title: "Attractions & Water Slides",
   description:
-    "Preview the proposed aquatic attractions planned for Soul Dive Water Park in Auraiya: Mega Wave Pool, Pendulum & Family Raft Slides, Rain Dance Disk, Kids Splash Lagoon, and Leisure Pools.",
+    "Preview proposed attractions for Soul Dive Water Park in Auraiya: Mega Wave Pool, Pendulum & Raft Slides, Rain Dance Arena, and Kids Splash Lagoon.",
   alternates: {
     canonical: `${siteConfig.url}/attractions`,
+  },
+  openGraph: {
+    title: "Attractions & Water Slides | Soul Dive Water Park Auraiya",
+    description:
+      "Preview proposed attractions for Soul Dive Water Park in Auraiya: Mega Wave Pool, Pendulum & Raft Slides, Rain Dance Arena, and Kids Splash Lagoon.",
+    url: `${siteConfig.url}/attractions`,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: "/images/soul-dive-hero-cinematic.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Soul Dive Water Park Auraiya Attractions",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Attractions & Water Slides | Soul Dive Water Park Auraiya",
+    description:
+      "Preview proposed attractions for Soul Dive Water Park in Auraiya: Mega Wave Pool, Pendulum & Raft Slides, Rain Dance Arena, and Kids Splash Lagoon.",
+    images: ["/images/soul-dive-hero-cinematic.jpg"],
   },
 };
 
 export default function AttractionsPage() {
+  const ridesAndPools = attractions.slice(0, 5);
+  const facilities = attractions.slice(5);
+
   return (
     <div className="w-full">
-      {/* Page Header */}
-      <section className="bg-brand-navy text-white pt-16 pb-20 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold bg-white/10 text-brand-gold border border-white/20 uppercase tracking-wider mb-4">
-            <Waves className="w-3.5 h-3.5 text-brand-cyan" />
-            <span>Proposed Aquatic Attractions</span>
-          </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-heading tracking-tight">
-            Proposed Attractions & Rides
-          </h1>
-          <p className="text-sm sm:text-base md:text-lg text-slate-200 max-w-2xl mx-auto mt-4 leading-relaxed">
-            From the roaring wave crests to gravity-defying slides and gentle toddler splash zones, preview what is planned for Soul Dive Water Park in Auraiya.
-          </p>
-        </div>
-
-        <WaveDivider
-          fillColor="#F0FBFD"
-          secondaryFillColor="#00A3E0"
-          position="bottom"
-          variant="dynamic"
-        />
-      </section>
+      {/* Shared Page Header */}
+      <PageHeader
+        eyebrow="SOUL DIVE ATTRACTIONS"
+        title="Attractions & Experiences"
+        subtitle="From the roaring wave crests to gravity-defying slides and gentle toddler splash zones, preview what is planned for Soul Dive Water Park in Auraiya."
+      />
 
       {/* Main Content Area */}
       <section className="bg-brand-foam py-12 sm:py-20">
@@ -53,16 +64,45 @@ export default function AttractionsPage() {
             </div>
           </div>
 
-          {/* Attraction Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {attractions.map((attraction, idx) => (
-              <AttractionCard
-                key={attraction.id}
-                attraction={attraction}
-                priority={idx < 3}
-                className="min-h-[380px]"
-              />
-            ))}
+          {/* Group 1: Rides & Pools (3-Column Grid) */}
+          <div className="mb-14 sm:mb-16">
+            <div className="mb-6">
+              <h2 className="text-xl sm:text-2xl font-bold font-heading text-brand-navy">
+                Rides & Pools
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {ridesAndPools.map((attraction, idx) => (
+                <div
+                  key={attraction.id}
+                  className={idx === 4 ? "md:col-span-2 lg:col-span-1" : ""}
+                >
+                  <AttractionCard
+                    attraction={attraction}
+                    priority={idx < 3}
+                    className="min-h-[380px] w-full h-full"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Group 2: Facilities (2-Column Grid) */}
+          <div className="mb-14 sm:mb-16">
+            <div className="mb-6">
+              <h2 className="text-xl sm:text-2xl font-bold font-heading text-brand-navy">
+                Facilities
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {facilities.map((attraction) => (
+                <AttractionCard
+                  key={attraction.id}
+                  attraction={attraction}
+                  className="min-h-[380px]"
+                />
+              ))}
+            </div>
           </div>
 
           {/* CTA Box */}

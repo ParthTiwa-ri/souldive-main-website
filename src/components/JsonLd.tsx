@@ -9,13 +9,13 @@ export const JsonLd: React.FC<JsonLdProps> = ({ breadcrumbs }) => {
   // LocalBusiness / AmusementPark Schema
   const businessSchema = {
     "@context": "https://schema.org",
-    "@type": "AmusementPark",
+    "@type": ["AmusementPark", "LocalBusiness"],
     "@id": `${siteConfig.url}/#waterpark`,
     name: siteConfig.name,
     legalName: siteConfig.legalName,
     url: siteConfig.url,
     logo: `${siteConfig.url}/images/Soul Dive Water Park Logo-1.png`,
-    image: `${siteConfig.url}/images/soul-dive-aerial-master-view.jpg`,
+    image: `${siteConfig.url}/images/soul-dive-hero-cinematic.jpg`,
     description: siteConfig.meta.description,
     telephone: siteConfig.contact.phone,
     email: siteConfig.contact.email,
@@ -32,7 +32,7 @@ export const JsonLd: React.FC<JsonLdProps> = ({ breadcrumbs }) => {
       latitude: siteConfig.geo.latitude,
       longitude: siteConfig.geo.longitude,
     },
-    hasMap: `${siteConfig.url}/location`,
+    hasMap: siteConfig.maps?.url || `${siteConfig.url}/location`,
     sameAs: [
       siteConfig.social.instagram,
       siteConfig.social.facebook,

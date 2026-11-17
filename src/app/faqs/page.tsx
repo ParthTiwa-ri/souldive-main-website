@@ -3,45 +3,70 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { faqs } from "@/config/faqs";
-import { WaveDivider } from "@/components/WaveDivider";
+import { PageHeader } from "@/components/PageHeader";
 import { HelpCircle, Sparkles, MessageCircle, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Frequently Asked Questions | Soul Dive Water Park Auraiya",
+  title: "Frequently Asked Questions",
   description:
-    "Find honest answers to questions about Soul Dive Water Park: project plans, location at Biriya on Dibiyapur Road, proposed rides, opening timeline, and future tickets.",
+    "Find answers to questions about Soul Dive Water Park: project status, location at Biriya on Dibiyapur Road, planned rides, opening season, and tickets.",
   alternates: {
     canonical: `${siteConfig.url}/faqs`,
+  },
+  openGraph: {
+    title: "Frequently Asked Questions | Soul Dive Water Park Auraiya",
+    description:
+      "Find answers to questions about Soul Dive Water Park: project status, location at Biriya on Dibiyapur Road, planned rides, opening season, and tickets.",
+    url: `${siteConfig.url}/faqs`,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: "/images/soul-dive-hero-cinematic.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Soul Dive Water Park Auraiya FAQs",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Frequently Asked Questions | Soul Dive Water Park Auraiya",
+    description:
+      "Find answers to questions about Soul Dive Water Park: project status, location at Biriya on Dibiyapur Road, planned rides, opening season, and tickets.",
+    images: ["/images/soul-dive-hero-cinematic.jpg"],
   },
 };
 
 export default function FAQsPage() {
   const categories = ["General", "Location", "Attractions", "Timelines & Tickets"] as const;
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
     <div className="w-full">
-      {/* Header */}
-      <section className="bg-brand-navy text-white pt-16 pb-20 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold bg-white/10 text-brand-gold border border-white/20 uppercase tracking-wider mb-4">
-            <HelpCircle className="w-3.5 h-3.5 text-brand-cyan" />
-            <span>Help & Information Center</span>
-          </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-heading tracking-tight">
-            Frequently Asked Questions
-          </h1>
-          <p className="text-sm sm:text-base md:text-lg text-slate-200 max-w-2xl mx-auto mt-4 leading-relaxed">
-            Transparent, verified answers about Soul Dive Water Park&apos;s project plans, location in Auraiya, planned rides, and future ticket policies.
-          </p>
-        </div>
-
-        <WaveDivider
-          fillColor="#F0FBFD"
-          secondaryFillColor="#00A3E0"
-          position="bottom"
-          variant="dynamic"
-        />
-      </section>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      {/* Shared Page Header */}
+      <PageHeader
+        eyebrow="HELP & INFORMATION CENTER"
+        title="Frequently Asked Questions"
+        subtitle="Transparent, verified answers about Soul Dive Water Park’s project plans, location in Auraiya, planned rides, and future ticket policies."
+      />
 
       {/* Main Content */}
       <section className="bg-brand-foam py-12 sm:py-20">

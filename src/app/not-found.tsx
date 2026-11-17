@@ -19,7 +19,7 @@ export default function NotFound() {
         </h1>
 
         <p className="text-sm text-slate-600 leading-relaxed">
-          The wave carried you to a page that doesn&apos;t exist. Let&apos;s guide you back to the main concourse or to explore our proposed rides.
+          The wave carried you to a page that doesn’t exist. Let’s guide you back to the main concourse or to explore our proposed rides.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-3">

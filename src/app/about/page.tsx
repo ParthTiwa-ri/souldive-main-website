@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/config/site";
-import { WaveDivider } from "@/components/WaveDivider";
+import { ABOUT_PAGE_MAIN_IMAGE } from "@/config/about";
+import { PageHeader } from "@/components/PageHeader";
 import {
   Sparkles,
   Waves,
@@ -15,39 +16,47 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About Soul Dive Water Park | Our Story & Vision for Auraiya",
+  title: "About Our Story & Vision",
   description:
-    "Learn about Soul Dive Water Park, Auraiya's upcoming premier family aquatic destination. Discover our vision, planned attractions, and commitment to family safety.",
+    "Learn about Soul Dive Water Park, Auraiya’s upcoming family aquatic resort. Discover our vision, planned slides, wave pool, and guest safety standards.",
   alternates: {
     canonical: `${siteConfig.url}/about`,
+  },
+  openGraph: {
+    title: "About Our Story & Vision | Soul Dive Water Park Auraiya",
+    description:
+      "Learn about Soul Dive Water Park, Auraiya’s upcoming family aquatic resort. Discover our vision, planned slides, wave pool, and guest safety standards.",
+    url: `${siteConfig.url}/about`,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: "/images/soul-dive-hero-cinematic.jpg",
+        width: 1200,
+        height: 630,
+        alt: "About Soul Dive Water Park Auraiya",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Our Story & Vision | Soul Dive Water Park Auraiya",
+    description:
+      "Learn about Soul Dive Water Park, Auraiya’s upcoming family aquatic resort. Discover our vision, planned slides, wave pool, and guest safety standards.",
+    images: ["/images/soul-dive-hero-cinematic.jpg"],
   },
 };
 
 export default function AboutPage() {
   return (
     <div className="w-full">
-      {/* Header */}
-      <section className="bg-brand-navy text-white pt-16 pb-20 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold bg-white/10 text-brand-gold border border-white/20 uppercase tracking-wider mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-brand-cyan" />
-            <span>Project Vision & Story</span>
-          </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-heading tracking-tight">
-            About Soul Dive Water Park
-          </h1>
-          <p className="text-sm sm:text-base md:text-lg text-slate-200 max-w-2xl mx-auto mt-4 leading-relaxed">
-            Creating a modern, safe, and joyful aquatic wonderland for families, students, and youth in Auraiya and surrounding regions.
-          </p>
-        </div>
-
-        <WaveDivider
-          fillColor="#F0FBFD"
-          secondaryFillColor="#00A3E0"
-          position="bottom"
-          variant="dynamic"
-        />
-      </section>
+      {/* Shared Page Header */}
+      <PageHeader
+        eyebrow="PROJECT VISION & STORY"
+        title="About Soul Dive Water Park"
+        subtitle="Creating a modern, safe, and joyful aquatic wonderland for families, students, and youth in Auraiya and surrounding regions."
+      />
 
       {/* Main Content */}
       <section className="bg-brand-foam py-12 sm:py-20">
@@ -56,8 +65,18 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-20">
             <div className="lg:col-span-6 relative">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/3]">
+                {/*
+                  Main Vision & Story Image:
+                  Sourced from the centralized ABOUT_PAGE_MAIN_IMAGE constant in @/config/about.
+                  FLAGGED ISSUE / ASSET AUDIT NOTICE:
+                  The current visualization shows third-party signage:
+                    - "WILD TROPICS WATERPARK" on the entrance archway
+                    - "LAGOON CAFE" on the poolside dining structure
+                  Update ABOUT_PAGE_MAIN_IMAGE in src/config/about.ts once custom branded renders
+                  or authentic on-site photography become available.
+                */}
                 <Image
-                  src="/images/soul-dive-vision-tropical.jpg"
+                  src={ABOUT_PAGE_MAIN_IMAGE}
                   alt="Soul Dive Water Park Tropical Destination Perspective"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -77,7 +96,10 @@ export default function AboutPage() {
                 Historically, families residing in Auraiya, Dibiyapur, Etawah, and Kanpur Dehat had limited nearby recreation during the sweltering North Indian summer months. Experiencing world-class waterslides or wave pools meant traveling 60–100 km to major metropolitan hubs.
               </p>
               <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-                <strong>Soul Dive Water Park</strong> was conceptualized to fill this void. Strategically situated at Biriya along the prime Dibiyapur Road corridor, Soul Dive is designed to be a local sanctuary of aquatic joy, combining exhilarating rides, pristine water hygiene, and serene landscaped picnic grounds.
+                <strong>Soul Dive Water Park</strong> was conceptualized to fill this void. Strategically situated at Biriya along the prime Dibiyapur Road corridor, the park brings world-class aquatic leisure directly to our regional community.
+              </p>
+              <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
+                Soul Dive is designed as a welcoming sanctuary of family joy, combining exhilarating rides and certified water hygiene standards with shaded green grounds for relaxed picnics and community celebrations.
               </p>
             </div>
           </div>

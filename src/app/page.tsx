@@ -40,6 +40,12 @@ export default function HomePage() {
           />
           {/* Directional Gradient Scrim: Deep navy contrast behind left text, crystal clear sunny water on right */}
           <div className="absolute inset-0 bg-gradient-hero-scrim pointer-events-none" />
+
+          {/* Soft Top Seam Gradient: navy #082B45 at ~60% opacity fading to transparent over ~120px so the nav blends into the photo */}
+          <div
+            className="absolute top-0 left-0 right-0 h-[120px] bg-gradient-to-b from-[#082B45]/60 to-transparent pointer-events-none z-10"
+            aria-hidden="true"
+          />
         </div>
 
         {/* Content Container (Left-Aligned, Max-Width Container) */}
@@ -63,7 +69,7 @@ export default function HomePage() {
 
             {/* 2. Headline (Max 2 lines, text-wrap: balance, semibold, fluid clamp, tighter letter spacing, orange accent on one word, no exclamation mark) */}
             <h1 className="animate-hero-fade-2 font-heading font-semibold sm:font-bold text-[clamp(2.15rem,4.4vw,4.25rem)] leading-[1.06] tracking-tight text-white mb-6 [text-wrap:balance]">
-              Auraiya&apos;s First Water Park Is{" "}
+              Auraiya’s First Water Park Is{" "}
               <span className="text-brand-coral inline-block">Almost</span> Here.
             </h1>
 
@@ -119,45 +125,46 @@ export default function HomePage() {
               Signature Attractions
             </h2>
             <p className="text-base sm:text-lg text-slate-600 mt-3.5 leading-relaxed [text-wrap:balance]">
-              Waves, slides and lazy pools, designed for every age.
+              Experience thrilling water slides, a mega wave pool, and relaxing lagoons at Auraiya’s premier water park.
             </p>
           </div>
 
-          {/* Bento Grid Showcase */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
-            {/* 1. Large Hero Bento Card: Mega Wave Pool (Spans 2 columns & 2 rows on desktop) */}
-            {attractions[0] && (
-              <div className="md:col-span-2 lg:col-span-2 lg:row-span-2 flex">
-                <AttractionCard
-                  attraction={attractions[0]}
-                  isLarge={true}
-                  priority={true}
-                  className="w-full min-h-[440px] sm:min-h-[480px] lg:min-h-[612px]"
-                />
-              </div>
-            )}
+          {/* Bento Grid Showcase - Sized to 95% container width & height */}
+          <div className="w-full max-w-[95%] mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-7 items-stretch">
+              {/* 1. Large Hero Bento Card: Mega Wave Pool (Spans 2 columns & 2 rows on desktop) */}
+              {attractions[0] && (
+                <div className="md:col-span-2 lg:col-span-2 lg:row-span-2 flex">
+                  <AttractionCard
+                    attraction={attractions[0]}
+                    isLarge={true}
+                    className="w-full min-h-[418px] sm:min-h-[456px] lg:min-h-[580px]"
+                  />
+                </div>
+              )}
 
-            {/* 2. Bento Card: Pendulum & Family Raft Slides */}
-            {attractions[1] && (
-              <div className="md:col-span-1 lg:col-span-1 flex">
-                <AttractionCard
-                  attraction={attractions[1]}
-                  isLarge={false}
-                  className="w-full min-h-[310px] sm:min-h-[320px] lg:min-h-[290px]"
-                />
-              </div>
-            )}
+              {/* 2. Bento Card: Pendulum & Family Raft Slides */}
+              {attractions[1] && (
+                <div className="md:col-span-1 lg:col-span-1 flex">
+                  <AttractionCard
+                    attraction={attractions[1]}
+                    isLarge={false}
+                    className="w-full min-h-[295px] sm:min-h-[304px] lg:min-h-[276px]"
+                  />
+                </div>
+              )}
 
-            {/* 3. Bento Card: Curvilinear Leisure Pool */}
-            {attractions[2] && (
-              <div className="md:col-span-1 lg:col-span-1 flex">
-                <AttractionCard
-                  attraction={attractions[2]}
-                  isLarge={false}
-                  className="w-full min-h-[310px] sm:min-h-[320px] lg:min-h-[290px]"
-                />
-              </div>
-            )}
+              {/* 3. Bento Card: Curvilinear Leisure Pool */}
+              {attractions[2] && (
+                <div className="md:col-span-1 lg:col-span-1 flex">
+                  <AttractionCard
+                    attraction={attractions[2]}
+                    isLarge={false}
+                    className="w-full min-h-[295px] sm:min-h-[304px] lg:min-h-[276px]"
+                  />
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Bottom Action CTA */}
@@ -186,28 +193,24 @@ export default function HomePage() {
       {/* =========================================================================
           SECTION 8: PRE-LAUNCH REGISTRATION & OPENING UPDATES
           ========================================================================= */}
-      <section id="updates" className="py-20 sm:py-28 bg-gradient-waterpark relative">
+      <section id="updates" className="py-16 sm:py-24 bg-gradient-waterpark relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ContactForm
-            title="Register for VIP Opening Updates"
-            subtitle="Be the first in Auraiya to know when ticket booking opens. Receive official milestone announcements and early-access family packages."
-            variant="opening-updates"
-          />
+          <ContactForm variant="opening-updates" />
         </div>
       </section>
 
       {/* =========================================================================
           SECTION 9: FREQUENTLY ASKED QUESTIONS
           ========================================================================= */}
-      <section className="py-20 sm:py-24 bg-white relative">
+      <section className="py-14 sm:py-20 bg-white relative">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <SectionEyebrow>Frequently Asked Questions</SectionEyebrow>
             <h2 className="text-3xl sm:text-4xl font-black font-heading text-brand-navy">
-              Everything You Need to Know
+              Everything You Need to Know About Soul Dive
             </h2>
-            <p className="text-sm text-slate-600 mt-2">
-              Transparent answers regarding our location, construction status, rides, and future ticket sales.
+            <p className="text-sm sm:text-base text-slate-600 mt-2 max-w-2xl mx-auto">
+              Find clear answers about Auraiya’s upcoming water park, including our water slides, wave pool, site location at Biriya, and construction timeline.
             </p>
           </div>
 

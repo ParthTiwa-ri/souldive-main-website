@@ -82,12 +82,12 @@ export const attractions: Attraction[] = [
   },
   {
     id: "rain-dance",
-    name: "Rain Dance Disk Arena",
-    hindiName: "रेन डांस डिस्क",
+    name: "Rain Dance Arena",
+    hindiName: "रेन डांस एरीना",
     category: "Family",
     categoryLabel: "Rain Party",
     shortDescription:
-      "Dance under refreshing overhead rain canopies and choreographed water jets set to high-energy party music.",
+      "Misting rain jets and a live music floor for splash-and-dance celebrations.",
     description:
       "A circular paved open-air dance amphitheater equipped with an overhead cantilevered rain-canopy, multi-directional high-pressure water nozzles, and dynamic party sound infrastructure.",
     image: "/images/rain-dance-3d.jpg",
@@ -109,7 +109,7 @@ export const attractions: Attraction[] = [
     category: "Kids",
     categoryLabel: "Kids Zone",
     shortDescription:
-      "A safe shallow water haven featuring mushroom spray umbrellas, tipping buckets, and gentle mini-slides for children.",
+      "A gentle splash zone with mini slides and water toys for little ones.",
     description:
       "A dedicated circular zero-depth to shallow wading pool designed exclusively for toddlers and children. Features colorful mushroom fountains, mini-flume slides, tipping buckets, and cushioned shade cabanas for parents.",
     image: "/images/kids-pool-3d.jpg",
@@ -122,18 +122,19 @@ export const attractions: Attraction[] = [
       "Surrounding cabana loungers with full parent visibility",
     ],
     masterPlanZone: "South-West Kids Zone (Adjacent to Green Ground for Kids)",
-    disclaimer: "Children's attraction visualization.",
+    disclaimer: "Children’s attraction visualization.",
   },
   {
     id: "restaurant-cafe",
-    name: "The Palm Grill & Outdoor Café",
-    hindiName: "रेस्टोरेंट और आउटडोर कैफ़े",
+    name: "Outdoor Café",
+    hindiName: "आउटडोर कैफ़े",
     category: "Dining & Amenities",
     categoryLabel: "Dining & Cafe",
     shortDescription:
-      "Enjoy delicious family meals, chilled refreshments, and quick bites on our scenic poolside al-fresco terrace.",
+      "Poolside dining and shaded tables for snacks, meals and cool drinks.",
     description:
       "A modern restaurant building paired with a spacious al-fresco terrace featuring shaded dining tables, poolside reflection fountains, and quick-service kiosks serving family-favorite refreshments.",
+    // Flagged: Render image displays readable third-party text ("THE PALM GRILL") on exterior signage; needs custom branding replacement.
     image: "/images/restaurant-cafe-3d.jpg",
     badge: "Dining & Hospitality",
     chips: ["Multi-cuisine", "Poolside patio", "Snacks"],
@@ -148,12 +149,12 @@ export const attractions: Attraction[] = [
   },
   {
     id: "entrance-concourse",
-    name: "Grand Arrival Concourse & Facilities",
+    name: "Grand Arrival Concourse",
     hindiName: "प्रवेश द्वार एवं स्वागत परिसर",
     category: "Dining & Amenities",
     categoryLabel: "Guest Services",
     shortDescription:
-      "Streamlined ticketing windows, secure lockers, spacious changing rooms, and guest parking for hassle-free visits.",
+      "A welcoming entrance with ticketing, guest services and easy access.",
     description:
       "A modern entrance concourse housing streamlined ticket counters, turnstile entries, waiting lobby, costume issue & return counters, private changing suites, clean shower stalls, and secure electronic lockers.",
     image: "/images/entrance-concourse-3d.jpg",

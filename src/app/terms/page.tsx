@@ -1,42 +1,49 @@
 import React from "react";
 import type { Metadata } from "next";
 import { siteConfig } from "@/config/site";
-import { WaveDivider } from "@/components/WaveDivider";
-import { AlertCircle } from "lucide-react";
+import { PageHeader } from "@/components/PageHeader";
 
 export const metadata: Metadata = {
-  title: "Terms of Use & Disclaimers | Soul Dive Water Park Auraiya",
+  title: "Terms of Use & Disclaimers",
   description:
-    "Terms of Use and conceptual rendering disclaimers for Soul Dive Water Park Auraiya website.",
+    "Terms of Use, visitor guidelines, and conceptual rendering disclaimers for the official Soul Dive Water Park Auraiya website.",
   alternates: {
     canonical: `${siteConfig.url}/terms`,
+  },
+  openGraph: {
+    title: "Terms of Use & Disclaimers | Soul Dive Water Park Auraiya",
+    description:
+      "Terms of Use, visitor guidelines, and conceptual rendering disclaimers for the official Soul Dive Water Park Auraiya website.",
+    url: `${siteConfig.url}/terms`,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: "/images/soul-dive-hero-cinematic.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Soul Dive Water Park Auraiya Terms",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terms of Use & Disclaimers | Soul Dive Water Park Auraiya",
+    description:
+      "Terms of Use, visitor guidelines, and conceptual rendering disclaimers for the official Soul Dive Water Park Auraiya website.",
+    images: ["/images/soul-dive-hero-cinematic.jpg"],
   },
 };
 
 export default function TermsPage() {
   return (
     <div className="w-full">
-      <section className="bg-brand-navy text-white pt-16 pb-20 relative overflow-hidden">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-white/10 text-brand-gold uppercase tracking-wider mb-4">
-            <AlertCircle className="w-4 h-4 text-brand-coral" />
-            <span>Official Disclaimers</span>
-          </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black font-heading">
-            Terms & Disclaimers
-          </h1>
-          <p className="text-sm text-slate-300 mt-2">
-            Last Updated: November 2026 • Soul Dive Water Park, Auraiya
-          </p>
-        </div>
-
-        <WaveDivider
-          fillColor="#F0FBFD"
-          secondaryFillColor="#00A3E0"
-          position="bottom"
-          variant="dynamic"
-        />
-      </section>
+      <PageHeader
+        eyebrow="OFFICIAL DISCLAIMERS"
+        title="Terms & Disclaimers"
+        subtitle="Last Updated: November 2026 • Official terms of use, visitor guidelines, and conceptual rendering disclaimers."
+      />
 
       <section className="bg-brand-foam py-12 sm:py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -1,0 +1,999 @@
+{
+  "summary": {
+    "health_score": 79,
+    "business_type": "Water Park & Aquatic Resort (Local Service / Entertainment / Tourism)",
+    "primary_location": "Biriya, Dibiyapur Road, Auraiya, Uttar Pradesh, India",
+    "total_pages_audited": 9,
+    "total_findings": 21,
+    "critical_count": 0,
+    "high_count": 0,
+    "medium_count": 0,
+    "low_count": 21
+  },
+  "findings_by_severity": {
+    "Critical": [],
+    "High": [],
+    "Medium": [],
+    "Low": [
+      {
+        "page": "/",
+        "check": "images-missing-dimensions",
+        "message": "9 images lack explicit width/height attributes (risk of CLS).",
+        "evidence": ""
+      },
+      {
+        "page": "/attractions",
+        "check": "images-missing-dimensions",
+        "message": "9 images lack explicit width/height attributes (risk of CLS).",
+        "evidence": ""
+      },
+      {
+        "page": "/location",
+        "check": "images-missing-dimensions",
+        "message": "2 images lack explicit width/height attributes (risk of CLS).",
+        "evidence": ""
+      },
+      {
+        "page": "/about",
+        "check": "images-missing-dimensions",
+        "message": "3 images lack explicit width/height attributes (risk of CLS).",
+        "evidence": ""
+      },
+      {
+        "page": "/faqs",
+        "check": "images-missing-dimensions",
+        "message": "2 images lack explicit width/height attributes (risk of CLS).",
+        "evidence": ""
+      },
+      {
+        "page": "/opening-updates",
+        "check": "heading-level-skip",
+        "message": "Heading level skipped from H2 to H4 ('Quick Links').",
+        "evidence": ""
+      },
+      {
+        "page": "/opening-updates",
+        "check": "images-missing-dimensions",
+        "message": "2 images lack explicit width/height attributes (risk of CLS).",
+        "evidence": ""
+      },
+      {
+        "page": "/contact",
+        "check": "heading-level-skip",
+        "message": "Heading level skipped from H2 to H4 ('Quick Links').",
+        "evidence": ""
+      },
+      {
+        "page": "/contact",
+        "check": "images-missing-dimensions",
+        "message": "2 images lack explicit width/height attributes (risk of CLS).",
+        "evidence": ""
+      },
+      {
+        "page": "/privacy-policy",
+        "check": "heading-level-skip",
+        "message": "Heading level skipped from H2 to H4 ('Quick Links').",
+        "evidence": ""
+      },
+      {
+        "page": "/privacy-policy",
+        "check": "images-missing-dimensions",
+        "message": "2 images lack explicit width/height attributes (risk of CLS).",
+        "evidence": ""
+      },
+      {
+        "page": "/terms",
+        "check": "heading-level-skip",
+        "message": "Heading level skipped from H2 to H4 ('Quick Links').",
+        "evidence": ""
+      },
+      {
+        "page": "/terms",
+        "check": "images-missing-dimensions",
+        "message": "2 images lack explicit width/height attributes (risk of CLS).",
+        "evidence": ""
+      },
+      {
+        "page": "/attractions",
+        "check": "missing-breadcrumb-schema",
+        "message": "Page lacks BreadcrumbList schema for enhanced SERP navigation breadcrumbs.",
+        "evidence": "Types: [['AmusementPark', 'LocalBusiness'], 'WebSite']"
+      },
+      {
+        "page": "/location",
+        "check": "missing-breadcrumb-schema",
+        "message": "Page lacks BreadcrumbList schema for enhanced SERP navigation breadcrumbs.",
+        "evidence": "Types: [['AmusementPark', 'LocalBusiness'], 'WebSite']"
+      },
+      {
+        "page": "/about",
+        "check": "missing-breadcrumb-schema",
+        "message": "Page lacks BreadcrumbList schema for enhanced SERP navigation breadcrumbs.",
+        "evidence": "Types: [['AmusementPark', 'LocalBusiness'], 'WebSite']"
+      },
+      {
+        "page": "/faqs",
+        "check": "missing-breadcrumb-schema",
+        "message": "Page lacks BreadcrumbList schema for enhanced SERP navigation breadcrumbs.",
+        "evidence": "Types: [['AmusementPark', 'LocalBusiness'], 'WebSite', 'FAQPage']"
+      },
+      {
+        "page": "/opening-updates",
+        "check": "missing-breadcrumb-schema",
+        "message": "Page lacks BreadcrumbList schema for enhanced SERP navigation breadcrumbs.",
+        "evidence": "Types: [['AmusementPark', 'LocalBusiness'], 'WebSite']"
+      },
+      {
+        "page": "/contact",
+        "check": "missing-breadcrumb-schema",
+        "message": "Page lacks BreadcrumbList schema for enhanced SERP navigation breadcrumbs.",
+        "evidence": "Types: [['AmusementPark', 'LocalBusiness'], 'WebSite']"
+      },
+      {
+        "page": "/privacy-policy",
+        "check": "missing-breadcrumb-schema",
+        "message": "Page lacks BreadcrumbList schema for enhanced SERP navigation breadcrumbs.",
+        "evidence": "Types: [['AmusementPark', 'LocalBusiness'], 'WebSite']"
+      },
+      {
+        "page": "/terms",
+        "check": "missing-breadcrumb-schema",
+        "message": "Page lacks BreadcrumbList schema for enhanced SERP navigation breadcrumbs.",
+        "evidence": "Types: [['AmusementPark', 'LocalBusiness'], 'WebSite']"
+      }
+    ]
+  },
+  "page_results": [
+    {
+      "url_path": "/",
+      "facts": {
+        "url": "https://souldive.in/",
+        "title": "Soul Dive Water Park Auraiya | Premier Family Water Park",
+        "title_length": 56,
+        "meta_description": "Soul Dive Water Park Auraiya is an upcoming aquatic leisure resort at Biriya, Dibiyapur Road. Preview our wave pool, water slides, and family attractions.",
+        "meta_description_length": 154,
+        "canonical": "https://souldive.in",
+        "h1_count": 1,
+        "h2_count": 6,
+        "h3_count": 17,
+        "word_count": 1061,
+        "image_count": 9,
+        "link_count": 29,
+        "jsonld_count": 2,
+        "html_bytes": 138075,
+        "dom_max_depth": 15,
+        "open_graph_tags": 10,
+        "twitter_tags": 4,
+        "parsed_jsonld": [
+          {
+            "@context": "https://schema.org",
+            "@type": [
+              "AmusementPark",
+              "LocalBusiness"
+            ],
+            "@id": "https://souldive.in/#waterpark",
+            "name": "Soul Dive Water Park",
+            "legalName": "Soul Dive Water Park",
+            "url": "https://souldive.in",
+            "logo": "https://souldive.in/images/Soul Dive Water Park Logo-1.png",
+            "image": "https://souldive.in/images/soul-dive-hero-cinematic.jpg",
+            "description": "Soul Dive Water Park Auraiya is an upcoming aquatic leisure resort at Biriya, Dibiyapur Road. Preview our wave pool, water slides, and family attractions.",
+            "telephone": "+91 97201 51220",
+            "email": "souldivewaterpark@gmail.com",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Biriya, Dibiyapur Road",
+              "addressLocality": "Auraiya",
+              "addressRegion": "Uttar Pradesh",
+              "postalCode": "206122",
+              "addressCountry": "IN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 26.498,
+              "longitude": 79.525
+            },
+            "hasMap": "https://souldive.in/location",
+            "sameAs": [
+              "https://instagram.com/souldivewaterpark",
+              "https://facebook.com/souldivewaterpark",
+              "https://youtube.com/@souldivewaterpark"
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": "https://souldive.in/#website",
+            "url": "https://souldive.in",
+            "name": "Soul Dive Water Park",
+            "description": "Soul Dive Water Park Auraiya is an upcoming aquatic leisure resort at Biriya, Dibiyapur Road. Preview our wave pool, water slides, and family attractions.",
+            "publisher": {
+              "@id": "https://souldive.in/#waterpark"
+            },
+            "inLanguage": [
+              "en-IN",
+              "hi-IN"
+            ]
+          }
+        ]
+      },
+      "findings": [
+        {
+          "id": "images-missing-dimensions",
+          "severity": "Low",
+          "message": "9 images lack explicit width/height attributes (risk of CLS).",
+          "count": 9
+        }
+      ]
+    },
+    {
+      "url_path": "/attractions",
+      "facts": {
+        "url": "https://souldive.in/attractions",
+        "title": "Attractions & Water Slides | Soul Dive Water Park Auraiya",
+        "title_length": 57,
+        "meta_description": "Preview proposed attractions for Soul Dive Water Park in Auraiya: Mega Wave Pool, Pendulum & Raft Slides, Rain Dance Disk, and Kids Splash Lagoon.",
+        "meta_description_length": 146,
+        "canonical": "https://souldive.in/attractions",
+        "h1_count": 1,
+        "h2_count": 1,
+        "h3_count": 8,
+        "word_count": 319,
+        "image_count": 9,
+        "link_count": 23,
+        "jsonld_count": 2,
+        "html_bytes": 82763,
+        "dom_max_depth": 13,
+        "open_graph_tags": 10,
+        "twitter_tags": 4,
+        "parsed_jsonld": [
+          {
+            "@context": "https://schema.org",
+            "@type": [
+              "AmusementPark",
+              "LocalBusiness"
+            ],
+            "@id": "https://souldive.in/#waterpark",
+            "name": "Soul Dive Water Park",
+            "legalName": "Soul Dive Water Park",
+            "url": "https://souldive.in",
+            "logo": "https://souldive.in/images/Soul Dive Water Park Logo-1.png",
+            "image": "https://souldive.in/images/soul-dive-hero-cinematic.jpg",
+            "description": "Soul Dive Water Park Auraiya is an upcoming aquatic leisure resort at Biriya, Dibiyapur Road. Preview our wave pool, water slides, and family attractions.",
+            "telephone": "+91 97201 51220",
+            "email": "souldivewaterpark@gmail.com",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Biriya, Dibiyapur Road",
+              "addressLocality": "Auraiya",
+              "addressRegion": "Uttar Pradesh",
+              "postalCode": "206122",
+              "addressCountry": "IN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 26.498,
+              "longitude": 79.525
+            },
+            "hasMap": "https://souldive.in/location",
+            "sameAs": [
+              "https://instagram.com/souldivewaterpark",
+              "https://facebook.com/souldivewaterpark",
+              "https://youtube.com/@souldivewaterpark"
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": "https://souldive.in/#website",
+            "url": "https://souldive.in",
+            "name": "Soul Dive Water Park",
+            "description": "Soul Dive Water Park Auraiya is an upcoming aquatic leisure resort at Biriya, Dibiyapur Road. Preview our wave pool, water slides, and family attractions.",
+            "publisher": {
+              "@id": "https://souldive.in/#waterpark"
+            },
+            "inLanguage": [
+              "en-IN",
+              "hi-IN"
+            ]
+          }
+        ]
+      },
+      "findings": [
+        {
+          "id": "images-missing-dimensions",
+          "severity": "Low",
+          "message": "9 images lack explicit width/height attributes (risk of CLS).",
+          "count": 9
+        }
+      ]
+    },
+    {
+      "url_path": "/location",
+      "facts": {
+        "url": "https://souldive.in/location",
+        "title": "Location & Directions | Soul Dive Water Park Auraiya",
+        "title_length": 52,
+        "meta_description": "Find directions to Soul Dive Water Park at Biriya, Dibiyapur Road, Auraiya. Just 4 km from Auraiya town, 12 km from Dibiyapur, and 52 km from Etawah via NH-19.",
+        "meta_description_length": 159,
+        "canonical": "https://souldive.in/location",
+        "h1_count": 1,
+        "h2_count": 2,
+        "h3_count": 7,
+        "word_count": 365,
+        "image_count": 2,
+        "link_count": 26,
+        "jsonld_count": 2,
+        "html_bytes": 69322,
+        "dom_max_depth": 13,
+        "open_graph_tags": 10,
+        "twitter_tags": 4,
+        "parsed_jsonld": [
+          {
+            "@context": "https://schema.org",
+            "@type": [
+              "AmusementPark",
+              "LocalBusiness"
+            ],
+            "@id": "https://souldive.in/#waterpark",
+            "name": "Soul Dive Water Park",
+            "legalName": "Soul Dive Water Park",
+            "url": "https://souldive.in",
+            "logo": "https://souldive.in/images/Soul Dive Water Park Logo-1.png",
+            "image": "https://souldive.in/images/soul-dive-hero-cinematic.jpg",
+            "description": "Soul Dive Water Park Auraiya is an upcoming aquatic leisure resort at Biriya, Dibiyapur Road. Preview our wave pool, water slides, and family attractions.",
+            "telephone": "+91 97201 51220",
+            "email": "souldivewaterpark@gmail.com",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Biriya, Dibiyapur Road",
+              "addressLocality": "Auraiya",
+              "addressRegion": "Uttar Pradesh",
+              "postalCode": "206122",
+              "addressCountry": "IN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 26.498,
+              "longitude": 79.525
+            },
+            "hasMap": "https://souldive.in/location",
+            "sameAs": [
+              "https://instagram.com/souldivewaterpark",
+              "https://facebook.com/souldivewaterpark",
+              "https://youtube.com/@souldivewaterpark"
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": "https://souldive.in/#website",
+            "url": "https://souldive.in",
+            "name": "Soul Dive Water Park",
+            "description": "Soul Dive Water Park Auraiya is an upcoming aquatic leisure resort at Biriya, Dibiyapur Road. Preview our wave pool, water slides, and family attractions.",
+            "publisher": {
+              "@id": "https://souldive.in/#waterpark"
+            },
+            "inLanguage": [
+              "en-IN",
+              "hi-IN"
+            ]
+          }
+        ]
+      },
+      "findings": [
+        {
+          "id": "images-missing-dimensions",
+          "severity": "Low",
+          "message": "2 images lack explicit width/height attributes (risk of CLS).",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "url_path": "/about",
+      "facts": {
+        "url": "https://souldive.in/about",
+        "title": "About Our Story & Vision | Soul Dive Water Park Auraiya",
+        "title_length": 55,
+        "meta_description": "Learn about Soul Dive Water Park, Auraiya's upcoming family aquatic resort. Discover our vision, planned slides, wave pool, and guest safety standards.",
+        "meta_description_length": 151,
+        "canonical": "https://souldive.in/about",
+        "h1_count": 1,
+        "h2_count": 3,
+        "h3_count": 4,
+        "word_count": 405,
+        "image_count": 3,
+        "link_count": 24,
+        "jsonld_count": 2,
+        "html_bytes": 61295,
+        "dom_max_depth": 12,
+        "open_graph_tags": 10,
+        "twitter_tags": 4,
+        "parsed_jsonld": [
+          {
+            "@context": "https://schema.org",
+            "@type": [
+              "AmusementPark",
+              "LocalBusiness"
+            ],
+            "@id": "https://souldive.in/#waterpark",
+            "name": "Soul Dive Water Park",
+            "legalName": "Soul Dive Water Park",
+            "url": "https://souldive.in",
+            "logo": "https://souldive.in/images/Soul Dive Water Park Logo-1.png",
+            "image": "https://souldive.in/images/soul-dive-hero-cinematic.jpg",
+            "description": "Soul Dive Water Park Auraiya is an upcoming aquatic leisure resort at Biriya, Dibiyapur Road. Preview our wave pool, water slides, and family attractions.",
+            "telephone": "+91 97201 51220",
+            "email": "souldivewaterpark@gmail.com",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Biriya, Dibiyapur Road",
+              "addressLocality": "Auraiya",
+              "addressRegion": "Uttar Pradesh",
+              "postalCode": "206122",
+              "addressCountry": "IN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 26.498,
+              "longitude": 79.525
+            },
+            "hasMap": "https://souldive.in/location",
+            "sameAs": [
+              "https://instagram.com/souldivewaterpark",
+              "https://facebook.com/souldivewaterpark",
+              "https://youtube.com/@souldivewaterpark"
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": "https://souldive.in/#website",
+            "url": "https://souldive.in",
+            "name": "Soul Dive Water Park",
+            "description": "Soul Dive Water Park Auraiya is an upcoming aquatic leisure resort at Biriya, Dibiyapur Road. Preview our wave pool, water slides, and family attractions.",
+            "publisher": {
+              "@id": "https://souldive.in/#waterpark"
+            },
+            "inLanguage": [
+              "en-IN",
+              "hi-IN"
+            ]
+          }
+        ]
+      },
+      "findings": [
+        {
+          "id": "images-missing-dimensions",
+          "severity": "Low",
+          "message": "3 images lack explicit width/height attributes (risk of CLS).",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "url_path": "/faqs",
+      "facts": {
+        "url": "https://souldive.in/faqs",
+        "title": "Frequently Asked Questions | Soul Dive Water Park Auraiya",
+        "title_length": 57,
+        "meta_description": "Find answers to questions about Soul Dive Water Park: project status, location at Biriya on Dibiyapur Road, planned rides, opening season, and tickets.",
+        "meta_description_length": 151,
+        "canonical": "https://souldive.in/faqs",
+        "h1_count": 1,
+        "h2_count": 4,
+        "h3_count": 8,
+        "word_count": 617,
+        "image_count": 2,
+        "link_count": 24,
+        "jsonld_count": 3,
+        "html_bytes": 75391,
+        "dom_max_depth": 13,
+        "open_graph_tags": 10,
+        "twitter_tags": 4,
+        "parsed_jsonld": [
+          {
+            "@context": "https://schema.org",
+            "@type": [
+              "AmusementPark",
+              "LocalBusiness"
+            ],
+            "@id": "https://souldive.in/#waterpark",
+            "name": "Soul Dive Water Park",
+            "legalName": "Soul Dive Water Park",
+            "url": "https://souldive.in",
+            "logo": "https://souldive.in/images/Soul Dive Water Park Logo-1.png",
+            "image": "https://souldive.in/images/soul-dive-hero-cinematic.jpg",
+            "description": "Soul Dive Water Park Auraiya is an upcoming aquatic leisure resort at Biriya, Dibiyapur Road. Preview our wave pool, water slides, and family attractions.",
+            "telephone": "+91 97201 51220",
+            "email": "souldivewaterpark@gmail.com",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Biriya, Dibiyapur Road",
+              "addressLocality": "Auraiya",
+              "addressRegion": "Uttar Pradesh",
+              "postalCode": "206122",
+              "addressCountry": "IN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 26.498,
+              "longitude": 79.525
+            },
+            "hasMap": "https://souldive.in/location",
+            "sameAs": [
+              "https://instagram.com/souldivewaterpark",
+              "https://facebook.com/souldivewaterpark",
+              "https://youtube.com/@souldivewaterpark"
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": "https://souldive.in/#website",
+            "url": "https://souldive.in",
+            "name": "Soul Dive Water Park",
+            "description": "Soul Dive Water Park Auraiya is an upcoming aquatic leisure resort at Biriya, Dibiyapur Road. Preview our wave pool, water slides, and family attractions.",
+            "publisher": {
+              "@id": "https://souldive.in/#waterpark"
+            },
+            "inLanguage": [
+              "en-IN",
+              "hi-IN"
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Is Soul Dive Water Park currently open to the public?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. Soul Dive Water Park is currently under active development and construction in Auraiya, Uttar Pradesh. The park is non-operational at this stage. We are preparing a world-class aquatic experience for our guests. You can register on our website or contact us via WhatsApp to receive official opening announcements as we approach completion."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Where is Soul Dive Water Park located?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "The park is located at Biriya, Dibiyapur Road, Auraiya, Uttar Pradesh (PIN: 206122). It is strategically situated along the main Dibiyapur Road corridor, approximately 4 km from Auraiya city center, 12 km from Dibiyapur town, and within easy driving distance from Etawah (52 km via NH-19) and Kanpur Dehat."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What attractions and rides will Soul Dive feature?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Soul Dive will feature a large beach-entry Mega Wave Pool, a central multi-story Waterslide Complex (featuring the Pendulum Ride and Family Raft Slide), an Adult Leisure Pool, a specialized Junior Splash Pool with mushroom fountains and mini-slides, a high-energy Rain Dance Arena, expansive landscaped picnic lawns, a restaurant, and an outdoor shaded caf\u00e9."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "When will Soul Dive Water Park open, and what will ticket prices be?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "An official opening date and ticket pricing structure have not been finalized yet. We strictly avoid speculative claims. Accurate ticket prices, timing packages (for adults, children, and students), and launch dates will be publicly announced through our official website and WhatsApp channel once project milestones are achieved."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Will the water park be suitable for young children and families?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, family entertainment is our primary design objective. Soul Dive includes a completely dedicated Kids Pool (0.3m to 0.6m safe shallow depth) with soft-spray water mushrooms and mini-slides, surrounded by dedicated shade cabanas so parents have full visibility of their children at all times."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is parking available at the venue?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. The park layout includes extensive four-wheeler and two-wheeler parking bays directly outside the main entrance concourse along Dibiyapur Road to ensure convenient, secure guest arrival."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How can I get construction updates and early announcements?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "You can submit your phone number or email through the 'Opening Updates' form on this website, or connect with our official team directly via WhatsApp (+91 94505 71761) to join our VIP early-access notification list."
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "findings": [
+        {
+          "id": "images-missing-dimensions",
+          "severity": "Low",
+          "message": "2 images lack explicit width/height attributes (risk of CLS).",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "url_path": "/opening-updates",
+      "facts": {
+        "url": "https://souldive.in/opening-updates",
+        "title": "Opening Updates & VIP Access | Soul Dive Water Park Auraiya",
+        "title_length": 59,
+        "meta_description": "Register for official opening updates, launch announcements, and early-bird family ticket packages for Soul Dive Water Park in Auraiya, Uttar Pradesh.",
+        "meta_description_length": 150,
+        "canonical": "https://souldive.in/opening-updates",
+        "h1_count": 1,
+        "h2_count": 2,
+        "h3_count": 3,
+        "word_count": 258,
+        "image_count": 2,
+        "link_count": 22,
+        "jsonld_count": 2,
+        "html_bytes": 51914,
+        "dom_max_depth": 12,
+        "open_graph_tags": 10,
+        "twitter_tags": 4,
+        "parsed_jsonld": [
+          {
+            "@context": "https://schema.org",
+            "@type": [
+              "AmusementPark",
+              "LocalBusiness"
+            ],
+            "@id": "https://souldive.in/#waterpark",
+            "name": "Soul Dive Water Park",
+            "legalName": "Soul Dive Water Park",
+            "url": "https://souldive.in",
+            "logo": "https://souldive.in/images/Soul Dive Water Park Logo-1.png",
+            "image": "https://souldive.in/images/soul-dive-hero-cinematic.jpg",
+            "description": "Soul Dive Water Park Auraiya is an upcoming aquatic leisure resort at Biriya, Dibiyapur Road. Preview our wave pool, water slides, and family attractions.",
+            "telephone": "+91 97201 51220",
+            "email": "souldivewaterpark@gmail.com",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Biriya, Dibiyapur Road",
+              "addressLocality": "Auraiya",
+              "addressRegion": "Uttar Pradesh",
+              "postalCode": "206122",
+              "addressCountry": "IN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 26.498,
+              "longitude": 79.525
+            },
+            "hasMap": "https://souldive.in/location",
+            "sameAs": [
+              "https://instagram.com/souldivewaterpark",
+              "https://facebook.com/souldivewaterpark",
+              "https://youtube.com/@souldivewaterpark"
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": "https://souldive.in/#website",
+            "url": "https://souldive.in",
+            "name": "Soul Dive Water Park",
+            "description": "Soul Dive Water Park Auraiya is an upcoming aquatic leisure resort at Biriya, Dibiyapur Road. Preview our wave pool, water slides, and family attractions.",
+            "publisher": {
+              "@id": "https://souldive.in/#waterpark"
+            },
+            "inLanguage": [
+              "en-IN",
+              "hi-IN"
+            ]
+          }
+        ]
+      },
+      "findings": [
+        {
+          "id": "heading-level-skip",
+          "severity": "Low",
+          "message": "Heading level skipped from H2 to H4 ('Quick Links')."
+        },
+        {
+          "id": "images-missing-dimensions",
+          "severity": "Low",
+          "message": "2 images lack explicit width/height attributes (risk of CLS).",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "url_path": "/contact",
+      "facts": {
+        "url": "https://souldive.in/contact",
+        "title": "Contact & Inquiries | Soul Dive Water Park Auraiya",
+        "title_length": 50,
+        "meta_description": "Contact Soul Dive Water Park Auraiya at Biriya, Dibiyapur Road. Inquire via WhatsApp, phone, or online message for project updates and launch details.",
+        "meta_description_length": 150,
+        "canonical": "https://souldive.in/contact",
+        "h1_count": 1,
+        "h2_count": 2,
+        "h3_count": 0,
+        "word_count": 291,
+        "image_count": 2,
+        "link_count": 26,
+        "jsonld_count": 2,
+        "html_bytes": 61683,
+        "dom_max_depth": 14,
+        "open_graph_tags": 10,
+        "twitter_tags": 4,
+        "parsed_jsonld": [
+          {
+            "@context": "https://schema.org",
+            "@type": [
+              "AmusementPark",
+              "LocalBusiness"
+            ],
+            "@id": "https://souldive.in/#waterpark",
+            "name": "Soul Dive Water Park",
+            "legalName": "Soul Dive Water Park",
+            "url": "https://souldive.in",
+            "logo": "https://souldive.in/images/Soul Dive Water Park Logo-1.png",
+            "image": "https://souldive.in/images/soul-dive-hero-cinematic.jpg",
+            "description": "Soul Dive Water Park Auraiya is an upcoming aquatic leisure resort at Biriya, Dibiyapur Road. Preview our wave pool, water slides, and family attractions.",
+            "telephone": "+91 97201 51220",
+            "email": "souldivewaterpark@gmail.com",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Biriya, Dibiyapur Road",
+              "addressLocality": "Auraiya",
+              "addressRegion": "Uttar Pradesh",
+              "postalCode": "206122",
+              "addressCountry": "IN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 26.498,
+              "longitude": 79.525
+            },
+            "hasMap": "https://souldive.in/location",
+            "sameAs": [
+              "https://instagram.com/souldivewaterpark",
+              "https://facebook.com/souldivewaterpark",
+              "https://youtube.com/@souldivewaterpark"
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": "https://souldive.in/#website",
+            "url": "https://souldive.in",
+            "name": "Soul Dive Water Park",
+            "description": "Soul Dive Water Park Auraiya is an upcoming aquatic leisure resort at Biriya, Dibiyapur Road. Preview our wave pool, water slides, and family attractions.",
+            "publisher": {
+              "@id": "https://souldive.in/#waterpark"
+            },
+            "inLanguage": [
+              "en-IN",
+              "hi-IN"
+            ]
+          }
+        ]
+      },
+      "findings": [
+        {
+          "id": "heading-level-skip",
+          "severity": "Low",
+          "message": "Heading level skipped from H2 to H4 ('Quick Links')."
+        },
+        {
+          "id": "images-missing-dimensions",
+          "severity": "Low",
+          "message": "2 images lack explicit width/height attributes (risk of CLS).",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "url_path": "/privacy-policy",
+      "facts": {
+        "url": "https://souldive.in/privacy-policy",
+        "title": "Privacy Policy | Soul Dive Water Park Auraiya",
+        "title_length": 45,
+        "meta_description": "Privacy Policy for Soul Dive Water Park Auraiya. Learn how we handle visitor inquiries and pre-launch opening registration data.",
+        "meta_description_length": 128,
+        "canonical": "https://souldive.in/privacy-policy",
+        "h1_count": 1,
+        "h2_count": 5,
+        "h3_count": 0,
+        "word_count": 295,
+        "image_count": 2,
+        "link_count": 23,
+        "jsonld_count": 2,
+        "html_bytes": 47562,
+        "dom_max_depth": 11,
+        "open_graph_tags": 10,
+        "twitter_tags": 4,
+        "parsed_jsonld": [
+          {
+            "@context": "https://schema.org",
+            "@type": [
+              "AmusementPark",
+              "LocalBusiness"
+            ],
+            "@id": "https://souldive.in/#waterpark",
+            "name": "Soul Dive Water Park",
+            "legalName": "Soul Dive Water Park",
+            "url": "https://souldive.in",
+            "logo": "https://souldive.in/images/Soul Dive Water Park Logo-1.png",
+            "image": "https://souldive.in/images/soul-dive-hero-cinematic.jpg",
+            "description": "Soul Dive Water Park Auraiya is an upcoming aquatic leisure resort at Biriya, Dibiyapur Road. Preview our wave pool, water slides, and family attractions.",
+            "telephone": "+91 97201 51220",
+            "email": "souldivewaterpark@gmail.com",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Biriya, Dibiyapur Road",
+              "addressLocality": "Auraiya",
+              "addressRegion": "Uttar Pradesh",
+              "postalCode": "206122",
+              "addressCountry": "IN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 26.498,
+              "longitude": 79.525
+            },
+            "hasMap": "https://souldive.in/location",
+            "sameAs": [
+              "https://instagram.com/souldivewaterpark",
+              "https://facebook.com/souldivewaterpark",
+              "https://youtube.com/@souldivewaterpark"
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": "https://souldive.in/#website",
+            "url": "https://souldive.in",
+            "name": "Soul Dive Water Park",
+            "description": "Soul Dive Water Park Auraiya is an upcoming aquatic leisure resort at Biriya, Dibiyapur Road. Preview our wave pool, water slides, and family attractions.",
+            "publisher": {
+              "@id": "https://souldive.in/#waterpark"
+            },
+            "inLanguage": [
+              "en-IN",
+              "hi-IN"
+            ]
+          }
+        ]
+      },
+      "findings": [
+        {
+          "id": "heading-level-skip",
+          "severity": "Low",
+          "message": "Heading level skipped from H2 to H4 ('Quick Links')."
+        },
+        {
+          "id": "images-missing-dimensions",
+          "severity": "Low",
+          "message": "2 images lack explicit width/height attributes (risk of CLS).",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "url_path": "/terms",
+      "facts": {
+        "url": "https://souldive.in/terms",
+        "title": "Terms of Use & Disclaimers | Soul Dive Water Park Auraiya",
+        "title_length": 57,
+        "meta_description": "Terms of Use, visitor guidelines, and conceptual rendering disclaimers for the official Soul Dive Water Park Auraiya website.",
+        "meta_description_length": 125,
+        "canonical": "https://souldive.in/terms",
+        "h1_count": 1,
+        "h2_count": 4,
+        "h3_count": 0,
+        "word_count": 305,
+        "image_count": 2,
+        "link_count": 22,
+        "jsonld_count": 2,
+        "html_bytes": 47037,
+        "dom_max_depth": 11,
+        "open_graph_tags": 10,
+        "twitter_tags": 4,
+        "parsed_jsonld": [
+          {
+            "@context": "https://schema.org",
+            "@type": [
+              "AmusementPark",
+              "LocalBusiness"
+            ],
+            "@id": "https://souldive.in/#waterpark",
+            "name": "Soul Dive Water Park",
+            "legalName": "Soul Dive Water Park",
+            "url": "https://souldive.in",
+            "logo": "https://souldive.in/images/Soul Dive Water Park Logo-1.png",
+            "image": "https://souldive.in/images/soul-dive-hero-cinematic.jpg",
+            "description": "Soul Dive Water Park Auraiya is an upcoming aquatic leisure resort at Biriya, Dibiyapur Road. Preview our wave pool, water slides, and family attractions.",
+            "telephone": "+91 97201 51220",
+            "email": "souldivewaterpark@gmail.com",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Biriya, Dibiyapur Road",
+              "addressLocality": "Auraiya",
+              "addressRegion": "Uttar Pradesh",
+              "postalCode": "206122",
+              "addressCountry": "IN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 26.498,
+              "longitude": 79.525
+            },
+            "hasMap": "https://souldive.in/location",
+            "sameAs": [
+              "https://instagram.com/souldivewaterpark",
+              "https://facebook.com/souldivewaterpark",
+              "https://youtube.com/@souldivewaterpark"
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": "https://souldive.in/#website",
+            "url": "https://souldive.in",
+            "name": "Soul Dive Water Park",
+            "description": "Soul Dive Water Park Auraiya is an upcoming aquatic leisure resort at Biriya, Dibiyapur Road. Preview our wave pool, water slides, and family attractions.",
+            "publisher": {
+              "@id": "https://souldive.in/#waterpark"
+            },
+            "inLanguage": [
+              "en-IN",
+              "hi-IN"
+            ]
+          }
+        ]
+      },
+      "findings": [
+        {
+          "id": "heading-level-skip",
+          "severity": "Low",
+          "message": "Heading level skipped from H2 to H4 ('Quick Links')."
+        },
+        {
+          "id": "images-missing-dimensions",
+          "severity": "Low",
+          "message": "2 images lack explicit width/height attributes (risk of CLS).",
+          "count": 2
+        }
+      ]
+    }
+  ],
+  "robots_analysis": {
+    "facts": {
+      "content": "User-Agent: *\nAllow: /\nDisallow: /api/\n\nUser-Agent: OAI-SearchBot\nUser-Agent: Claude-SearchBot\nUser-Agent: PerplexityBot\nUser-Agent: Google-Extended\nUser-Agent: Applebot-Extended\nUser-Agent: GPTBot\nAllow: /\n\nHost: https://souldive.in\nSitemap: https://souldive.in/sitemap.xml\n",
+      "ai_crawlers_defined": 3
+    },
+    "findings": []
+  },
+  "sitemap_analysis": {
+    "facts": {
+      "total_urls": 9,
+      "urls": [
+        "https://souldive.in",
+        "https://souldive.in/attractions",
+        "https://souldive.in/location",
+        "https://souldive.in/about",
+        "https://souldive.in/faqs",
+        "https://souldive.in/opening-updates",
+        "https://souldive.in/contact",
+        "https://souldive.in/privacy-policy",
+        "https://souldive.in/terms"
+      ]
+    },
+    "findings": [
+      {
+        "id": "sitemap-missing-pages",
+        "severity": "Medium",
+        "message": "Sitemap is missing 2 valid pages.",
+        "evidence": "https://souldive.in/, https://souldive.in/master-plan"
+      }
+    ]
+  }
+}

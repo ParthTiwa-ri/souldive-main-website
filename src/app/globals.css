@@ -39,6 +39,25 @@
     font-weight: 700;
     letter-spacing: -0.02em;
   }
+
+  /* Compact mobile heading line-height so headings never feel overly stretched on phones */
+  @media (max-width: 640px) {
+    h1 {
+      line-height: 1.15;
+    }
+    h2 {
+      line-height: 1.2;
+    }
+  }
+
+  /* Nav focus management: suppress outline/ring on mouse clicks, retain on keyboard navigation */
+  header a:focus:not(:focus-visible),
+  header button:focus:not(:focus-visible),
+  nav a:focus:not(:focus-visible),
+  nav button:focus:not(:focus-visible) {
+    outline: none !important;
+    box-shadow: none !important;
+  }
 }
 
 @layer utilities {
@@ -54,7 +73,8 @@
     -webkit-text-fill-color: transparent;
   }
 
-  .bg-gradient-waterpark {
+  .bg-gradient-waterpark,
+  .bg-gradient-water-park {
     background: linear-gradient(180deg, #E0F7FA 0%, #F0FBFD 50%, #FFFFFF 100%);
   }
 
@@ -191,6 +211,17 @@
   will-change: transform;
 }
 
+/* PageHeader Wave Animations: Exactly 2 stacked seamless SVG layers at 200% width, translateX(0) to translateX(-50%), 24-32s linear infinite, transform only */
+.animate-header-wave-back {
+  animation: waveLayerForward 32s linear infinite;
+  will-change: transform;
+}
+
+.animate-header-wave-front {
+  animation: waveLayerForward 24s linear infinite;
+  will-change: transform;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-ken-burns,
   .animate-hero-fade-1,
@@ -202,7 +233,10 @@
   .animate-wave-back,
   .animate-wave-mid,
   .animate-wave-front,
-  .animate-wave-footer {
+  .animate-wave-footer,
+  .animate-header-wave-back,
+  .animate-header-wave-mid,
+  .animate-header-wave-front {
     animation: none !important;
     transform: none !important;
     opacity: 1 !important;
